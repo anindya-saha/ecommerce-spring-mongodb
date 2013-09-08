@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="commonpage" template="/WEB-INF/view/layouts/common.jsp">
+  	<put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/cssPaths.jsp"/>
+	<put-attribute name="metas" value="/WEB-INF/view/tiles/common/metas.jsp"/>
+	<put-attribute name="header" value="/WEB-INF/view/tiles/common/header.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/view/tiles/common/footer.jsp"/>
+	<put-attribute name="container-row1" value=""/>
+	<put-attribute name="container-row2" value=""/>
+	<put-attribute name="container-row3" value=""/>
+	<put-attribute name="container-row4" value=""/>
+	<put-attribute name="scripts" value="/WEB-INF/view/tiles/common/scripts.jsp"/>
+  </definition>
+  
+  <definition name="homepage" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/homepage.jsp"/>
+  </definition>
+  
+  <definition name="productDetails" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/urun/product_details.jsp"/>
+  </definition>
+  
+  <definition name="register" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/register.jsp"/>
+  </definition>
+  
+  <definition name="login" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login.jsp"/>
+  </definition>
+  
+  <definition name="login-success" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login-success.jsp"/>
+  </definition>
+  
+  <definition name="login-error" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login-error.jsp"/>
+  </definition>
+  
+  <definition name="admin" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/admin/admin.jsp"/>
+  </definition>
+  
+  <definition name="admin-product-update" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/admin/admin_product_update.jsp"/>
+  </definition>
+  
+</tiles-definitions>
