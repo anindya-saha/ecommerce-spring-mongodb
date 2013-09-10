@@ -154,13 +154,13 @@ public class AdminController {
 	// Add new Category
 	@RequestMapping(value = "/addcategory", method = RequestMethod.POST)
 	public String addNewCategory(
-			@RequestParam(value="id", required = false) String id,
+			@RequestParam(value="name", required = false) String name,
 			@RequestParam(value="ancestors", required = false) String[] ancestors,
 			@RequestParam(value="parent", required = false) String parent){
 		
 		Category newCategory = new Category();
 		
-		newCategory.setId(id);
+		newCategory.setName(name);
 		newCategory.setAncestors(ancestors);
 		newCategory.setParent(parent);
 		
