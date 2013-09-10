@@ -6,7 +6,6 @@ import org.springframework.data.annotation.Id;
 
 public class Product {
 
-	@Id
 	private String id;
 
 	private String name;
@@ -16,7 +15,9 @@ public class Product {
 	private double invalidPrice;
 
 	private Category category;
-
+	
+	private Brand brand;
+	
 	private int shipmentType;
 
 	private int stock;
@@ -26,8 +27,12 @@ public class Product {
 	private Date addedDate;
 
 	private String description;
+	
+	private ProductSpecification specification;
 
 	private ProductComment comment;
+	
+	private int orderCount;
 
 	public String getId() {
 		return this.id;
@@ -68,6 +73,13 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	
+	public Brand getBrand(){
+		return this.brand;
+	}
+	public void setBrand(Brand brand){
+		this.brand = brand;
+	}
 
 	public int getShipmentType() {
 		return this.shipmentType;
@@ -104,9 +116,15 @@ public class Product {
 	public String getDescription() {
 		return this.description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public ProductSpecification getSpecification(){
+		return this.specification;
+	}
+	public void setSpecification(ProductSpecification specification){
+		this.specification = specification;
 	}
 
 	public ProductComment getComment() {
@@ -115,6 +133,13 @@ public class Product {
 
 	public void setComment(ProductComment comment) {
 		this.comment = comment;
+	}
+	
+	public int getOrderCount(){
+		return this.orderCount;
+	}
+	public void setOrderCount(int orderCount){
+		this.orderCount = orderCount;
 	}
 
 }
