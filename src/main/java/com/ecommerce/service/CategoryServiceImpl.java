@@ -1,5 +1,6 @@
 package com.ecommerce.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,16 +19,40 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	protected static Logger logger = Logger.getLogger("service");
 
+	//Get all categories
 	@Override
 	public List<Category> getCategories() {
 		return categoryDao.getAllCategory();
 	}
 	
+	//Get single category with its id
 	@Override
 	public Category getCategory(String id) {
 		return categoryDao.getSingleCategory(id);
 	}
+	
+	//Get single category by name
+	@Override
+	public Category getCategoryByName(String name){
+		return categoryDao.getSingleCategoryByName(name);
+	}
+	
+	@Override
+	public HashMap<String,String> getCategoryTree(String name){
+		HashMap<String,String> map = new HashMap<>();
+		Category cat = categoryDao.getSingleCategoryByName(name);
+		
+		map.put(cat.getId(), name);
+		for(String anc : cat.getAncestors()){
+			Category catParent = categoryDao.getSingleCategoryByName(anc);
+			map.put(catParent.getId(), catParent.getName());
+		}
+		
+		
+		return map;
+	}
 
+	//Save category
 	@Override
 	public void saveNewCategory(Category category) {
 		
