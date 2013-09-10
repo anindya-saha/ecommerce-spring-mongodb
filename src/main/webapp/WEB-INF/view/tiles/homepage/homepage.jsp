@@ -118,10 +118,10 @@
 		<div id="featuredItems">
 
 			<div class="titleHeader clearfix">
-				<h3>Yeni Eklenenler</h3>
+				<h3>JUST NEW ADDED ITEMS</h3>
 				<div class="pagers">
 					<div class="btn-toolbar">
-						<button class="btn btn-mini">Hepsini Gör</button>
+						<button class="btn btn-mini">View All</button>
 					</div>
 				</div>
 			</div>
@@ -179,7 +179,7 @@
 		<div id="featuredItems">
 
 			<div class="titleHeader clearfix">
-				<h3>Featured Items</h3>
+				<h3>MOST ORDERED ITEMS</h3>
 				<div class="pagers">
 					<div class="btn-toolbar">
 						<button class="btn btn-mini">View All</button>

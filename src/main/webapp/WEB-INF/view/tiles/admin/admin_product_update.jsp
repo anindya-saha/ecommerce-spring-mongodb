@@ -19,7 +19,7 @@
 			
 			<label for="name">Product productCategory</label>
 			<c:forEach var="category" items="${categoryList}" varStatus="count">
-				<input type="checkbox" name="productCategory" value="${category.id}"/>${category.id}
+				<input type="checkbox" name="productCategory" value="${category.id}"/>${category.name}
 				<c:if test="${not empty category.ancestors}">
 					<c:forEach var="ancestors" items="${category.ancestors}"> 
 						-->${ancestors}

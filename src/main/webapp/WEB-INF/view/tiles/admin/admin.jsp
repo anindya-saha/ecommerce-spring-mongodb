@@ -57,7 +57,7 @@
 				<td>${product.name}</td>
 				<td>${product.price}</td>
 				<td>${product.invalidPrice}</td>
-				<td>${product.category.parent}/${product.category.id}</td>
+				<td>${product.category.parent}/${product.category.name}</td>
 				<td>${product.stock}</td>
 				<td>${product.rating}</td>
 				<td>${product.addedDate}</td>
@@ -106,12 +106,12 @@
 
 		<form action="admin/addcategory" method="post">
 						
-			<label>Category Name (id)</label>
-			<input type="text" id="id" name="id"/><br></br>
+			<label>Category Name</label>
+			<input type="text" id="name" name="name"/><br></br>
 			
 			<label for="name">Category Ancestor(s)</label>
 			<c:forEach var="category" items="${categoryList}" varStatus="count">
-				<input type="checkbox" name="ancestors" value="${category.id}"/>${category.id}
+				<input type="checkbox" name="ancestors" value="${category.name}"/>${category.name}
 				<c:if test="${not empty category.ancestors}">
 					<c:forEach var="ancestors" items="${category.ancestors}"> 
 						-->${ancestors}
@@ -121,7 +121,7 @@
 			
 			<label for="name">Select Parent Category</label>
 			<c:forEach var="category" items="${categoryList}">
-				<input type="checkbox" name="parent" value="${category.id}"/>${category.id}
+				<input type="checkbox" name="parent" value="${category.name}"/>${category.name}
 				<c:if test="${not empty category.parent}">-->${category.parent}</c:if><br>
 			</c:forEach><br>
 			

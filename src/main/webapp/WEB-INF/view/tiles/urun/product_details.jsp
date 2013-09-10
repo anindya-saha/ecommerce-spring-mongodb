@@ -2,12 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%-- <c:forEach var="singleProduct" items="${singleProduct}"> --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="row">
 	<ul class="breadcrumb">
-	  <li><a href="#">Home</a> <span class="divider">/</span></li>
-	  <li><a href="#">Library</a> <span class="divider">/</span></li>
-	  <li class="active">${product.category}</li>
+		<li><a href="/homepage">Home</a> <span class="divider">/</span></li>
+		<c:forEach var="category" items="${categoryList}" varStatus="count">
+			<li><a href="${category.key}">${category.value}</a> <span class="divider">/</span></li>
+		</c:forEach>
+		<li class="active">${prodCategory}</li>
 	</ul>
 </div>
 <div class="row">
@@ -15,7 +17,7 @@
 	<div class="aside-inner">
 		<div class="special">
 			<div class="titleHeader clearfix">
-				<h3>Special</h3>
+				<h3>SAME BRAND</h3>
 			</div><!--end titleHeader-->
 
 			<ul class="vProductItemsTiny">
@@ -107,7 +109,7 @@
 
 		<div class="special">
 			<div class="titleHeader clearfix">
-				<h3>Featured</h3>
+				<h3>WHO BOUGHT THIS AND THESE</h3>
 			</div><!--end titleHeader-->
 
 			<ul class="vProductItemsTiny">
