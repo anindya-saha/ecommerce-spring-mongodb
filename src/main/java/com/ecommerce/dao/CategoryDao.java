@@ -10,6 +10,8 @@ public abstract interface CategoryDao {
 	
 	public abstract Category getSingleCategory(String id);
 	
+	public abstract Category getSingleCategoryByName(String name);
+	
 	public abstract void saveCategory(Category category);
 
 }
