@@ -1,8 +1,10 @@
 package com.ecommerce.model;
 
 public class Category {
-
+	
 	private String id;
+
+	private String name;
 
 	private String[] ancestors;
 
@@ -14,6 +16,13 @@ public class Category {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	public void setName(String name){
+		this.name = name;
 	}
 	
 	public String[] getAncestors(){
