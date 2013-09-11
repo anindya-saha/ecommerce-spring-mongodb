@@ -1,5 +1,7 @@
 package com.ecommerce.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -109,11 +111,24 @@ public class AdminController {
 		ProductComment newProductComment = new ProductComment();
 		newProductComment.setUserId(userId);
 		newProductComment.setComment(comment);
-		newProductComment.setCommentUsername(userName);
-		newProductComment.setCommentRating(commentRating);
-		newProductComment.setCommentStatus(commentStatus);
+		newProductComment.setUserName(userName);
+		newProductComment.setRating(commentRating);
+		newProductComment.setStatus(commentStatus);
+		
+		Date now = new Date();
+		newProductComment.setDate(now);
+		
+		List<ProductComment> prodComment = new ArrayList<ProductComment>();
+		if(productService.singleProduct(productId).getComment() == null){
+			prodComment.add(newProductComment);
+		}else{
+			prodComment.addAll(productService.singleProduct(productId).getComment());
+			prodComment.add(newProductComment);
+		}
+		
+		
 
-		productService.addProductComment(existingProduct, newProductComment);
+		productService.addProductComment(existingProduct, prodComment);
 
 		return mav;
 	}
