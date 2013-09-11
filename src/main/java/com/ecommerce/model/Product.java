@@ -1,6 +1,7 @@
 package com.ecommerce.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
@@ -30,7 +31,7 @@ public class Product {
 	
 	private ProductSpecification specification;
 
-	private ProductComment comment;
+	private List<ProductComment> comment;
 	
 	private int orderCount;
 
@@ -127,11 +128,11 @@ public class Product {
 		this.specification = specification;
 	}
 
-	public ProductComment getComment() {
+	public List<ProductComment> getComment() {
 		return this.comment;
 	}
 
-	public void setComment(ProductComment comment) {
+	public void setComment(List<ProductComment> comment) {
 		this.comment = comment;
 	}
 	
