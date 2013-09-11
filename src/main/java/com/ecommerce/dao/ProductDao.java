@@ -19,6 +19,6 @@ public abstract interface ProductDao{
   
   public abstract void deleteExistingProduct(Product product);
   
-  public abstract void saveProductComment(Product product,ProductComment comment);
+  public abstract void saveProductComment(Product product,List<ProductComment> comment);
   
 }
