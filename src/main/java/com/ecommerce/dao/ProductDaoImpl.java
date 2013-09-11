@@ -59,10 +59,9 @@ public class ProductDaoImpl implements ProductDao {
 		mongoTemplate.remove(product, COLLECTION_NAME);
 	}
 	
-	public void saveProductComment(Product product,ProductComment comment){
-		Date now = new Date();
-		comment.setCommentDate(now);
-		product.setComment(comment);
+	public void saveProductComment(Product product,List<ProductComment> commentList){
+
+		product.setComment(commentList);
 		
 		mongoTemplate.save(product, COLLECTION_NAME);
 	}
