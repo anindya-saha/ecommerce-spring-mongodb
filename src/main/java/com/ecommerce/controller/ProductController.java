@@ -1,6 +1,8 @@
 package com.ecommerce.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,8 +42,6 @@ public class ProductController {
 		logger.debug("Product Controller logger");
 		
 		Product singleProduct = productService.singleProduct(productId);
-		
-		Category category = categoryService.getCategoryByName(singleProduct.getCategory().getParent());
 		
 		HashMap<String,String> catMap = categoryService.getCategoryTree(singleProduct.getCategory().getParent());
 
