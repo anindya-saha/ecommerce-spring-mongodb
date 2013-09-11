@@ -2,9 +2,18 @@ package com.ecommerce.model;
 
 public class ProductSpecification {
 	
+	private String id;
+	
 	private String specificationTitle;
 	
 	private String specificationDetail;
+	
+	public String getId(){
+		return this.id;
+	}
+	public void setId(String id){
+		this.id = id;
+	}
 	
 	public String getSpecificationTitle(){
 		return this.specificationTitle;
