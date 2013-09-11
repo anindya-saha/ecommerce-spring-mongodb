@@ -62,7 +62,11 @@
 				<td>${product.rating}</td>
 				<td>${product.addedDate}</td>
 				<td>${product.description}</td>
-				<td>${product.comment.comment}<br>${product.comment.commentStatus}</td>
+				<td>
+				<c:forEach var="comment" items="${product.comment}">
+					${comment.comment}
+				</c:forEach>
+				</td>
 				<td><input type="button" value="delete" onclick="window.location='admin/productremove?productId=${product.id}'"/></td>
 				<td><input type="button" value="update" onclick="window.location='admin/productupdate?productId=${product.id}'"/></td>
 			</tr>
