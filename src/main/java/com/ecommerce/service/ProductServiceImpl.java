@@ -73,7 +73,7 @@ public class ProductServiceImpl implements ProductService {
 		productDao.updateExistingProduct(product);
 	}
 
-	public void addProductComment(Product product,ProductComment comment) {
+	public void addProductComment(Product product,List<ProductComment> comment) {
 		logger.debug("Adding comment to existing product");
 		try {
 			productDao.saveProductComment(product,comment);
