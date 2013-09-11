@@ -2,9 +2,7 @@ package com.ecommerce.model;
 
 import java.util.Date;
 
-public class ProductComment {
-
-	private String id;
+public class ProductComment{
 
 	private String userId;
 
@@ -12,18 +10,11 @@ public class ProductComment {
 
 	private String comment;
 
-	private int commentRating;
+	private int rating;
 
-	private Date commentDate;
+	private Date date;
 
-	private int commentStatus;
-	
-	public String getCommentId(){
-		return this.id;
-	}
-	public void setCommentId(String id){
-		this.id = id;
-	}
+	private int status;
 
 	public String getUserId() {
 		return this.userId;
@@ -33,11 +24,11 @@ public class ProductComment {
 		this.userId = userId;
 	}
 
-	public String getCommentUsername() {
+	public String getUserName() {
 		return this.userName;
 	}
 
-	public void setCommentUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -50,26 +41,26 @@ public class ProductComment {
 	}
 
 	public int getProductCommentRating() {
-		return this.commentRating;
+		return this.rating;
 	}
 
-	public void setCommentRating(int commentRating) {
-		this.commentRating = commentRating;
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
-	public Date getCommentDate() {
-		return this.commentDate;
+	public Date getDate() {
+		return this.date;
 	}
 
-	public void setCommentDate(Date commentDate) {
-		this.commentDate = commentDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public int getCommentStatus() {
-		return this.commentStatus;
+	public int getStatus() {
+		return this.status;
 	}
 
-	public void setCommentStatus(int commentStatus) {
-		this.commentStatus = commentStatus;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 }
