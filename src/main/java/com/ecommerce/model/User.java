@@ -11,6 +11,8 @@ public class User {
 	private String email;
 
 	private String role;
+	
+	private UserAddress address;
 
 	public int getId() {
 		return this.id;
@@ -50,5 +52,12 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public UserAddress address(){
+		return this.address;
+	}
+	public void setAddress(UserAddress address){
+		this.address = address;
 	}
 }
