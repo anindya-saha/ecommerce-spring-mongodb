@@ -1,13 +1,13 @@
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/bootstrap.min.css" media="screen">
 <!-- jquery ui css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/jquery-ui-1.10.1.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/customize.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/font-awesome.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/jquery-ui-1.10.1.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/customize.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/font-awesome.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/style.css">
 <!-- flexslider css-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendors/flexslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/vendor/flexslider.css">
 <!-- fancybox -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/js/fancybox/jquery.fancybox.css">
 <!--[if lt IE 9]>
