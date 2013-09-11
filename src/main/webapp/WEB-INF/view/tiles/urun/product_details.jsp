@@ -354,25 +354,31 @@
 				</div>
 
 				<div class="tab-pane" id="read-review">
-<%-- 				<c:forEach var="comments" items="${comments}"> --%>
-<!-- 					<div class="single-review clearfix"> -->
-<!-- 						<div class="review-header"> -->
-<!-- 							<ul class="rating"> -->
-<!-- 								<li><i class="star-on"></i></li> -->
-<!-- 								<li><i class="star-on"></i></li> -->
-<!-- 								<li><i class="star-off"></i></li> -->
-<!-- 								<li><i class="star-off"></i></li> -->
-<!-- 								<li><i class="star-off"></i></li> -->
-<!-- 							</ul> -->
-<%-- 							<h4>${comments.getProductCommentUsername()}</h4> --%>
-<%-- 							<small><fmt:formatDate value="${comments.getProductCommentDate()}" pattern="dd/MM/yyyy"/></small> --%>
-<!-- 						</div>end review-header -->
+				<c:forEach var="comment" items="${product.comment}">
+					<div class="single-review clearfix">
+						<div class="review-header">
+							<ul class="rating">
+								<li><i class="star-on"></i></li>
+								<li><i class="star-on"></i></li>
+								<li><i class="star-off"></i></li>
+								<li><i class="star-off"></i></li>
+								<li><i class="star-off"></i></li>
+							</ul>
+							<h4>${comment.userName}</h4>
+							<small>
+<%-- 							<fmt:formatDate value="${comments.getProductCommentDate()}" pattern="dd/MM/yyyy"/> --%>
+								${comment.date}
+							</small>
+						</div>
+						<!-- end review-header -->
 
-<!-- 						<div class="review-body"> -->
-<%-- 							<p>${comments.getProductComment()}</p> --%>
-<!-- 						</div>end review-body -->
-<!-- 					</div>end single-review -->
-<%-- 				</c:forEach> --%>
+						<div class="review-body">
+							<p>${comment.comment}</p>
+						</div>
+						<!-- end review-body -->
+					</div>
+				</c:forEach>
+				<!-- end single-review -->
 				</div>
 
 				<div class="tab-pane" id="make-review">
