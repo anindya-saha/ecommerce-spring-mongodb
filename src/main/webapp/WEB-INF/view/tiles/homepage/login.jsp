@@ -15,15 +15,14 @@
 
 					<td width="50%">
 						<h3>Returning Customer</h3>
-						<form method="post" action="<c:url value='j_spring_security_check'/>" class="">
+						<form method="post" action="login/login-process">
 							<div class="controls">
-								<label>Your E-Mail: <span class="text-error">*</span></label> <input
-									name="j_username" id="j_username" type="text" name="" value="" placeholder="example@example.com">
+								<label>Your Username: <span class="text-error">*</span></label> <input
+									name="name" type="text" placeholder="example@example.com">
 							</div>
 							<div class="controls">
 								<label>Your Password: <span class="text-error">*</span></label>
-								<input type="password" name="" value=""
-									name="j_password" id="j_password" placeholder="**************">
+								<input type="password" name="password" placeholder="**************">
 							</div>
 							<div class="controls">
 								<label class="checkbox"> <input type="checkbox">

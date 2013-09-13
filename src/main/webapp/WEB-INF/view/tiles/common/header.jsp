@@ -15,7 +15,14 @@
 						<li><a class="invarseColor" href="#">Checkout</a></li>
 					</ul>
 					<p>
-					Welcome to ShopFine, <a href="${pageContext.request.contextPath}/login">Login</a> or <a href="${pageContext.request.contextPath}/register">Create new account</a>
+					<c:choose>
+						<c:when test="${not empty user}">
+							Welcome ${user.name} - Your mail address: ${user.email}
+						</c:when>
+						<c:otherwise>
+							Welcome to ShopFine, <a href="${pageContext.request.contextPath}/login">Login</a> or <a href="${pageContext.request.contextPath}/register">Create new account</a>
+						</c:otherwise>
+					</c:choose>
 					</p>
 				</div><!--end container-->
 			</div><!--end upperHeader-->

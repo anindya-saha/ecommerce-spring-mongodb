@@ -134,7 +134,7 @@
 			<input type="submit" id="addCategory" value="Submit"/>
 		</form>
 		
-	<h2>Add Brand</h2>
+		<h2>Add Brand</h2>
 
 		<form action="admin/addbrand" method="post">
 						
@@ -144,5 +144,30 @@
 			
 			<input type="submit" id="addBrand" value="Submit"/>
 		</form>
+		
+		
+		<h2>Add User</h2>
+
+		<form action="admin/adduser" method="post">
+						
+			<label>User Name</label>
+			<input type="text" id="name" name="name"/><br></br>
+			
+			<label>Password</label>
+			<input type="text" id="password" name="password"/><br></br>
+			
+			<label>E-mail</label>
+			<input type="text" id="email" name="email"/><br></br>
+			
+			
+			<input type="submit" id="addBrand" value="Submit"/>
+		</form>
+		
+		<ul>
+			<li><strong>User Name - Password - Email</strong></li>
+			<c:forEach var="user" items="${userList}">
+				<li>${user.name} - ${user.password} - ${user.email}</li>
+			</c:forEach>
+		</ul>
 </body>
 </html>
