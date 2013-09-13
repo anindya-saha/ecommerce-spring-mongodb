@@ -18,9 +18,11 @@ import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
+import com.ecommerce.service.UserService;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -37,15 +39,21 @@ public class AdminController {
 	@Autowired
 	private BrandService brandService;
 	
-	//List all products
+	@Autowired
+	private UserService userService;
+	
+	//List all items
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getProducts() {
+	public ModelAndView getItems(){
 
 		ModelAndView mav = new ModelAndView();
 		List<Product> product = productService.listProducts();
 		List<Category> category = categoryService.getCategories();
+		List<User> user = userService.listUsers();
+		
 		mav.addObject("categoryList",category);
 		mav.addObject("productList", product);
+		mav.addObject("userList", user);
 		
 		mav.setViewName("admin");
 		return mav;
@@ -207,4 +215,22 @@ public class AdminController {
 		
 		return "redirect:/admin";
 	}
+	
+	// Add new user
+	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
+	public String addNewUser(
+			@RequestParam(value="name",required = false) String name,
+			@RequestParam(value="password",required = false) String password,
+			@RequestParam(value="email",required = false) String email){
+		User newUser = new User();
+		
+		newUser.setName(name);
+		newUser.setPassword(password);
+		newUser.setEmail(email);
+		
+		userService.saveNewUser(newUser);
+		
+		return "redirect:/admin";
+	}
+	
 }
