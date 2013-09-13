@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 
@@ -31,6 +33,9 @@ public class AdminController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private BrandService brandService;
 	
 	//List all products
 	@RequestMapping(method = RequestMethod.GET)
@@ -58,7 +63,8 @@ public class AdminController {
 			@RequestParam(value = "productStock", required = false) int productStock,
 			@RequestParam(value = "productRating", required = false) int productRating,
 			@RequestParam(value = "productDescription", required = false) String productDescription,
-			@RequestParam(value = "productUpdate", required = false) boolean productUpdate) {
+			@RequestParam(value = "productUpdate", required = false) boolean productUpdate,
+			@RequestParam(value = "brand", required = false) String brand) {
 
 		Product newProduct = new Product();
 
@@ -79,6 +85,7 @@ public class AdminController {
 			if(!id.isEmpty() && id != null){
 				Product existingProduct = productService.singleProduct(id);
 				Category existingCategory = categoryService.getCategory(productCategory);
+				Brand existingBrand = brandService.getBrand(brand);
 				
 				existingProduct.setName(productName);
 				existingProduct.setPrice(productPrice);
@@ -88,6 +95,7 @@ public class AdminController {
 				existingProduct.setStock(productStock);
 				existingProduct.setRating(productRating);
 				existingProduct.setDescription(productDescription);
+				existingProduct.setBrand(existingBrand);
 				
 				productService.updateProduct(existingProduct);
 			}
@@ -160,6 +168,9 @@ public class AdminController {
 		List<Category> category = categoryService.getCategories();
 		mav.addObject("categoryList",category);
 		
+		List<Brand> brands = brandService.getBrands();
+		mav.addObject("brandList",brands);
+		
 		model.addAttribute("product", singleProduct);
 		
 		mav.setViewName("admin-product-update");
@@ -180,6 +191,19 @@ public class AdminController {
 		newCategory.setParent(parent);
 		
 		categoryService.saveNewCategory(newCategory);
+		
+		return "redirect:/admin";
+	}
+	
+	// Add new brand
+	@RequestMapping(value = "/addbrand", method = RequestMethod.POST)
+	public String addNewBrand(
+			@RequestParam(value="name",required = false) String name){
+		Brand newBrand = new Brand();
+		
+		newBrand.setBrand(name);
+		
+		brandService.saveNewBrand(newBrand);
 		
 		return "redirect:/admin";
 	}
