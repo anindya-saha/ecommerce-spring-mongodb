@@ -2,9 +2,9 @@ package com.ecommerce.model;
 
 public class User {
 
-	private int id;
+	private String id;
 
-	private String userName;
+	private String name;
 
 	private String password;
 
@@ -14,20 +14,20 @@ public class User {
 	
 	private UserAddress address;
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return this.userName;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
