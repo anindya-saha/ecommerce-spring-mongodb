@@ -19,12 +19,17 @@
 			
 			<label for="name">Product productCategory</label>
 			<c:forEach var="category" items="${categoryList}" varStatus="count">
-				<input type="checkbox" name="productCategory" value="${category.id}"/>${category.name}
+				<input type="checkbox" name="productCategory" <c:if test="${product.category.id eq category.id}">checked="true"</c:if> value="${category.id}"/>${category.name}
 				<c:if test="${not empty category.ancestors}">
 					<c:forEach var="ancestors" items="${category.ancestors}"> 
 						-->${ancestors}
 					</c:forEach>
 				</c:if><br>
+			</c:forEach>
+			
+			<label for="name">Product Brand</label>
+			<c:forEach var="brand" items="${brandList}" varStatus="count">
+				<input type="radio" name="brand" <c:if test="${product.brand.id eq brand.id}">checked="true"</c:if> value="${brand.id}"/>${brand.brand}
 			</c:forEach>
 			
 			<label for="name">Product productShipmentType</label>

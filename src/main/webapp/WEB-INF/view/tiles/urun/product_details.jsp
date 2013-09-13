@@ -232,7 +232,7 @@
 						</div><!--end product-price-->
 						<div class="product-rate clearfix">
 							<%@include file="/WEB-INF/view/tiles/urun/product_rating.jsp" %>
-							<span>18 Review(s) <a href="#">Make a Review</a></span>
+							<span>${fn:length(product.comment)} Yorum <a href="#">Make a Review</a></span>
 						</div><!--end product-inputs-->
 						<div class="product-info">
 							<dl class="dl-horizontal">
@@ -242,8 +242,8 @@
 							  <dt>Kargo Tipi:</dt>
 							  <dd>${product.shipmentType eq 1 ?  "Ücretsiz Kargo": "Alıcı Öder"}</dd>
 
-							  <dt>Manfactuer:</dt>
-							  <dd>Nicka Corparation</dd>
+							  <dt>Marka:</dt>
+							  <dd>${product.brand.brand}</dd>
 
 							   <dt>Review Points:</dt>
 							  <dd>25 Points</dd>

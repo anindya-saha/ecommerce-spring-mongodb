@@ -46,6 +46,7 @@
 		<td>productPrice</td>
 		<td>productInvalidPrice</td>
 		<td>productCategory</td>
+		<td>productBrand</td>
 		<td>productStock</td>
 		<td>productRating</td>
 		<td>productAddedDate</td>
@@ -58,6 +59,7 @@
 				<td>${product.price}</td>
 				<td>${product.invalidPrice}</td>
 				<td>${product.category.parent}/${product.category.name}</td>
+				<td>${product.brand.brand}</td>
 				<td>${product.stock}</td>
 				<td>${product.rating}</td>
 				<td>${product.addedDate}</td>
@@ -130,6 +132,17 @@
 			</c:forEach><br>
 			
 			<input type="submit" id="addCategory" value="Submit"/>
+		</form>
+		
+	<h2>Add Brand</h2>
+
+		<form action="admin/addbrand" method="post">
+						
+			<label>Brand Name</label>
+			<input type="text" id="name" name="name"/><br></br>
+			
+			
+			<input type="submit" id="addBrand" value="Submit"/>
 		</form>
 </body>
 </html>
