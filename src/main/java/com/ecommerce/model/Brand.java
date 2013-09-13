@@ -4,7 +4,7 @@ public class Brand {
 
 	private String id;
 	
-	private String Brand;
+	private String name;
 
 	public String getId() {
 		return id;
@@ -14,10 +14,10 @@ public class Brand {
 	}
 
 	public String getBrand() {
-		return Brand;
+		return name;
 	}
-	public void setBrand(String brand) {
-		Brand = brand;
+	public void setBrand(String name) {
+		this.name = name;
 	}
 	
 	
