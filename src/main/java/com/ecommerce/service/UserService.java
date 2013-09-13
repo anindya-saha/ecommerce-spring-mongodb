@@ -1,26 +1,19 @@
 package com.ecommerce.service;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service("userService")
-public class UserService
-{
-  private SessionFactory sessionFactory;
+import com.ecommerce.model.User;
+
+public abstract interface UserService{
   
-  private Session getCurrentSession()
-  {
-    return this.sessionFactory.getCurrentSession();
-  }
-  
-  public User get(Integer id) {
-    return (User)getCurrentSession().createQuery("FROM uye as u WHERE u.id=" + id).list().get(0);
-  }
-  
-  public User get(String userName)
-  {
-    return (User)getCurrentSession().createQuery("FROM uye as u WHERE u.kullaniciAdi=" + userName).list().get(0);
-  }
+	public abstract List<User> listUsers();
+	
+	public abstract User getUserById(String id);
+	
+	public abstract User getUserByName(String name);
+	
+	public abstract boolean loginUser(String name, String Password) throws Exception;
+	
+	public abstract void saveNewUser(User user);
+	
 }
