@@ -5,22 +5,24 @@
 		<header>
 			<div class="upperHeader">
 				<div class="container">
-					<ul class="pull-right inline">
-						<li><a class="invarseColor" href="#">My Account</a></li>
-						<li class="divider-vertical"></li>
-						<li><a class="invarseColor" href="#">My Wish List (5)</a></li>
-						<li class="divider-vertical"></li>
-						<li><a class="invarseColor" href="#">Shoping Cart</a></li>
-						<li class="divider-vertical"></li>
-						<li><a class="invarseColor" href="#">Checkout</a></li>
-					</ul>
+					<c:if test="${not empty user}">
+						<ul class="pull-right inline">
+							<li><a class="invarseColor" href="#">My Account</a></li>
+							<li class="divider-vertical"></li>
+							<li><a class="invarseColor" href="#">My Wish List (5)</a></li>
+							<li class="divider-vertical"></li>
+							<li><a class="invarseColor" href="#">Shoping Cart</a></li>
+							<li class="divider-vertical"></li>
+							<li><a class="invarseColor" href="#">Checkout</a></li>
+						</ul>
+					</c:if>
 					<p>
 					<c:choose>
 						<c:when test="${not empty user}">
-							Welcome ${user.name} - Your mail address: ${user.email}
+							Welcome ${user.name} - Your mail address: ${user.email} - <a href="${pageContext.request.contextPath}/user/logout">Logout</a>
 						</c:when>
 						<c:otherwise>
-							Welcome to ShopFine, <a href="${pageContext.request.contextPath}/login">Login</a> or <a href="${pageContext.request.contextPath}/register">Create new account</a>
+							Welcome to ShopFine, <a href="${pageContext.request.contextPath}/user">Login</a> or <a href="${pageContext.request.contextPath}/register">Create new account</a>
 						</c:otherwise>
 					</c:choose>
 					</p>
@@ -138,81 +140,36 @@
 			<div class="mainNav">
 				<div class="container">
 					<div class="navbar">
-					      	
 				      	<ul class="nav">
 				      		<li class="active"><a href="${pageContext.request.contextPath}/homepage"><i class="icon-home"></i></a></li>
-				      		<li>
-				      			<a href="#">Sayfalar &nbsp;<i class="icon-caret-down"></i></a>
-				      			<div>
-					      			<ul>
-					      				<li><a href=""> <span>-</span>Tek Urun</a></li>
-					      				<li><a href="index2.html"> <span>-</span> index2</a></li>
-					      				<li><a href="account.html"> <span>-</span> account</a></li>
-					      				<li><a href="login.html"> <span>-</span> login</a></li>
-					      				<li><a href="register.html"> <span>-</span> register</a></li>
-					      				<li><a href="cart.html"> <span>-</span> Cart</a></li>
-					      				<li><a href="wishlist.html"> <span>-</span> wishlist</a></li>
-					      				<li><a href="checkout.html"> <span>-</span> Checkout</a></li>
-					      				<li><a href="compare.html"> <span>-</span> Compare</a></li>
-					      				<li><a href="contact.html"> <span>-</span> Contact</a></li>
-					      				<li><a href="search.html"> <span>-</span> Search</a></li>
-					      				<li><a href="blog.html"> <span>-</span> blog</a></li>
-					      				<li><a href="post.html"> <span>-</span> post</a></li>
-					      				<li><a href="category_grid.html"> <span>-</span> category grid</a></li>
-					      				<li><a href="category_grid.html"> <span>-</span> category list</a></li>
-					      				<li><a href="product_details1.html"> <span>-</span> product details1</a></li>
-					      				<li><a href="product_details2.html"> <span>-</span> product details2</a></li>
-					      			</ul>
-					      		</div>
-				      		</li>
-				      		<li>
-				      			<a href="#">Women &nbsp;<i class="icon-caret-down"></i></a>
-				      			<div>
-					      			<ul>
-					      				<li><a href="#"> <span>-</span> Dresses (2)</a></li>
-					      				<li><a href="#"> <span>-</span> Jackets &amp; Coats (4)</a></li>
-					      				<li><a href="#"> <span>-</span> Skirts (0)</a></li>
-					      				<li><a href="#"> <span>-</span> Suits &amp; Tailoring (82)</a></li>
-					      				<li><a href="#"> <span>-</span> Tops (58)</a></li>
-					      				<li><a href="#"> <span>-</span> Shoes (15)</a></li>
-					      				<li><a href="#"> <span>-</span> Shorts (54) </a></li>
-					      			</ul>
-					      		</div>
-				      		</li>
-				      		<li>
-				      			<a href="#">Men &nbsp;<i class="icon-caret-down"></i></a>
-				      			<div>
-					      			<ul>
-					      				<li><a href="#"> <span>-</span> Dresses (2)</a></li>
-					      				<li><a href="#"> <span>-</span> Jackets &amp; Coats (4)</a></li>
-					      				<li><a href="#"> <span>-</span> Skirts (0)</a></li>
-					      				<li><a href="#"> <span>-</span> Suits &amp; Tailoring (82)</a></li>
-					      				<li><a href="#"> <span>-</span> Tops (58)</a></li>
-					      				<li><a href="#"> <span>-</span> Shoes (15)</a></li>
-					      				<li><a href="#"> <span>-</span> Shorts (54) </a></li>
-					      			</ul>
-					      		</div>
-				      		</li>
-				      		<li><a href="#">Children</a></li>
-				      		<li><a href="#">FootWear</a></li>
-				      		<li>
-				      			<a href="#">Accessories &nbsp;<i class="icon-caret-down"></i></a>
-				      			<div>
-					      			<ul>
-					      				<li><a href="#"> <span>-</span> Dresses (2)</a></li>
-					      				<li><a href="#"> <span>-</span> Jackets &amp; Coats (4)</a></li>
-					      				<li><a href="#"> <span>-</span> Skirts (0)</a></li>
-					      				<li><a href="#"> <span>-</span> Suits &amp; Tailoring (82)</a></li>
-					      				<li><a href="#"> <span>-</span> Tops (58)</a></li>
-					      				<li><a href="#"> <span>-</span> Shoes (15)</a></li>
-					      				<li><a href="#"> <span>-</span> Shorts (54) </a></li>
-					      			</ul>
-					      		</div>
-				      		</li>
-				      		<li><a href="#">OutLet</a></li>
-				      		<li><a href="#">Designers</a></li>
+							<%-- 
+								// TODO , this will be a custom taglib for endless tree category(now its limited)
+							 --%>
+				      		<c:forEach var="category" items="${catList}">
+					      		<li>
+				      				<c:if test="${empty category.ancestors}">
+				      					<a href="${category.id}">${category.name}
+					      					<c:forEach var="childCategory" items="${catList}" varStatus="count">
+					      						<c:if test="${childCategory.parent eq category.name}">
+					      							<c:if test="${count.count gt 0}">
+					      								<i class="icon-caret-down"></i>
+					      							</c:if>
+					      						</c:if>
+					      					</c:forEach>
+				      					</a>
+				      					<c:forEach var="childCategory" items="${catList}">
+				      						<c:if test="${childCategory.parent eq category.name}">
+								      			<div>
+									      			<ul>
+									      				<li><a href="${childCategory.id}"> <span>-</span>${childCategory.name}</a></li>
+									      			</ul>
+									      		</div>
+								      		</c:if>
+							      		</c:forEach>
+							      	</c:if>
+					      		</li>
+				      		</c:forEach>
 				      	</ul><!--end nav-->
-
 					</div>
 				</div><!--end container-->
 			</div><!--end mainNav-->
