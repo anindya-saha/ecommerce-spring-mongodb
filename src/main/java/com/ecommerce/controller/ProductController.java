@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -26,10 +27,10 @@ import com.ecommerce.service.ProductService;
 public class ProductController {
 	protected static Logger logger = Logger.getLogger("controller");
 
-	@Autowired
+	@Inject
 	private ProductService productService;
 	
-	@Autowired
+	@Inject
 	private CategoryService categoryService;
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
