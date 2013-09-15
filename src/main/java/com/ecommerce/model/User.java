@@ -13,6 +13,8 @@ public class User {
 	private String role;
 	
 	private UserAddress address;
+	
+	private String ipAddress;
 
 	public String getId() {
 		return this.id;
@@ -60,4 +62,12 @@ public class User {
 	public void setAddress(UserAddress address){
 		this.address = address;
 	}
+	
+	public String getIpAdress(){
+		return this.ipAddress;
+	}
+	public void setIpAddress(String ipAddress){
+		this.ipAddress = ipAddress; 
+	}
+	
 }
