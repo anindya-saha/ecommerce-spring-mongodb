@@ -10,12 +10,12 @@
 						<h3>New Customer</h3>
 						<p>By creating an account you will be able to shop faster, be
 							up to date on an order's status, and keep track of the orders you
-							have previously made.</p> <a href="#" class="btn">Register</a>
+							have previously made.</p> <a href="/login/register" class="btn">Register</a>
 					</td>
 
 					<td width="50%">
 						<h3>Returning Customer</h3>
-						<form method="post" action="login/login-process">
+						<form method="post" action="user/login-process">
 							<div class="controls">
 								<label>Your Username: <span class="text-error">*</span></label> <input
 									name="name" type="text" placeholder="example@example.com">
