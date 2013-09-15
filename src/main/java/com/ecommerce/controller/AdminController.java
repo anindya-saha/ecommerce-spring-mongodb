@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,16 +31,16 @@ public class AdminController {
 	
 	protected static Logger logger = Logger.getLogger("controller");
 
-	@Autowired
+	@Inject
 	private ProductService productService;
 	
-	@Autowired
+	@Inject
 	private CategoryService categoryService;
 	
-	@Autowired
+	@Inject
 	private BrandService brandService;
 	
-	@Autowired
+	@Inject
 	private UserService userService;
 	
 	//List all items
