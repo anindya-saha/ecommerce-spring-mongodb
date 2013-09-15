@@ -1,7 +1,8 @@
 package com.ecommerce.controller;
 
+import javax.inject.Inject;
+
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,13 @@ import com.ecommerce.model.User;
 import com.ecommerce.service.UserService;
 
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="/user")
 @SessionAttributes({"user"})
 public class LoginController {
 	
 	protected static Logger logger = Logger.getLogger("controller");
 	
-	@Autowired
+	@Inject
 	private UserService userService;
 	
 	@RequestMapping(method = RequestMethod.GET)
