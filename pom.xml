@@ -122,6 +122,12 @@
         <version>2.1</version>
         <scope>provided</scope>
     </dependency>
+    <dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+	</dependency>
+	            
 	<dependency>
 	<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
