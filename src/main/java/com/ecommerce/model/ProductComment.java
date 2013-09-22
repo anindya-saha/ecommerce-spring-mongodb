@@ -40,7 +40,7 @@ public class ProductComment{
 		this.comment = comment;
 	}
 
-	public int getProductCommentRating() {
+	public int getRating() {
 		return this.rating;
 	}
 
