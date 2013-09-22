@@ -1,10 +1,38 @@
-/*==== pull open sans & sanchez fonts from gooogle server ===*/
+/*
+	This File made by me ("Ahmed Saeed")
+	Web and developer for the web lives in Cairo, Egypt
+	E-Mail: mr.ahmedsaeed1@gmail.com
+	Tel: (02) 01228652007
+*/
+/*## Table of Content  ## ==================
+===========================================================================
+# 1- Booling google fonts from google server ( Open Sans, Sanchez )
+============================================================================
+# 2- General styling and reset mstyling
+===========================================================================
+# 3- Header styling 
+============================================================================
+# 4- footer styling 
+==============================================================================
+# 5- element styling
+=============================================================================
+# 6- side panel styling
+============================================================================
+# 7- Media qauery styling for this file
+=================================================================================*/
+
+
+
+/* # 1- pull open sans & sanchez fonts from gooogle server
+=================================================================================*/
 @import url(http://fonts.googleapis.com/css?family=Sanchez:400italic,400|Open+Sans:400italic,600italic,700italic,400,600);
 /*
 font-family: 'Sanchez', serif;
 font-family: 'Open Sans', sans-serif;
 */
 
+/*# 2- reset styling and general styling
+===================================================================================*/
 /*=========== body =============*/
 body {
 	color:#777;
@@ -15,8 +43,6 @@ body {
 	font-weight: normal;
 	background:#fff;
 }
-
-
 /*==== heading ====*/
 h1, h2, h3, h4, h5, h6 {
 	margin:0; padding:0;
@@ -24,9 +50,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Sanchez', serif;
 	font-weight: 400;
 }
+h1 { font-size: 18px; text-transform: uppercase; line-height:26px; }
 h2 { font-size: 16px; text-transform: uppercase; line-height:22px; }
 h3 { font-size:14px; text-transform: uppercase; line-height:22px; }
-h4 { font-size: 14px; }
+h4 { font-size: 14px; line-height: 20px; }
+h5 { font-size: 13px; line-height: 20px; }
+h6 { font-size: 12px; line-height: 18px; }
 
 /*===== title header h3 =========*/
 .titleHeader {
@@ -43,14 +72,94 @@ h4 { font-size: 14px; }
 	padding-left:8px;
 }
 
+/*=============== clearfix ===========*/
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  margin:0;
+  padding:0;
+  height:0;
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
 
-/*=================== mainContainer ==============*/
+/*============= Global ancher link color style ==========*/
+a {
+  color:#f16325;
+}
+a:hover, a:active {
+  color:#f16325;
+  text-decoration:underline;
+}
+a.invarseColor:link, a.invarseColor:visited {
+  color:#666;
+}
+a.invarseColor:hover, a.invarseColor:active {
+  color:#f16325;
+  text-decoration:none;
+}
+a.active:link, a.active:visited {
+  color:#f16325;
+  cursor:default;
+}
+
+/*=========== placeholder ============*/
+/* for old firfox */
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999999;
+  font-family: 'Open Sans', Arial sans-serif;
+  font-size: 10px;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #999999;
+  font-family: 'Open Sans', Arial sans-serif;
+  font-size: 10px;
+}
+/* IE 10 */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999999;
+  font-family: 'Open Sans', Arial sans-serif;
+  font-size: 10px;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999999;
+  font-family: 'Open Sans', Arial sans-serif;
+  font-size: 10px;
+}
+.placeholder {
+  color: #999999;
+  font-family: 'Open Sans', Arial sans-serif;
+  font-size: 10px;
+}
+
+iframe {
+	width:100%;
+	border:none;
+}
+
+/*====== mainContainer ======*/
 #mainContainer {
 	width:100%;
 	display: block;
 	margin:0 auto;
 	background:#fff;
 }
+/*== block styling ==*/
+#featuredItems, #latestItems, #aboutUs, #twitterFeed, #facebookFeed, #brands {
+	margin-top:72px;
+}
+
+
+/*# 3- Header styling 
+============================================================================*/
 /*====== header style ======*/
 header {
 	margin-bottom:60px;
@@ -141,8 +250,6 @@ header {
 		padding:12px 6px;
 		vertical-align: top;
 	}
-	
-	
 	/* cart-product-info */
 	.cart-content .table-cart .cart-product-info {
 		text-align: left;
@@ -194,17 +301,142 @@ header {
 	.cart-content .table-cart td.cart-product-setting a.remove-pro:hover {
 		text-decoration: none;
 	}
-	
-	
-	
+/*============================= end header styling =======================*/
 
 
-/*================  ===============*/
-#featuredItems, #latestItems, #aboutUs, #twitterFeed, #facebookFeed, #brands {
-	margin-top:72px;
+
+
+/*# 4- footer styling 
+==============================================================================*/
+footer {margin:82px 0 0 0;}
+.footerOuter {
+	padding:18px 0;
+	margin-bottom:12px;
+	background:#e7e7e7;
+	border-top:1px dotted #b4b4b4;
+	border-bottom:1px dotted #b4b4b4;
 }
+/*===== footer title header h3 =========*/
+	footer .titleHeader {
+		background: url('../img/dottedBorder.png') repeat-x 50% 70%;
+		margin:0;
+	}
+	footer .titleHeader h3 {
+		float:left;
+		background:#e7e7e7;
+		padding-right:8px;
+	}
+	footer .titleHeader .pagers {
+		float:right;
+		background:#e7e7e7;
+		padding-left:8px;
+	}
+
+/* usefullLinks */
+	footer .usefullLinks .unstyled {
+		margin-top:14px;
+	}
+	footer .usefullLinks .unstyled li {
+		border-bottom:1px dotted #b4b4b4;
+	}
+	footer .usefullLinks .unstyled li:last-child {
+		border-bottom:none;
+	}
+	footer .usefullLinks .unstyled li a {
+		padding:6px 0;
+		display: block;
+		font-weight: 600;
+	}
+	footer .usefullLinks .unstyled li a:hover,
+	footer .usefullLinks .unstyled li a:active {
+		background:#e0e0e0;
+	}
+	footer .usefullLinks .unstyled li i {
+		font-size: 18px;
+	}
+
+/* contactInfo */
+	footer .contactInfo {
+		margin-top:14px;
+	}
+	footer .contactInfo ul li {
+		border-bottom:1px dotted #b4b4b4;
+		padding:7px 0;
+		display:block;
+		font-weight: 600;
+	}
+	footer .contactInfo ul li:hover,
+	footer .contactInfo ul li:active {
+		background:#e0e0e0;
+	}
+	footer .contactInfo ul li:last-child {
+		border-bottom:none;
+	}
+	footer .contactInfo ul li button {
+		height:30px;
+		width:30px;
+		padding:0;
+		margin-right:5px;
+		text-align: center;
+		-webkit-border-radius: 5000px;
+	  -moz-border-radius: 500px;
+	  border-radius: 5000px;
+	  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	  background-color: #f5f5f5;
+	  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	  background-repeat: repeat-x;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	  *background-color: #e6e6e6;
+	  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+	  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	  border: 1px solid #bbbbbb;
+	  *border: 0;
+	  border-bottom-color: #a2a2a2;
+	  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	}
+	footer .contactInfo ul li button i {
+		font-size: 16px;
+	}
+
+/* newslatter */
+	footer .newslatter form {
+		margin-top:24px;
+	}
+
+/* payment */
+	footer .payments li {
+		width:37px;
+		height:26px;
+		margin:0;
+		display: inline-block;
+		background: url('../img/payment.png') no-repeat;
+	}
+	footer .payments li.visia {
+		background-position: 0 0;
+	}
+	footer .payments li.paypal {
+		background-position: 0 -35px;
+	}
+	footer .payments li.electron {
+		background-position: 0 -70px;
+	}
+	footer .payments li.discover {
+		background-position: 0 -105px;
+	}
+/*====================== end footer ====================*/
 
 
+
+/*# 5- element styling
+=============================================================================*/
 /*===================== about us ======================*/
 #aboutUs p {
 	margin:24px 0 0 0;
@@ -944,7 +1176,6 @@ header {
 	border: 1px solid #aaa;
 }
 
-
 /*======================== user-comments ===================*/
 .user-comments {
 	margin-top:60px;
@@ -952,7 +1183,6 @@ header {
 	.user-comments .media-list {
 		margin-top:24px;
 	}
-
 
 /*======================= make-comment ==================*/
 .make-comment {
@@ -964,8 +1194,6 @@ header {
 	.make-comment form textarea {
 		height:100px;
 	}
-
-
 
 
 /*================ blog-tab ===============*/
@@ -980,8 +1208,6 @@ header {
 		line-height:14px;
 		font-size: 14px;
 	}
-
-
 
 /*================== blog-category ===============*/
 .blog-category {
@@ -1017,8 +1243,6 @@ header {
 .blog-twitter {
 	margin-top:60px;
 }
-
-
 
 
 /*=========================== table-compare ===================*/
@@ -1076,7 +1300,6 @@ header {
 }
 
 
-
 /*==================== my-account ===================*/
 .my-account {
 	margin-top:24px;
@@ -1100,8 +1323,6 @@ header {
 	color:#f16325;
 	cursor: default;
 }
-
-
 
 
 /*================= categories ================*/
@@ -1150,8 +1371,6 @@ header {
 }
 
 
-
-
 /*========================= checkout-outer ======================*/
 .checkout-outer {
 	margin-bottom:6px;
@@ -1164,7 +1383,6 @@ header {
 		margin:18px 0;
 		background:url('../img/dottedBorder.png') repeat-x left top; 
 	}
-
 	/* checkout-header */
 	.checkout-outer .checkout-header {
 		padding:6px 0 6px 14px;
@@ -1184,9 +1402,6 @@ header {
 	}
 
 
-
-
-
 /*================= twitter ===================*/
 .tweet ul {
 	margin:0 0 0 0;
@@ -1198,9 +1413,6 @@ header {
 		padding:0 0 0 36px;
 		background:url('../img/tweetIcon.png') no-repeat left 5px;
 	}
-
-
-
 
 /*================= table-receipt =================*/
 .table-receipt {
@@ -1217,9 +1429,6 @@ header {
 		text-align: left;
 		padding-left:12px;
 	}
-
-
-
 
 /*=================== account-list-outer ==================*/
 .account-list {
@@ -1253,8 +1462,6 @@ header {
 		background:#f3f3f3;
 	}
 
-
-
 /*===================== register =====================*/
 .register .form-horizontal {
 	margin-top:24px;
@@ -1262,7 +1469,7 @@ header {
 	border:1px solid #e0e0e0;
 	border-top:none;
 }
-	.register .form-horizontal legend {
+	.register .form-horizontal h4 {
 	    padding: 6px 0;
 	    margin-bottom: 14px;
 	    color: #404040;
@@ -1283,14 +1490,13 @@ header {
 		background:url('../img/dottedBorder.png') repeat-x left top; 
 	}
 
-
-
 /*=================== login =================*/
 .login {
 	border:1px solid #e0e0e0;
 }
 	.login table td {
 		padding:24px;
+		width: 50%;
 	}
 	.login table td {
 		border-right:1px solid #e0e0e0;
@@ -1302,8 +1508,6 @@ header {
 	.login table td p {
 		margin-bottom:18px;
 	}
-
-
 
 /*====================== contact info ================*/
 	.contact-info address {
@@ -1317,8 +1521,6 @@ header {
 	.contact-info address h4 {
 		margin-bottom:6px;
 	}
-
-
 
 /*===================== google-map ===============*/
 	.google-map {
@@ -1339,8 +1541,6 @@ header {
 		padding:0;
 	}
 
-
-
 /*=================== contact-us-form =================*/
 .contact-us-form {
 	margin-top:60px;
@@ -1352,8 +1552,6 @@ header {
 		height:120px;
 	}
 
-
-
 /*====================== search ================*/
 .search form {
 	margin-top:24px;
@@ -1361,135 +1559,9 @@ header {
 
 
 
-/*==================== footer style ================*/
-footer {margin:82px 0 0 0;}
-.footerOuter {
-	padding:18px 0;
-	margin-bottom:12px;
-	background:#e7e7e7;
-	border-top:1px dotted #b4b4b4;
-	border-bottom:1px dotted #b4b4b4;
-}
-/*===== footer title header h3 =========*/
-	footer .titleHeader {
-		background: url('../img/dottedBorder.png') repeat-x 50% 70%;
-		margin:0;
-	}
-	footer .titleHeader h3 {
-		float:left;
-		background:#e7e7e7;
-		padding-right:8px;
-	}
-	footer .titleHeader .pagers {
-		float:right;
-		background:#e7e7e7;
-		padding-left:8px;
-	}
-
-/* usefullLinks */
-	footer .usefullLinks .unstyled {
-		margin-top:14px;
-	}
-	footer .usefullLinks .unstyled li {
-		border-bottom:1px dotted #b4b4b4;
-	}
-	footer .usefullLinks .unstyled li:last-child {
-		border-bottom:none;
-	}
-	footer .usefullLinks .unstyled li a {
-		padding:6px 0;
-		display: block;
-		font-weight: 600;
-	}
-	footer .usefullLinks .unstyled li a:hover,
-	footer .usefullLinks .unstyled li a:active {
-		background:#e0e0e0;
-	}
-	footer .usefullLinks .unstyled li i {
-		font-size: 18px;
-	}
-
-/* contactInfo */
-	footer .contactInfo {
-		margin-top:14px;
-	}
-	footer .contactInfo ul li {
-		border-bottom:1px dotted #b4b4b4;
-		padding:7px 0;
-		display:block;
-		font-weight: 600;
-	}
-	footer .contactInfo ul li:hover,
-	footer .contactInfo ul li:active {
-		background:#e0e0e0;
-	}
-	footer .contactInfo ul li:last-child {
-		border-bottom:none;
-	}
-	footer .contactInfo ul li button {
-		height:30px;
-		width:30px;
-		padding:0;
-		margin-right:5px;
-		text-align: center;
-		-webkit-border-radius: 5000px;
-	  -moz-border-radius: 500px;
-	  border-radius: 5000px;
-	  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	  background-color: #f5f5f5;
-	  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-	  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-	  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-	  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-	  background-repeat: repeat-x;
-	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-	  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-	  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	  *background-color: #e6e6e6;
-	  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-	  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-	  border: 1px solid #bbbbbb;
-	  *border: 0;
-	  border-bottom-color: #a2a2a2;
-	  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-	  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-	  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-	}
-	footer .contactInfo ul li button i {
-		font-size: 16px;
-	}
-
-/* newslatter */
-	footer .newslatter form {
-		margin-top:24px;
-	}
-
-/* payment */
-	footer .payments li {
-		width:37px;
-		height:26px;
-		margin:0;
-		display: inline-block;
-		background: url('../img/payment.png') no-repeat;
-	}
-	footer .payments li.visia {
-		background-position: 0 0;
-	}
-	footer .payments li.paypal {
-		background-position: 0 -35px;
-	}
-	footer .payments li.electron {
-		background-position: 0 -70px;
-	}
-	footer .payments li.discover {
-		background-position: 0 -105px;
-	}
-/*====================== end footer ====================*/
-
-
-
-/*========================= switcher =========================*/
+/*# 6- side panel styling
+============================================================================*/
+/*=========== switcher ===========*/
 .switcher {
     position:fixed;
     top:60px;
@@ -1599,9 +1671,9 @@ footer {margin:82px 0 0 0;}
 
 
 
-/*========================================================================
-======================== Begain the media query ==========================
-========================================================================*/
+
+/*# 7- Media qauery styling for this file
+=================================================================================*/
 @media (max-width: 979px) {
 }
 
@@ -1613,14 +1685,10 @@ footer {margin:82px 0 0 0;}
 		width:70px;
 	}
 
-	
-
 	/*brandList*/
 	.brandList li {
 		width:170px;
 	}
-
-
 
 	/*footer*/
 	footer .contactInfo button {
@@ -1639,6 +1707,7 @@ footer {margin:82px 0 0 0;}
 		-moz-box-shadow:none !important;
 		box-shadow:none !important;
 	}
+
 	/*upperHeader*/
 	.upperHeader select.upper-nav {
 		display: block;
@@ -1687,12 +1756,47 @@ footer {margin:82px 0 0 0;}
 		width:160px;
 	}
 
+	/*account-list-outer*/
+	.account-list-outer {
+		margin-bottom:42px;
+	}
 
+	/*blog-search*/
+	.blog-search {
+		clear:both;
+		margin-top:42px;
+	}
 
+	/*. table */
+	.table {
+		margin-bottom:24px; 
+	}
+	.table tr {
+		width:100%;
+	}
+	.table tr td, .table tr th {
+		display: list-item;
+		list-style: none;
+		padding-left:20px;
+		padding-right:20px;
+		width:260px !important;
+		text-align:center !important; 
+		float: none !important;
+	}
+
+	#productSlider {
+		display: none;
+	}
+
+	/*product-aside*/
+	#product-aside {
+		display: none;
+	}
 
 }
 
 @media (max-width: 480px) {
+
 	/*brandList*/
 	.brandList li {
 		display: block;

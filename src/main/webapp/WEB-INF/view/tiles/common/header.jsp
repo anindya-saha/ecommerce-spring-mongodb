@@ -141,34 +141,7 @@
 				<div class="container">
 					<div class="navbar">
 				      	<ul class="nav">
-				      		<li class="active"><a href="${pageContext.request.contextPath}/homepage"><i class="icon-home"></i></a></li>
-							<%-- 
-								// TODO , this will be a custom taglib for endless tree category(now its limited)
-							 --%>
-				      		<c:forEach var="category" items="${catList}">
-					      		<li>
-				      				<c:if test="${empty category.ancestors}">
-				      					<a href="${category.id}">${category.name}
-					      					<c:forEach var="childCategory" items="${catList}" varStatus="count">
-					      						<c:if test="${childCategory.parent eq category.name}">
-					      							<c:if test="${count.count gt 0}">
-					      								<i class="icon-caret-down"></i>
-					      							</c:if>
-					      						</c:if>
-					      					</c:forEach>
-				      					</a>
-				      					<c:forEach var="childCategory" items="${catList}">
-				      						<c:if test="${childCategory.parent eq category.name}">
-								      			<div>
-									      			<ul>
-									      				<li><a href="${childCategory.id}"> <span>-</span>${childCategory.name}</a></li>
-									      			</ul>
-									      		</div>
-								      		</c:if>
-							      		</c:forEach>
-							      	</c:if>
-					      		</li>
-				      		</c:forEach>
+				      		<%@include file="/WEB-INF/view/tiles/common/main_nav.jsp" %>
 				      	</ul><!--end nav-->
 					</div>
 				</div><!--end container-->

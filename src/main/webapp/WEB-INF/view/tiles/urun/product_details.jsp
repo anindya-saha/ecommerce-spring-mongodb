@@ -5,11 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="row">
 	<ul class="breadcrumb">
-		<li><a href="/homepage">Home</a> <span class="divider">/</span></li>
-		<c:forEach var="category" items="${categoryList}" varStatus="count">
-			<li><a href="${category.key}">${category.value}</a> <span class="divider">/</span></li>
-		</c:forEach>
-		<li class="active">${prodCategory}</li>
+		<%@include file="/WEB-INF/view/tiles/common/breadcrumb.jsp" %>
 	</ul>
 </div>
 <div class="row">
@@ -251,32 +247,6 @@
 						</div><!--end product-info-->
 						<div class="product-inputs">
 							<form method="#" action="#">
-								<div class="controls-row">
-								<select class="span2" name="#">
-									<option>-- Select Color --</option>
-									<option value="">Red</option>
-									<option value="">Blue</option>
-									<option value="">Brown</option>
-								</select>
-								<select class="span2" name="#">
-									<option>-- Select Size --</option>
-									<option value="">Size 36</option>
-									<option value="">Size 12</option>
-									<option value="">Size 18</option>
-								</select>
-								</div><!--end controls-row-->
-
-								<div class="controls-row">
-								<input type="text" class="span2" name="" value="" placeholder="input...">
-								<input type="text" class="span2" name="" value="" placeholder="input...">
-								</div><!--end controls-row-->
-
-								<div class="controls-row">
-								<input type="text" class="span3" name="" value="" placeholder="input...">
-								<input type="text" class="span1" name="" value="" placeholder="input...">
-								</div><!--end controls-row-->
-
-								<textarea name="" class="span4" placeholder="textarea..."></textarea>
 
 								<div class="input-append">
 								<input class="span1" type="text" name="" value="" placeholder="QTY">
@@ -382,37 +352,7 @@
 				</div>
 
 				<div class="tab-pane" id="make-review">
-					<form method="#" action="#" class="form-horizontal">
-						<div class="control-group">
-						    <label class="control-label" for="inputName">Your Name <span class="text-error">*</span></label>
-						    <div class="controls">
-						      <input type="text" name="#" id="inputName" placeholder="John Doe...">
-						    </div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="inputReview">Your Review <span class="text-error">*</span></label>
-						    <div class="controls">
-						      <textarea name="#" id="inputReview" placeholder="Put your review here..."></textarea>
-						    </div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="inputReview">Your Review <span class="text-error">*</span></label>
-						    <div class="controls">
-						       <div class="btn-group" data-toggle="buttons-radio">
-								  <button type="button" class="btn" rel="tooltip" data-title="1/5"><i class="icon-star"></i></button>
-								  <button type="button" class="btn" rel="tooltip" data-title="2/5"><i class="icon-star"></i></button>
-								  <button type="button" class="btn" rel="tooltip" data-title="3/5"><i class="icon-star"></i></button>
-								  <button type="button" class="btn" rel="tooltip" data-title="4/5"><i class="icon-star"></i></button>
-								  <button type="button" class="btn" rel="tooltip" data-title="5/5"><i class="icon-star"></i></button>
-							   </div>
-						    </div>
-						</div>
-						<div class="control-group">
-						    <div class="controls">
-						      <button type="submit" class="btn btn-primary" name="submit">Add Review</button>
-						    </div>
-						</div>
-					</form><!--end form-->
+					<%@include file="/WEB-INF/view/tiles/urun/make_review.jsp" %>
 				</div>
 			</div><!--end tab-content-->
 		</div><!--end product-tab-->

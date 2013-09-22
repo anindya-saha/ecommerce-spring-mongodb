@@ -1,77 +1,44 @@
-/*=====================
- Customize bootstrap
- made by Ahmed Saeed
- mr.ahmedsaeed1@gmail.com
-==========================*/
+/*
+  *(=========== Bootstrap customzation ============)*
+  This File made by me ("Ahmed Saeed")
+  Web and developer for the web lives in Cairo, Egypt
+  E-Mail: mr.ahmedsaeed1@gmail.com
+  Tel: (02) 01228652007
+*/
+/*## Table of Content  ## ==================
+===========================================================================
+# 1- over ride inputs and textarea and select styling
+============================================================================
+# 2- over ride dropdown-menu styling
+===========================================================================
+# 3- over ride btn-group styling
+============================================================================
+# 4- over ride navbar styling
+==============================================================================
+# 5- over btn and btn-primary styling
+=============================================================================
+# 6- over pagination styling
+============================================================================
+# 7- over carousel styling
+============================================================================
+# 8- over table styling
+============================================================================
+# 9- over accoradain styling
+============================================================================
+# 10- over form-horizonta styling
+============================================================================
+# 11- over nav-tabs styling
+============================================================================
+# 12- over media-list styling
+============================================================================
+# 13- over well styling
+============================================================================
+# 14- Media qauery styling for this file
+=================================================================================*/
 
-/*=============== clearfix ===========*/
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-  margin:0;
-  padding:0;
-  height:0;
-  line-height: 0;
-}
-.clearfix:after {
-  clear: both;
-}
 
-/*============= Global ancher link color style ==========*/
-a {
-  color:#f16325;
-}
-a:hover, a:active {
-  color:#f16325;
-  text-decoration:underline;
-}
-a.invarseColor:link, a.invarseColor:visited {
-  color:#666;
-}
-a.invarseColor:hover, a.invarseColor:active {
-  color:#f16325;
-  text-decoration:none;
-}
-a.active:link, a.active:visited {
-  color:#f16325;
-  cursor:default;
-}
-
-/*=========== placeholder ============*/
-/* for old firfox */
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #999999;
-  font-family: 'Open Sans', Arial sans-serif;
-  font-size: 10px;
-}
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #999999;
-  font-family: 'Open Sans', Arial sans-serif;
-  font-size: 10px;
-}
-/* IE 10 */
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #999999;
-  font-family: 'Open Sans', Arial sans-serif;
-  font-size: 10px;
-}
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #999999;
-  font-family: 'Open Sans', Arial sans-serif;
-  font-size: 10px;
-}
-.placeholder {
-  color: #999999;
-  font-family: 'Open Sans', Arial sans-serif;
-  font-size: 10px;
-}
-
+/*# 1- over ride inputs and textarea and select styling
+============================================================================*/
 /*=============== inputs ==================*/
 label,
 input,
@@ -164,6 +131,9 @@ input[type="color"]:focus,
   border-color: #aaa;
 }
 
+
+/*# 2- over ride dropdown-menu styling
+===========================================================================*/
 /*========= dropdown-menu =============*/
 .dropdown-menu {
   background-color: #f0f0f0;
@@ -193,6 +163,9 @@ input[type="color"]:focus,
   filter: #f16325;
 }
 
+
+/*# 3- over ride btn-group styling
+============================================================================*/
 /*============== btn-group =============*/
 .btn-group {
   position: relative;
@@ -316,6 +289,9 @@ input[type="color"]:focus,
   *padding-bottom: 7px;
 }
 
+
+/*# 4- over ride navbar styling
+==============================================================================*/
 /*=================== navbar ================*/
 .navbar {
   margin:0;
@@ -430,11 +406,15 @@ input[type="color"]:focus,
   display: table-cell;
 }
 .navbar .nav div ul li {
+  position: relative;
   margin:0;
   padding:0;
   color:#fff;
   border-top:1px solid rgba(255,255,255,.1);
   border-bottom:1px solid rgba(0,0,0,.1);
+}
+.navbar .nav div ul li i {
+  margin-top: 4px;
 }
 .navbar .nav div ul li:first-child {
   border-top:none;
@@ -456,7 +436,16 @@ input[type="color"]:focus,
   display: block;
 }
 
-/*============== btn ==============*/
+/* the third level submenu */
+.navbar .nav div li div {
+  left:100%;
+  top:0;
+}
+
+
+/*# 5- over ride btn and btn-primary styling
+=============================================================================*/
+/*======== btn =======*/
 .btn {
   font-size: 12px;
 }
@@ -485,7 +474,8 @@ input[type="color"]:focus,
 }
 
 
-/*================= pagination ==================*/
+/*# 6- over ride pagination styling
+============================================================================*/
 .pagination {
   clear:both;
   margin: 42px 0 0;
@@ -499,7 +489,8 @@ input[type="color"]:focus,
 }
 
 
-/*===================== carousel ========================*/
+/*# 7- over ride carousel styling
+============================================================================*/
 .carousel {
   position: relative;
   line-height: 1;
@@ -533,7 +524,8 @@ input[type="color"]:focus,
 }
 
 
-/*==================== .table ===============*/
+/*# 6- over ride table styling
+============================================================================*/
 .table {
   margin:0;
 }
@@ -548,6 +540,9 @@ input[type="color"]:focus,
 .table th {
   padding:8px 0;
   background: none;
+  font-family: 'Sanchez', serif;
+  font-size: 14px;
+  font-weight: normal;
 }
 .table thead {
   border:1px solid #ddd;
@@ -572,7 +567,6 @@ input[type="color"]:focus,
 .table td img:hover {
   border: 1px solid #d0d0d0;
 }
-
 /* td.desc */
 .table td.desc,
 .table th.desc {
@@ -617,7 +611,8 @@ input[type="color"]:focus,
 }
 
 
-/*==================== accoradain ================*/
+/*# 9- over ride accoradain styling
+============================================================================*/
 .cart-accordain {
   margin-top:60px;
   margin-bottom:0;
@@ -656,7 +651,8 @@ input[type="color"]:focus,
 }
 
 
-/*==================== .form-horizontal .control-group ====================*/
+/*# 10- over ride form-horizonta styling
+============================================================================*/
 .form-horizontal .control-group {
   margin-bottom: 14px;
   *zoom: 1;
@@ -670,7 +666,8 @@ input[type="color"]:focus,
 }
 
 
-/*========================== nav-tabs =====================*/
+/*# 11- over ride nav-tabs styling
+============================================================================*/
 .nav-tabs > li:first-child {
   margin-left:8px;
 }
@@ -714,7 +711,8 @@ input[type="color"]:focus,
 }
 
 
-/*====================== media-list ==================*/
+/*# 12- over ride media-list styling
+============================================================================*/
 .media-list .media img {
   padding: 3px;
   border: 1px solid #e0e0e0;
@@ -728,7 +726,8 @@ input[type="color"]:focus,
 }
 
 
-/*==================== well ===================*/
+/*# 12- over ride well styling
+============================================================================*/
 .well {
   padding:20px;
   margin:0;
@@ -744,8 +743,8 @@ input[type="color"]:focus,
 
 
 
-/* #Media Queries
-================================================== */
+/*# 14- Media qauery styling for this file
+=================================================================================*/
 @media only screen and (min-width: 768px) and (max-width: 979px) {
   /* navbar */
   .navbar .nav > li:first-child a {
