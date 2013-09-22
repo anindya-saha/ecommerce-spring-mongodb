@@ -26,12 +26,13 @@ public class HomepageController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView homePage(HttpServletRequest request,
 			HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView("homepage");
+		ModelAndView mav = new ModelAndView();
 
 		List<Product> products = productService.listOrderedProducts("productAddedDate","DESC",4);
 				
 		mav.addObject("products", products);
-
+		
+		mav.setViewName("homepage");
 		return mav;
 	}
 
