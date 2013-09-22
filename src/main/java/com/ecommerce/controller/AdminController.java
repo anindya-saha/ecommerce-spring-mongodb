@@ -139,13 +139,11 @@ public class AdminController {
 		if(productService.singleProduct(productId).getComment() == null){
 			prodComment.add(newProductComment);
 		}else{
-			prodComment.addAll(productService.singleProduct(productId).getComment());
+		//	prodComment.addAll(productService.singleProduct(productId).getComment());
 			prodComment.add(newProductComment);
 		}
 		
-		
-
-		productService.addProductComment(existingProduct, prodComment);
+		//productService.addProductComment(existingProduct, prodComment);
 
 		return mav;
 	}
