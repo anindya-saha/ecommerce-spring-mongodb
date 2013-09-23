@@ -2,12 +2,14 @@ package com.ecommerce.dao;
 
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
@@ -32,7 +34,7 @@ public class ProductDaoImpl implements ProductDao {
 			query.with(new Sort(Sort.Direction.ASC, orderBy)).limit(limit);
 		}
 
-		return mongoTemplate.find(query, Product.class);
+		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
 	}
 
 	public Product getSingleProduct(String id) {
@@ -59,11 +61,17 @@ public class ProductDaoImpl implements ProductDao {
 		mongoTemplate.remove(product, COLLECTION_NAME);
 	}
 	
-	public void saveProductComment(Product product,List<ProductComment> commentList){
+	public void saveProductComment(Product product,ProductComment comment){
 
-		product.setComment(commentList);
+		Update update = new Update();
+		update.push("comment",comment);
 		
-		mongoTemplate.save(product, COLLECTION_NAME);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(product.getId()));
+		
+		mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+		//mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
+		
 	}
 	
 }
