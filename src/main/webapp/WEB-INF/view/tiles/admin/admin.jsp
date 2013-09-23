@@ -107,6 +107,28 @@
 		</form>
 		
 		<br></br>
+		
+	<h2>Add Product Specification</h2>
+
+		<form action="admin/add-product-specification" method="post">
+
+			<label for="name">Select Product</label>
+			<select name="productid">
+				<c:forEach var="product" items="${productList}">
+				<option value="${product.id}">${product.name}</option>
+				</c:forEach>
+			</select>
+						
+			<label>Title</label>
+			<input type="text" id="specificationTitle" name="specificationTitle"/><br></br>
+			
+			<label for="name">Detail</label>
+			<input type="text" id="specificationDetail" name="specificationDetail"/><br></br>
+			
+			<input type="submit" value="Submit"/>
+		</form>
+		
+		<br></br>
 	
 	<h2>Add Category</h2>
 

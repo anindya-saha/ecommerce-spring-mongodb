@@ -19,6 +19,7 @@ import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductSpecification;
 import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
@@ -228,6 +229,24 @@ public class AdminController {
 		newUser.setEmail(email);
 		
 		userService.saveNewUser(newUser);
+		
+		return "redirect:/admin";
+	}
+	
+	//Add product Specification
+	@RequestMapping(value = "/add-product-specification", method = RequestMethod.POST)
+	public String addProductSpecification(
+			@RequestParam(value = "productid", required = false) String productId,
+			@RequestParam(value = "specificationTitle", required = false) String specificationTitle,
+			@RequestParam(value = "specificationDetail", required = false) String specificationDetail){
+		
+		Product existingProduct = productService.singleProduct(productId);
+		
+		ProductSpecification newSpec = new ProductSpecification();
+		newSpec.setTitle(specificationTitle);
+		newSpec.setDetail(specificationDetail);
+		
+		productService.addProductSpecification(existingProduct, newSpec);
 		
 		return "redirect:/admin";
 	}

@@ -2,10 +2,9 @@ package com.ecommerce.dao;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductSpecification;
 
 public abstract interface ProductDao /*extends MongoRepository<Product, String>*/{
 	
@@ -22,5 +21,7 @@ public abstract interface ProductDao /*extends MongoRepository<Product, String>*
   public abstract void deleteExistingProduct(Product product);
   
   public abstract void saveProductComment(Product product,ProductComment comment);
+  
+  public abstract void saveProductSpecification(Product product, ProductSpecification productSpecification);
   
 }

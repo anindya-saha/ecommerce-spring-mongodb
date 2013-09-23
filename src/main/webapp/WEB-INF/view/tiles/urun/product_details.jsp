@@ -293,26 +293,12 @@
 				</div>
 				<div class="tab-pane" id="specfications">
 					<table class="table table-compare">
-						<tr>
-							<td class="aligned-color"><h5>Momery</h5></td>
-							<td>Test One</td>
-							<td>16GB</td>
-						</tr>
-						<tr>
-							<td class="aligned-color"><h5>Processor</h5></td>
-							<td>No. of Cores</td>
-							<td>No.4</td>
-						</tr>
-						<tr>
-							<td class="aligned-color"><h5>Momery</h5></td>
-							<td>Test One</td>
-							<td>16GB</td>
-						</tr>
-						<tr>
-							<td class="aligned-color"><h5>Processor</h5></td>
-							<td>No. of Cores</td>
-							<td>No.4</td>
-						</tr>
+						<c:forEach var="specification" items="${product.specification}">
+							<tr>
+								<td class="aligned-color"><h5>${specification.title}</h5></td>
+								<td>${specification.detail}</td>
+							</tr>
+						</c:forEach>
 					</table>
 				</div>
 				<div class="tab-pane" id="return-info">

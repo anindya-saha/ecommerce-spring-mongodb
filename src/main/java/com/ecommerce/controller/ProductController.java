@@ -22,6 +22,7 @@ import com.ecommerce.constant.ConfirmationStatus;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductSpecification;
 import com.ecommerce.model.User;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
@@ -78,6 +79,5 @@ public class ProductController {
 		
 		return "redirect:/homepage";
 	}
-
 
 }

@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Update;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductSpecification;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -71,6 +72,18 @@ public class ProductDaoImpl implements ProductDao {
 		
 		mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
 		//mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
+		
+	}
+	
+	public void saveProductSpecification(Product product, ProductSpecification productSpecification){
+		
+		Update update = new Update();
+		update.push("specification",productSpecification);
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(product.getId()));
+		
+		mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
 		
 	}
 	

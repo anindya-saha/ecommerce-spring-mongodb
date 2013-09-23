@@ -26,7 +26,7 @@ public class Product {
 
 	private String description;
 	
-	private ProductSpecification specification;
+	private ProductSpecification[] specification;
 
 	private ProductComment[] comment;
 	
@@ -118,10 +118,10 @@ public class Product {
 		this.description = description;
 	}
 	
-	public ProductSpecification getSpecification(){
+	public ProductSpecification[] getSpecification(){
 		return this.specification;
 	}
-	public void setSpecification(ProductSpecification specification){
+	public void setSpecification(ProductSpecification[] specification){
 		this.specification = specification;
 	}
 

@@ -2,31 +2,22 @@ package com.ecommerce.model;
 
 public class ProductSpecification {
 	
-	private String id;
+	private String title;
 	
-	private String specificationTitle;
-	
-	private String specificationDetail;
-	
-	public String getId(){
-		return this.id;
+	private String detail;
+		
+	public String getTitle(){
+		return this.title;
 	}
-	public void setId(String id){
-		this.id = id;
+	public void setTitle(String title){
+		this.title = title;
 	}
 	
-	public String getSpecificationTitle(){
-		return this.specificationTitle;
+	public String getDetail(){
+		return this.detail;
 	}
-	public void setProductSpecificationTitle(String specificationTitle){
-		this.specificationTitle = specificationTitle;
-	}
-	
-	public String getSpecificationDetail(){
-		return this.specificationDetail;
-	}
-	public void setProductSpecificationDetail(String specificationDetail){
-		this.specificationDetail = specificationDetail;
+	public void setDetail(String detail){
+		this.detail = detail;
 	}
 	
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ecommerce.dao.ProductDao;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductSpecification;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -83,4 +84,13 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	public void addProductSpecification(Product product,ProductSpecification productSpecification) {
+		logger.debug("Adding new specification to existing product");
+		try {
+			productDao.saveProductSpecification(product,productSpecification);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to adding new specification on an existing product");
+		}
+		
+	}
 }
