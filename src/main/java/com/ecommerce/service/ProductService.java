@@ -19,5 +19,5 @@ public abstract interface ProductService{
   
   public abstract void updateProduct(Product product);
   
-  public abstract void addProductComment(Product product,List<ProductComment> comment);
+  public abstract void addProductComment(Product product,ProductComment comment);
 }
