@@ -1,5 +1,7 @@
 package com.ecommerce.interceptor;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,18 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 		
 		// TODO for mainMenuCategories
 		List<Category> categoryList = categoryService.getCategories();
+//		List<Category> headList = new ArrayList<>();
+//		
+//		for(Category cat : categoryList){
+//			
+//			if(cat.getAncestors() == null){
+//				headList.add(cat);
+//			} else{
+//				
+//			}
+//			
+//		}
+		
 		mav.addObject("catList",categoryList);
 		
 	}
