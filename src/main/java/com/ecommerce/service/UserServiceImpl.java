@@ -24,8 +24,13 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User getUserById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.debug("Getting user by id");
+		try {
+			return userDao.getUserById(id);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to getting user by id");
+			return null;
+		}
 	}
 	
 	@Override
