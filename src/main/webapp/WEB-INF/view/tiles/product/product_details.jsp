@@ -338,7 +338,7 @@
 				</div>
 
 				<div class="tab-pane" id="make-review">
-					<%@include file="/WEB-INF/view/tiles/urun/make_review.jsp" %>
+					<%@include file="/WEB-INF/view/tiles/product/make_review.jsp" %>
 				</div>
 			</div><!--end tab-content-->
 		</div><!--end product-tab-->
