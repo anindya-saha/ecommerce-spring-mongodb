@@ -1,6 +1,9 @@
 package com.ecommerce.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -36,19 +39,36 @@ public class LoginController {
 	public String loginProcess(
 			@RequestParam(value="name", required = false) String name,
 			@RequestParam(value="password", required = false) String password,
-			Model model) throws Exception{
+			@RequestParam(value="remember", required = false) boolean remember,
+			Model model,
+			HttpServletResponse response,
+			HttpServletRequest request) throws Exception{
 		
 		boolean login = userService.loginUser(name,password);
+		
 		if(login){
 			User user = userService.getUserByName(name);
 			model.addAttribute(user);
+			if(remember){
+				Cookie userIdCookie = new Cookie("userId",user.getId());
+				userIdCookie.setMaxAge(60*60);
+				userIdCookie.setPath("/");
+				userIdCookie.setHttpOnly(true);
+				response.addCookie(userIdCookie);
+			}
 		}
 		
 		return "redirect:/homepage";
 	}
 	
 	@RequestMapping(value="/logout")
-	public String logout(SessionStatus status){
+	public String logout(SessionStatus status,HttpServletResponse response){
+		
+		Cookie userIdCookie = new Cookie("userId",null);
+		userIdCookie.setMaxAge(0);
+		userIdCookie.setPath("/");
+		userIdCookie.setHttpOnly(true);
+		response.addCookie(userIdCookie);
 		
 		status.setComplete();
 		return "redirect:/homepage";

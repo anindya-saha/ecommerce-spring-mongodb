@@ -3,29 +3,36 @@ package com.ecommerce.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.model.Product;
+import com.ecommerce.model.User;
 import com.ecommerce.service.ProductService;
+import com.ecommerce.service.UserService;
 
 @Controller
 @RequestMapping(value = "/homepage")
-@SessionAttributes({"user"})
+//@SessionAttributes({"user"})
 public class HomepageController {
 	
 	@Inject
 	private ProductService productService;
+	
+	@Inject
+	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView homePage(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response,Model model) {
 		ModelAndView mav = new ModelAndView();
 
 		List<Product> products = productService.listOrderedProducts("productAddedDate","DESC",4);
@@ -33,6 +40,8 @@ public class HomepageController {
 		mav.addObject("products", products);
 		
 		mav.setViewName("homepage");
+		
+		
 		return mav;
 	}
 

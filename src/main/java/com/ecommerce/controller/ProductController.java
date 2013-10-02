@@ -51,6 +51,9 @@ public class ProductController {
 		mav.addObject("prodCategory",singleProduct.getCategory().getName());
 		mav.addObject("categoryList",catMap);
 		mav.addObject("product",singleProduct);
+		
+		List<Product> relatedProduct = productService.listRelatedProducts(singleProduct, 3);
+		mav.addObject("relatedProduct",relatedProduct);
 
 		mav.setViewName("productDetails");
 		return mav;
