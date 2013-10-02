@@ -227,7 +227,7 @@
 							</span>
 						</div><!--end product-price-->
 						<div class="product-rate clearfix">
-							<%@include file="/WEB-INF/view/tiles/urun/product_rating.jsp" %>
+							<%@include file="/WEB-INF/view/tiles/common/product_rating.jsp" %>
 							<span>${fn:length(product.comment)} Yorum <a href="#">Make a Review</a></span>
 						</div><!--end product-inputs-->
 						<div class="product-info">
@@ -346,111 +346,49 @@
 
 		<div class="related-product">
 			<div class="titleHeader clearfix">
-				<h3>Related Product</h3>
+				<h3>Related Products</h3>
 			</div><!--end titleHeader-->
 
 			<div class="row">
 			<ul class="hProductItems clearfix">
-				<li class="span3 clearfix">
-					<div class="thumbnail">
-						<a href="#"><img src="static/img/212x192.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the designer portfolio brochure
-							</a>
+				<c:forEach var="relProd" items="${relatedProduct}">
+					<li class="span3 clearfix">
+						<div class="thumbnail">
+							<a href="#"><img src="static/img/212x192.jpg" alt=""></a>
 						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
+						<div class="thumbSetting">
+							<div class="thumbTitle">
+								<a href="#" class="invarseColor">
+									${relProd.name}
+								</a>
+							</div>
+							<div class="thumbPrice">
+								<span>${relProd.price}</span>
+							</div>
+				
+							<div class="thumbButtons">
+								<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" rel="tooltip">
+									<i class="icon-shopping-cart"></i>
+								</button>
+								<button class="btn btn-small" data-title="+To WishList" data-placement="top" rel="tooltip">
+									<i class="icon-heart"></i>
+								</button>
+							
+								<button class="btn btn-small" data-title="+To Compare" data-placement="top" rel="tooltip">
+									<i class="icon-refresh"></i>
+								</button>
+							</div>
+				
+							<ul class="rating">
+								<li><i class="star-on"></i></li>
+								<li><i class="star-on"></i></li>
+								<li><i class="star-on"></i></li>
+								<li><i class="star-on"></i></li>
+								<li><i class="star-off"></i></li>
+							</ul>
 						</div>
-
-						<div class="thumbButtons">
-							<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" rel="tooltip">
-								<i class="icon-shopping-cart"></i>
-							</button>
-							<button class="btn btn-small" data-title="+To WishList" data-placement="top" rel="tooltip">
-								<i class="icon-heart"></i>
-							</button>
-						
-							<button class="btn btn-small" data-title="+To Compare" data-placement="top" rel="tooltip">
-								<i class="icon-refresh"></i>
-							</button>
-						</div>
-
-						<ul class="rating">
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-off"></i></li>
-						</ul>
-					</div>
-				</li>
-				<li class="span3 clearfix">
-					<div class="thumbnail">
-						<a href="#"><img src="static/img/212x192.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the designer portfolio brochure
-							</a>
-						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
-						</div>
-
-						<div class="thumbButtons">
-							<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" rel="tooltip">
-								<i class="icon-shopping-cart"></i>
-							</button>
-							<button class="btn btn-small" data-title="+To WishList" data-placement="top" rel="tooltip">
-								<i class="icon-heart"></i>
-							</button>
-						
-							<button class="btn btn-small" data-title="+To Compare" data-placement="top" rel="tooltip">
-								<i class="icon-refresh"></i>
-							</button>
-						</div>
-
-						<ul class="rating">
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-						</ul>
-					</div>
-				</li>
-				<li class="span3 clearfix">
-					<div class="thumbnail">
-						<a href="#"><img src="static/img/212x192.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the designer portfolio brochure
-							</a>
-						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
-						</div>
-
-						<div class="thumbButtons">
-							<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" rel="tooltip">
-								<i class="icon-shopping-cart"></i>
-							</button>
-							<button class="btn btn-small" data-title="+To WishList" data-placement="top" rel="tooltip">
-								<i class="icon-heart"></i>
-							</button>
-						
-							<button class="btn btn-small" data-title="+To Compare" data-placement="top" rel="tooltip">
-								<i class="icon-refresh"></i>
-							</button>
-						</div>
-					</div>
-				</li>
+					</li>
+				</c:forEach>
 			</ul>
 			</div><!--end row-->
 		</div><!--end related-product-->

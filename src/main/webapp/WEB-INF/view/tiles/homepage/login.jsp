@@ -25,8 +25,8 @@
 								<input type="password" name="password" placeholder="**************">
 							</div>
 							<div class="controls">
-								<label class="checkbox"> <input type="checkbox">
-									Check me out
+								<label class="checkbox"> <input type="checkbox" value="true" name="remember">
+									Remember Me
 								</label>
 								<button type="submit" class="btn btn-primary">Login</button>
 							</div>

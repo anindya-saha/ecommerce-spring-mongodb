@@ -50,7 +50,6 @@
 		<td>productStock</td>
 		<td>productRating</td>
 		<td>productAddedDate</td>
-		<td>productDescription</td>
 		<td>productComment</td>
 		</tr>
 		<c:forEach var="product" items="${productList}">
@@ -63,7 +62,6 @@
 				<td>${product.stock}</td>
 				<td>${product.rating}</td>
 				<td>${product.addedDate}</td>
-				<td>${product.description}</td>
 				<td>
 				<c:forEach var="comment" items="${product.comment}">
 					${comment.comment}

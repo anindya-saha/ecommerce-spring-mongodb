@@ -120,7 +120,7 @@
 				<h3>JUST NEW ADDED ITEMS</h3>
 				<div class="pagers">
 					<div class="btn-toolbar">
-						<button class="btn btn-mini">View All</button>
+						<a href="category/new-added" class="btn btn-mini">View All</a>
 					</div>
 				</div>
 			</div>
@@ -160,7 +160,7 @@
 										<i class="icon-refresh"></i>
 									</button>
 								</div>
-								<%@include file="/WEB-INF/view/tiles/urun/product_rating.jsp" %>
+								<%@include file="/WEB-INF/view/tiles/common/product_rating.jsp" %>
 							</div>
 						</li>
 					</c:forEach>
@@ -178,7 +178,7 @@
 		<div id="featuredItems">
 
 			<div class="titleHeader clearfix">
-				<h3>MOST ORDERED ITEMS</h3>
+				<h3>SPECIAL OFFERS FOR YOU</h3>
 				<div class="pagers">
 					<div class="btn-toolbar">
 						<button class="btn btn-mini">View All</button>
