@@ -29,6 +29,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	public List<Product> listRelatedProducts(Product product, int limit) {
+		logger.debug("Getting related products");
+		try {
+			return productDao.getRelatedProducts(product, limit);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to getting related products");
+			return null;
+		}
+	}
+	
 	public List<Product> listOrderedProducts(String orderBy,String orderType,int limit){
 		logger.debug("Getting ordered product with limit");
 		try {
