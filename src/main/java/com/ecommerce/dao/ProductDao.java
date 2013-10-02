@@ -6,9 +6,11 @@ import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
 import com.ecommerce.model.ProductSpecification;
 
-public abstract interface ProductDao /*extends MongoRepository<Product, String>*/{
+public abstract interface ProductDao {
 	
   public abstract List<Product> getAllProducts();
+  
+  public abstract List<Product> getRelatedProducts(Product product,int limit);
   
   public abstract List<Product> getOrderedProducts(String orderBy,String orderType,int limit);
   

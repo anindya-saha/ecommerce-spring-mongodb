@@ -27,6 +27,17 @@ public class ProductDaoImpl implements ProductDao {
 		return mongoTemplate.findAll(Product.class, COLLECTION_NAME);
 	}
 	
+	public List<Product> getRelatedProducts(Product product, int limit){
+		Query query = new Query();
+		query.addCriteria(
+				Criteria.where("category.name").is(product.getCategory().getName())
+				.orOperator(Criteria.where("category.parent").is(product.getCategory().getParent()))
+				.andOperator(Criteria.where("_id").ne(product.getId())))
+				.limit(limit);
+		
+		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
+	}
+	
 	public List<Product> getOrderedProducts(String orderBy,String orderType,int limit){
 		Query query = new Query();
 		if(orderType.equals("DESC")){

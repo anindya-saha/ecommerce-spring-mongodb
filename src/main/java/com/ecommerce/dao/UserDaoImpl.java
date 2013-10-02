@@ -25,8 +25,7 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public User getUserById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return mongoTemplate.findById(id, User.class, COLLECTION_NAME);
 	}
 	
 	@Override

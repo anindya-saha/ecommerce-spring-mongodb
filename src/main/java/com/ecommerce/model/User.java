@@ -5,6 +5,8 @@ public class User {
 	private String id;
 
 	private String name;
+	
+	private String surname;
 
 	private String password;
 
@@ -15,6 +17,10 @@ public class User {
 	private UserAddress address;
 	
 	private String ipAddress;
+	
+	private UserOrder[] userOrder;
+	
+	private UserTracker[] userTracker;
 
 	public String getId() {
 		return this.id;
@@ -27,9 +33,15 @@ public class User {
 	public String getName() {
 		return this.name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getSurname() {
+		return this.surname;
+	}
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public String getPassword() {
@@ -68,6 +80,20 @@ public class User {
 	}
 	public void setIpAddress(String ipAddress){
 		this.ipAddress = ipAddress; 
+	}
+	
+	public UserOrder[] getOrders(){
+		return this.userOrder;
+	}
+	public void setOrders(UserOrder[] userOrder){
+		this.userOrder = userOrder;
+	}
+	
+	public UserTracker[] getUserTracker(){
+		return this.userTracker;
+	}
+	public void setUserTracker(UserTracker[] userTracker){
+		this.userTracker = userTracker;
 	}
 	
 }

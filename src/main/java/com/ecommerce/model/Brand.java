@@ -5,6 +5,8 @@ public class Brand {
 	private String id;
 	
 	private String name;
+	
+	private String image;
 
 	public String getId() {
 		return id;
@@ -20,5 +22,10 @@ public class Brand {
 		this.name = name;
 	}
 	
-	
+	public String getImage(){
+		return image;
+	}
+	public void setImage(String image){
+		this.image = image;
+	}
 }
