@@ -93,13 +93,13 @@
 		<constructor-arg name="mongoConverter" ref="mappingMongoConverter" />
 	 </bean>
 	 
-	 <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="commonInterceptor" />
-			</list>
-		</property>
-	</bean>
+<!-- 	 <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"> -->
+<!-- 		<property name="interceptors"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="commonInterceptor" /> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	 
 	<bean id="commonInterceptor" class="com.ecommerce.interceptor.CommonInterceptor" />
 	
