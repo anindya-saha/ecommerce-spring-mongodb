@@ -20,7 +20,11 @@
   </definition>
   
   <definition name="productDetails" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/urun/product_details.jsp"/>
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/product/product_details.jsp"/>
+  </definition>
+  
+  <definition name="categoryGrid" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/category/category_grid.jsp"/>
   </definition>
   
   <definition name="register" extends="commonpage">
