@@ -29,17 +29,11 @@ public class UserDaoImpl implements UserDao{
 	}
 	
 	@Override
-	public User getUserByName(String name) {
+	public User getUserByEmail(String email) {
 		Query query = new Query();
-		query.addCriteria(Criteria.where("name").is(name));
+		query.addCriteria(Criteria.where("email").is(email));
 		return mongoTemplate.findOne(query, User.class);
 	}
-	
-//	public User getUserByNameAndPassword(String name, String password){
-//		Query query = new Query();
-//		query.addCriteria(Criteria.where("name").is(name));
-//		return mongoTemplate.findOne(query, User.class);
-//	}
 
 	@Override
 	public void saveUser(User user) {

@@ -37,17 +37,17 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login-process", method = RequestMethod.POST)
 	public String loginProcess(
-			@RequestParam(value="name", required = false) String name,
+			@RequestParam(value="email", required = false) String email,
 			@RequestParam(value="password", required = false) String password,
 			@RequestParam(value="remember", required = false) boolean remember,
 			Model model,
 			HttpServletResponse response,
 			HttpServletRequest request) throws Exception{
 		
-		boolean login = userService.loginUser(name,password);
+		boolean login = userService.loginUser(email,password);
 		
 		if(login){
-			User user = userService.getUserByName(name);
+			User user = userService.getUserByEmail(email);
 			model.addAttribute(user);
 			if(remember){
 				Cookie userIdCookie = new Cookie("userId",user.getId());

@@ -8,13 +8,18 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +34,7 @@ import com.ecommerce.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/product")
-@SessionAttributes({"user"})
+@SessionAttributes({"cart"})
 public class ProductController {
 	protected static Logger logger = Logger.getLogger("controller");
 
@@ -81,6 +86,18 @@ public class ProductController {
 		productService.addProductComment(existingProduct, newProductComment);
 		
 		return "redirect:/homepage";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/add-to-cart", method = RequestMethod.POST)
+	public String addProductToCart(
+			@RequestParam(value = "productId" ,required = true) String productId,
+			Model model){
+		Product product = productService.singleProduct(productId);
+		
+		model.addAttribute("cart", product);
+		
+		return "added product to cart";
 	}
 
 }

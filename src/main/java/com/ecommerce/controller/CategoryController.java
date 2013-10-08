@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
@@ -27,8 +28,10 @@ public class CategoryController {
 	@RequestMapping(value="{categoryId}",method = RequestMethod.GET)
 	public ModelAndView listAllProducts(@PathVariable String categoryId){
 		ModelAndView mav = new ModelAndView();
-		
-		List<Product> products = productService.listProducts();
+
+		Category category = categoryService.getCategory(categoryId);
+		List<Product> products = productService.listCategorizedProducts(category.getName());
+		mav.addObject("category",category);
 		mav.addObject("products", products);
 		
 		mav.setViewName("categoryGrid");

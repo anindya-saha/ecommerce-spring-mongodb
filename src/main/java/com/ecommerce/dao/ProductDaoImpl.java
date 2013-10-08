@@ -41,14 +41,24 @@ public class ProductDaoImpl implements ProductDao {
 	public List<Product> getOrderedProducts(String orderBy,String orderType,int limit){
 		Query query = new Query();
 		if(orderType.equals("DESC")){
-			query.with(new Sort(Sort.Direction.DESC, orderBy)).limit(limit);
+			if(limit == 0){
+				query.with(new Sort(Sort.Direction.DESC, orderBy));	
+			}
+			else{
+				query.with(new Sort(Sort.Direction.DESC, orderBy)).limit(limit);
+			}
 		}else if(orderType.equals("ASC")){
-			query.with(new Sort(Sort.Direction.ASC, orderBy)).limit(limit);
+			if(limit == 0){
+				query.with(new Sort(Sort.Direction.ASC, orderBy));	
+			}
+			else{
+				query.with(new Sort(Sort.Direction.ASC, orderBy)).limit(limit);
+			}
 		}
 
 		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
 	}
-
+	
 	public Product getSingleProduct(String id) {
 		return mongoTemplate.findById(id, Product.class, COLLECTION_NAME);
 	}
@@ -75,13 +85,28 @@ public class ProductDaoImpl implements ProductDao {
 	
 	public void saveProductComment(Product product,ProductComment comment){
 
-		Update update = new Update();
-		update.push("comment",comment);
+		Product existingProduct = getSingleProduct(product.getId());
+		ProductComment[] exProdComment = existingProduct.getComment();
 		
-		Query query = new Query();
-		query.addCriteria(Criteria.where("_id").is(product.getId()));
+		boolean checkUserId = true;
 		
-		mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+		for(ProductComment pCom : exProdComment){
+			if(pCom.getUserId().equals(comment.getUserId())){
+				checkUserId = false;
+				throw new IllegalStateException("Comment have been storing with same user id");
+			}
+		}
+		
+		if(checkUserId){
+			Update update = new Update();
+			update.push("comment",comment);
+			
+			Query query = new Query();
+			query.addCriteria(Criteria.where("_id").is(product.getId()));
+			
+			mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+		}
+		
 		//mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
 		
 	}

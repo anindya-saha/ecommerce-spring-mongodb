@@ -10,9 +10,7 @@ public abstract interface UserDao {
 	
 	public abstract User getUserById(String id);
 	
-	public abstract User getUserByName(String name);
-	
-//	public abstract User getUserByNameAndPassword(String name, String password);
+	public abstract User getUserByEmail(String email);
 	
 	public abstract void saveUser(User user);
 	
