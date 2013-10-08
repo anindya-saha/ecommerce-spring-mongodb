@@ -25,6 +25,10 @@
 							Welcome to ShopFine, <a href="${pageContext.request.contextPath}/user">Login</a> or <a href="${pageContext.request.contextPath}/register">Create new account</a>
 						</c:otherwise>
 					</c:choose>
+					<c:if test="${not empty cart}">
+						${cart.name}
+						${cart.price}
+					</c:if>
 					</p>
 				</div><!--end container-->
 			</div><!--end upperHeader-->
@@ -48,33 +52,7 @@
 					</div>
 
 					<div class="pull-right">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							    $ <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu currency" role="menu">
-								<li><a href="#">$</a></li>
-								<li class="divider"></li>
-								<li><a href="#">¥</a></li>
-								<li class="divider"></li>
-								<li><a href="#">£</a></li>
-								<li class="divider"></li>
-								<li><a href="#">€</a></li>
-							</ul>
-						</div>
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							    EN <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu language" role="menu">
-								<li><a href="#">FR</a></li>
-								<li class="divider"></li>
-								<li><a href="#">CH</a></li>
-								<li class="divider"></li>
-								<li><a href="#">AR</a></li>
-							</ul>
-						</div>
-
+						<a class="btn"  href="#">Wishlist - (4 items)</a>
 						<div class="btn-group">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 							    <i class="icon-shopping-cart"></i> 3 Items

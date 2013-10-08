@@ -10,7 +10,7 @@
  --%>
 <c:forEach var="category" items="${catList}">
 	<li><c:if test="${empty category.ancestors}">
-			<a href="category/${category.id}">${category.name} <i
+			<a href="${pageContext.request.contextPath}/category/${category.id}">${category.name} <i
 				class="icon-caret-down"></i>
 			</a>
 			<div>
@@ -19,13 +19,13 @@
 						<c:if test="${childCategory.parent eq category.name}">
 
 							<li>
-								<a href="category/${childCategory.id}">${childCategory.name}</a>
+								<a href="${pageContext.request.contextPath}/category/${childCategory.id}">${childCategory.name}</a>
 								<div>
 									<ul>
 										<c:forEach var="deepCategory" items="${catList}"
 											varStatus="count">
 											<c:if test="${deepCategory.parent eq childCategory.name}">
-												<li><a href="category/${deepCategory.id}">-${deepCategory.name}</a></li>
+												<li><a href="${pageContext.request.contextPath}/category/${deepCategory.id}">-${deepCategory.name}</a></li>
 												<c:set value="true" var="ico"/>
 											</c:if>
 										</c:forEach>
