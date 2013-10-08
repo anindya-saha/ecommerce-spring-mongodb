@@ -10,7 +10,7 @@
 				<h3>Categories</h3>
 			</div><!--end titleHeader-->
 			<ul class="unstyled">
-				<li><a class="invarseColor active" href="#">Women (16)</a>
+				<li><a class="invarseColor active" href="#">${category.name}</a>
 					<ul class="submenu">
 						<li><a class="invarseColor" href="#">Beauty (3)</a></li>
 						<li><a class="invarseColor active" href="#">Dresses (4)</a></li>
