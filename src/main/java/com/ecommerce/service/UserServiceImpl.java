@@ -34,18 +34,18 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public User getUserByName(String name) {
-		return userDao.getUserByName(name);
+	public User getUserByEmail(String email) {
+		return userDao.getUserByEmail(email);
 	}
 	
 	@Override
-	public boolean loginUser(String name, String password) throws Exception{
+	public boolean loginUser(String email, String password) throws Exception{
 		boolean a;
 		User user = new User();
 		
-		user = getUserByName(name);
+		user = getUserByEmail(email);
 		if(user == null){
-			throw new Exception("Invalid username");
+			throw new Exception("Invalid email");
 		}
 		else{
 			if(user.getPassword().equals(password)){

@@ -16,6 +16,8 @@ public abstract interface ProductService{
   
   public abstract Product singleProduct(String id);
   
+  public abstract List<Product> listCategorizedProducts(String categoryName);
+  
   public abstract void addProduct(Product product);
   
   public abstract void removeProduct(Product product);

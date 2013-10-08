@@ -1,5 +1,7 @@
 package com.ecommerce.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.dao.ProductDao;
+import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
 import com.ecommerce.model.ProductSpecification;
@@ -47,6 +50,24 @@ public class ProductServiceImpl implements ProductService {
 			logger.error("An error has occured while trying to getting ordered products");
 			return null;
 		}
+	}
+	
+	public List<Product> listCategorizedProducts(String categoryName){
+		logger.debug("Getting categorized products");
+		
+		Category cat = new Category();
+		List<Product> allProduct = productDao.getAllProducts();
+		List<Product> categorizedProducts = new ArrayList<>();
+		
+		for(Product ap : allProduct){
+			cat = ap.getCategory();
+			
+			if(cat.getName().equals(categoryName) || cat.getParent().equals(categoryName) || Arrays.asList(cat.getAncestors()).contains(categoryName)){
+				categorizedProducts.add(ap);
+			}
+		}
+		
+		return categorizedProducts;
 	}
 
 	public Product singleProduct(String id) {

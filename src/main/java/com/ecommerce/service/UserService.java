@@ -10,9 +10,9 @@ public abstract interface UserService{
 	
 	public abstract User getUserById(String id);
 	
-	public abstract User getUserByName(String name);
+	public abstract User getUserByEmail(String email);
 	
-	public abstract boolean loginUser(String name, String Password) throws Exception;
+	public abstract boolean loginUser(String email, String Password) throws Exception;
 	
 	public abstract void saveNewUser(User user);
 	
