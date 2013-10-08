@@ -146,7 +146,7 @@
 								</div>
 
 								<div class="thumbButtons">
-									<button class="btn btn-primary btn-small"
+									<button data-productid="${product.id}" class="btn btn-primary btn-small addTocart"
 										data-title="+Sepete Ekle" data-placement="top" rel="tooltip">
 										<i class="icon-shopping-cart"></i>
 									</button>

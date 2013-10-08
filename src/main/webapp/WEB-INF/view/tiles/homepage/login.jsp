@@ -17,8 +17,8 @@
 						<h3>Returning Customer</h3>
 						<form method="post" action="user/login-process">
 							<div class="controls">
-								<label>Your Username: <span class="text-error">*</span></label> <input
-									name="name" type="text" placeholder="example@example.com">
+								<label>Your Email: <span class="text-error">*</span></label> <input
+									name="email" type="text" placeholder="example@example.com">
 							</div>
 							<div class="controls">
 								<label>Your Password: <span class="text-error">*</span></label>
