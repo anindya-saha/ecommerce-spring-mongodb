@@ -232,12 +232,24 @@ function rangePriceSlider() {
 
 // jquery placeholder plugin to work just in IE Only
 function placeholderForIEOnly() {
-	$('input, textarea').placeholder();
+	//$('input, textarea').placeholder();
 }
 
+function addToCart(productId){
+	$.ajax({
+	  url: "/ecommerce/product/add-to-cart",
+	  type: "POST",
+	  data: {
+		  productId:productId
+	  }
+	}).done(function(data) {
+		alert(productId + " " + data);
+	}).fail(function(){
+		alert("Error while adding product to cart");
+	});
+}
 
-
-$(document).ready(function(){
+$(function(){
 	topNavToSelect();
 	NavToSelect();
 	showtooltip();
@@ -253,4 +265,10 @@ $(document).ready(function(){
 	changeColorStyle();
 	rangePriceSlider();
 	placeholderForIEOnly();
+	
+	$(".addTocart").on("click",function(){
+		var productId = $(this).data("productid");
+		addToCart(productId);
+	});
+	
 });
