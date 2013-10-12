@@ -209,7 +209,7 @@ public class AdminController {
 			@RequestParam(value="name",required = false) String name){
 		Brand newBrand = new Brand();
 		
-		newBrand.setBrand(name);
+		newBrand.setName(name);
 		
 		brandService.saveNewBrand(newBrand);
 		
