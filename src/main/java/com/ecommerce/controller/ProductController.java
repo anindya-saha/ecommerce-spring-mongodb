@@ -1,6 +1,7 @@
 package com.ecommerce.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +35,7 @@ import com.ecommerce.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/product")
-@SessionAttributes({"cart"})
+//@SessionAttributes({"cart"})
 public class ProductController {
 	protected static Logger logger = Logger.getLogger("controller");
 
@@ -88,14 +89,36 @@ public class ProductController {
 		return "redirect:/homepage";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@RequestMapping(value="/add-to-cart", method = RequestMethod.POST)
 	public String addProductToCart(
 			@RequestParam(value = "productId" ,required = true) String productId,
-			Model model){
+			HttpSession session){
+		//TODO: add count for one product item
+		boolean checkContain = false;
 		Product product = productService.singleProduct(productId);
-		
-		model.addAttribute("cart", product);
+		if(session.getAttribute("cart") == null || session.getAttribute("cart") == ""){
+			List<Product> productList = new ArrayList<Product>();
+			productList.add(product);
+			session.setAttribute("cart", productList);
+		}
+		else{
+			List<Product> productList = new ArrayList<Product>();
+			productList.addAll((Collection<? extends Product>) session.getAttribute("cart"));
+			for(Product p : productList){
+				if(p.getId().equals(product.getId())){
+					checkContain = true;
+				}
+			}
+			if(checkContain){
+				return "Product is already in your cart";
+			}
+			else{
+				productList.add(product);
+				session.setAttribute("cart", productList);
+			}
+		}
 		
 		return "added product to cart";
 	}
