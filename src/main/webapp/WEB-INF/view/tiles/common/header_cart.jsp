@@ -15,21 +15,21 @@
 			<div class="dropdown-menu cart-content pull-right">
 				<table class="table-cart">
 					<tbody>
-						<c:forEach var="cartProduct" items="${cart}">
+						<c:forEach var="cartItem" items="${cart}">
 							<tr>
 								<td class="cart-product-info">
-									<a href="${pageContext.request.contextPath}/product?productid=${cartProduct.id}"><img src="static/img/72x72.jpg" alt="product image"></a>
+									<a href="${pageContext.request.contextPath}/product?productid=${cartItem.product.id}"><img src="static/img/72x72.jpg" alt="product image"></a>
 									<div class="cart-product-desc">
-										<p><a class="invarseColor" href="${pageContext.request.contextPath}/product?productid=${cartProduct.id}">${cartProduct.name}</a></p>
+										<p><a class="invarseColor" href="${pageContext.request.contextPath}/product?productid=${cartProduct.id}">${cartItem.product.name}</a></p>
 										<ul class="unstyled">
-											<li>Brand: <c:if test="${not empty cartProduct.brand.name}">${cartProduct.brand.name}</c:if></li>
-											<li>Stock: ${cartProduct.stock}</li>
+											<li>Brand: <c:if test="${not empty cartProduct.product.brand.name}">${cartItem.product.brand.name}</c:if></li>
+											<li>Stock: ${cartItem.product.stock}</li>
 										</ul>
 									</div>
 								</td>
 								<td class="cart-product-setting">
-									<p><strong>${cartProduct.price} x1</strong></p>
-									<a href="#" class="remove-pro" rel="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
+									<p><strong>${cartItem.product.price} x${cartItem.count}</strong></p>
+									<a href="#" class="remove-pro removeFromCart" data-productid="${cartItem.product.id}" rel="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -41,7 +41,7 @@
 								<a href="#" class="btn btn-small btn-primary">Checkout</a>
 							</td>
 							<td>
-								<h3>TOTAL<br>$1,598.30</h3>
+								<h3>TOTAL<br>${cartTotal} TL</h3>
 							</td>
 						</tr>
 					</tfoot>

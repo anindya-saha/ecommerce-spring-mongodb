@@ -58,7 +58,7 @@
 				<td>${product.price}</td>
 				<td>${product.invalidPrice}</td>
 				<td>${product.category.parent}/${product.category.name}</td>
-				<td>${product.brand.brand}</td>
+				<td>${product.brand.name}</td>
 				<td>${product.stock}</td>
 				<td>${product.rating}</td>
 				<td>${product.addedDate}</td>

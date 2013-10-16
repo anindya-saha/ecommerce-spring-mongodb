@@ -239,7 +239,7 @@
 							  <dd>${product.shipmentType eq 1 ?  "Ücretsiz Kargo": "Alıcı Öder"}</dd>
 
 							  <dt>Marka:</dt>
-							  <dd>${product.brand.brand}</dd>
+							  <dd>${product.brand.name}</dd>
 
 							   <dt>Review Points:</dt>
 							  <dd>25 Points</dd>

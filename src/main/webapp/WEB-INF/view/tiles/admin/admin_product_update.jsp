@@ -29,7 +29,7 @@
 			
 			<label for="name">Product Brand</label>
 			<c:forEach var="brand" items="${brandList}" varStatus="count">
-				<input type="radio" name="brand" <c:if test="${product.brand.id eq brand.id}">checked="true"</c:if> value="${brand.id}"/>${brand.brand}
+				<input type="radio" name="brand" <c:if test="${product.brand.id eq brand.id}">checked="true"</c:if> value="${brand.id}"/>${brand.name}
 			</c:forEach>
 			
 			<label for="name">Product productShipmentType</label>
