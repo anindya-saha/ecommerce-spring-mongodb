@@ -267,81 +267,58 @@
 
 		</div><!--end row-->
 
-
 		<div class="product-tab">
-			<ul class="nav nav-tabs">
-			  <li class="active">
-			  	<a href="#descraption" data-toggle="tab">Descraption</a>
-			  </li>
-			  <li>
-			  	<a href="#specfications" data-toggle="tab">Specfications</a>
-			  </li>
-			  <li>
-			  	<a href="#return-info" data-toggle="tab">Return Info</a>
-			  </li>
-			  <li class="dropdown">
-			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reviews <i class="icon-caret-down"></i></a>
-			  	<ul class="dropdown-menu">
-			  		<li><a href="#read-review" data-toggle="tab">Read Reviews</a></li>
-			  		<li><a href="#make-review" data-toggle="tab">Make Review</a></li>
-			  	</ul>
-			  </li>
-			</ul>
-			<div class="tab-content">
-				<div class="tab-pane active" id="descraption">
-					${product.description}
-				</div>
-				<div class="tab-pane" id="specfications">
-					<table class="table table-compare">
-						<c:forEach var="specification" items="${product.specification}">
-							<tr>
-								<td class="aligned-color"><h5>${specification.title}</h5></td>
-								<td>${specification.detail}</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="tab-pane" id="return-info">
-					<h4>Read our Returning info</h4><br>
-					<p>
-						Suspendisse potenti. In non nisl sem, eu rutrum augue. Donec eu dolor vel massa ornare cursus id eget erat. Mauris in ante magna. Curabitur eget risus mi, non interdum lacus. Duis magna leo, rhoncus eget malesuada quis, semper a quam. Morbi imperdiet imperdiet lectus ac pellentesque. Integer diam sem, vulputate in feugiat ut, porttitor eu libero. Integer non dolor ipsum. Cras condimentum mattis turpis quis vestibulum. Nulla a augue ipsum. Donec aliquam velit vel metus fermentum dictum sodales metus condimentum. Nullam id massa quis nulla molestie ultrices eget sed nulla. Cras feugiat odio at tellus euismod lacinia.
-						
-					</p>
-				</div>
-
-				<div class="tab-pane" id="read-review">
-				<c:forEach var="comment" items="${product.comment}">
-					<div class="single-review clearfix">
-						<div class="review-header">
-							<ul class="rating">
-								<li><i class="star-on"></i></li>
-								<li><i class="star-on"></i></li>
-								<li><i class="star-off"></i></li>
-								<li><i class="star-off"></i></li>
-								<li><i class="star-off"></i></li>
-							</ul>
-							<h4>${comment.userName}</h4>
-							<small>
-<%-- 							<fmt:formatDate value="${comments.getProductCommentDate()}" pattern="dd/MM/yyyy"/> --%>
-								${comment.date}
-							</small>
-						</div>
-						<!-- end review-header -->
-
-						<div class="review-body">
-							<p>${comment.comment}</p>
-						</div>
-						<!-- end review-body -->
-					</div>
-				</c:forEach>
-				<!-- end single-review -->
-				</div>
-
-				<div class="tab-pane" id="make-review">
-					<%@include file="/WEB-INF/view/tiles/product/make_review.jsp" %>
-				</div>
-			</div><!--end tab-content-->
-		</div><!--end product-tab-->
+		  <tabset>
+		    <tab heading="Description">${product.description}</tab>
+		    <tab heading="Specification">
+		      <table class="table table-compare">
+		        <c:forEach var="specification" items="${product.specification}">
+		          <tr>
+		            <td class="aligned-color"><h5>${specification.title}</h5></td>
+		            <td>${specification.detail}</td>
+		          </tr>
+		        </c:forEach>
+		      </table>
+		    </tab>
+		    <tab heading="Return Info">
+		      <h4>Read our Returning info</h4><br>
+		      <p>
+		        Suspendisse potenti. In non nisl sem, eu rutrum augue. Donec eu dolor vel massa ornare cursus id eget erat. Mauris in ante magna. Curabitur eget risus mi, non interdum lacus. Duis magna leo, rhoncus eget malesuada quis, semper a quam. Morbi imperdiet imperdiet lectus ac pellentesque. Integer diam sem, vulputate in feugiat ut, porttitor eu libero. Integer non dolor ipsum. Cras condimentum mattis turpis quis vestibulum. Nulla a augue ipsum. Donec aliquam velit vel metus fermentum dictum sodales metus condimentum. Nullam id massa quis nulla molestie ultrices eget sed nulla. Cras feugiat odio at tellus euismod lacinia.
+		        
+		      </p>
+		    </tab>
+		    <tab heading="Read Review">
+		      <c:forEach var="comment" items="${product.comment}">
+		        <div class="single-review clearfix">
+		          <div class="review-header">
+		            <ul class="rating">
+		              <li><i class="star-on"></i></li>
+		              <li><i class="star-on"></i></li>
+		              <li><i class="star-off"></i></li>
+		              <li><i class="star-off"></i></li>
+		              <li><i class="star-off"></i></li>
+		            </ul>
+		            <h4>${comment.userName}</h4>
+		            <small>
+		  <%--              <fmt:formatDate value="${comments.getProductCommentDate()}" pattern="dd/MM/yyyy"/> --%>
+		              ${comment.date}
+		            </small>
+		          </div>
+		          <!-- end review-header -->
+		
+		          <div class="review-body">
+		            <p>${comment.comment}</p>
+		          </div>
+		          <!-- end review-body -->
+		        </div>
+		      </c:forEach>
+		    <!-- end single-review -->
+		    </tab>
+		    <tab heading="Make Review">
+		      <%@include file="/WEB-INF/view/tiles/product/make_review.jsp" %>
+		    </tab>
+		  </tabset>
+		</div>
 
 
 		<div class="related-product">

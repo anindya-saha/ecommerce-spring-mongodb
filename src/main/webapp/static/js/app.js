@@ -1,57 +1,3 @@
-function topNavToSelect() {
-	// building select menu
-	$('<select class="upper-nav" />').appendTo('.upperHeader .container');
-
-	// building an option for select menu
-	$('<option />', {
-		'selected': 'selected',
-		'value' : '',
-		'text': 'Choise Page...'
-	}).appendTo('.upperHeader .container select');
-
-	$('.upperHeader ul.inline li a').each(function(){
-		var target = $(this);
-
-		$('<option />', {
-			'value' : target.attr('href'),
-			'text': target.text()
-		}).appendTo('.upperHeader .container select');
-	});
-	// on clicking on link
-	$('.upperHeader .container select').on('change',function(){
-		window.location = $(this).find('option:selected').val();
-	});
-}
-
-// building select .navbar for mobile width only
-function NavToSelect() {
-
-	// building select menu
-	$('<select />').appendTo('.navbar');
-
-	// building an option for select menu
-	$('<option />', {
-		'selected': 'selected',
-		'value' : '',
-		'text': 'Choise Page...'
-	}).appendTo('.navbar select');
-
-	$('.navbar ul li a').each(function(){
-		var target = $(this);
-
-		$('<option />', {
-			'value' : target.attr('href'),
-			'text': target.text()
-		}).appendTo('.navbar select');
-	});
-	// on clicking on link
-	$('.navbar select').on('change',function(){
-		window.location = $(this).find('option:selected').val();
-	});
-
-}
-
-
 // bootstrap tooltip invocking
 function showtooltip() {
 	$('a[rel=tooltip], button[rel=tooltip], input[rel=tooltip]')
@@ -176,8 +122,6 @@ function removeFromCart(productId){
 }
 
 $(function(){
-	topNavToSelect();
-	NavToSelect();
 	showtooltip();
 	cartContent();
 	flexSlideShow();
@@ -198,4 +142,26 @@ $(function(){
 	});
 	
 	
+});
+var app = angular.module('ecommerce', ['ui.bootstrap']);
+
+app.controller('productButtons', function($scope,$http) {
+  $scope.counter = 0;
+  $scope.addToCart = function(productId) { 
+	  $http({
+		  method: "POST",
+		  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		  url: "/ecommerce/product/add-to-cart",
+		  data: $.param({productId:productId})
+		}).success(function(data, status, headers, config) {
+		  // data contains the response
+		  // status is the HTTP status
+		  // headers is the header getter function
+		  // config is the object that was used to create the HTTP request
+			alert(productId + " " + data);
+		}).error(function(data, status, headers, config) {
+			alert("error");
+		});
+  };
+ // $scope.subtract = function(amount) { $scope.counter -= amount; };
 });

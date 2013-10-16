@@ -145,9 +145,9 @@
 											TL</span> ${product.price} TL</span>
 								</div>
 
-								<div class="thumbButtons">
-									<button data-productid="${product.id}" class="btn btn-primary btn-small addTocart"
-										data-title="+Sepete Ekle" data-placement="top" rel="tooltip">
+								<div class="thumbButtons" ng-controller="productButtons">
+									<button class="btn btn-primary btn-small"
+										data-title="+Sepete Ekle" data-placement="top" rel="tooltip" ng-click="addToCart('${product.id}')">
 										<i class="icon-shopping-cart"></i>
 									</button>
 									<button class="btn btn-small" data-title="+İsteklere Ekle"

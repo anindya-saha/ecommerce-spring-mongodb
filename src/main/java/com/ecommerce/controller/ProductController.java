@@ -146,18 +146,35 @@ public class ProductController {
 	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@RequestMapping(value="/remove-from-cart", method = RequestMethod.POST)
-	public String deleteProductFromCart(
+	public String removeProductFromCart(
 			@RequestParam(value = "productId" ,required = true) String productId,
 			HttpSession session){
 		
-		Product product = productService.singleProduct(productId);
+		boolean checkContain = false;
 		
+		CartItem cartItem = new CartItem();
+		cartItem.setProduct(productService.singleProduct(productId));
 		
-		List<Product> productList = new ArrayList<Product>();
-		productList.addAll((Collection<? extends Product>) session.getAttribute("cart"));
+		List<CartItem> cartItemList = new ArrayList<CartItem>();
+		cartItemList.addAll((Collection<? extends CartItem>) session.getAttribute("cart"));
 		
-		productList.remove(product);
-		session.setAttribute("cart", productList);
+		for(CartItem c : cartItemList){
+			if(c.getProduct().getId().equals(cartItem.getProduct().getId())){				
+				if(c.getCount() > 1){
+					cartItemList.remove(c);
+					c.setCount(c.getCount()-1);
+					cartItemList.add(c);
+				}else{
+					cartItem = c;
+					checkContain = true;
+				}
+			}
+		}
+		if(checkContain){
+			cartItemList.remove(cartItem);
+		}
+		
+		session.setAttribute("cart", cartItemList);
 		
 		return "Product removed from the cart";
 	}
