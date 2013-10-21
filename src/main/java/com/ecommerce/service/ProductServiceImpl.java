@@ -42,6 +42,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	public List<Product> listSameBrandProducts(Product product, int limit) {
+		logger.debug("Getting same brand products");
+		try {
+			return productDao.getSameBrandProducts(product, limit);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to getting same brand products");
+			return null;
+		}
+	}
+	
 	public List<Product> listOrderedProducts(String orderBy,String orderType,int limit){
 		logger.debug("Getting ordered product with limit");
 		try {

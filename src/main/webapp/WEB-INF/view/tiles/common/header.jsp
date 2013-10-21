@@ -35,7 +35,7 @@
 					<div class="middleContainer clearfix">
 
 					<div class="siteLogo pull-left">
-						<h1><a href="${pageContext.request.contextPath}/homepage">ShopFine</a></h1>
+						<h1><a href="${pageContext.request.contextPath}">ShopFine</a></h1>
 					</div>
 
 					<div class="pull-right">

@@ -10,7 +10,7 @@
 						<h3>New Customer</h3>
 						<p>By creating an account you will be able to shop faster, be
 							up to date on an order's status, and keep track of the orders you
-							have previously made.</p> <a href="/login/register" class="btn">Register</a>
+							have previously made.</p> <a href="register" class="btn">Register</a>
 					</td>
 
 					<td width="50%">

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <li class="active"><a
-	href="${pageContext.request.contextPath}/homepage"><i
+	href="${pageContext.request.contextPath}"><i
 		class="icon-home"></i></a></li>
 <%-- 
 	// TODO , this will be a custom taglib for endless tree category(now its limited)

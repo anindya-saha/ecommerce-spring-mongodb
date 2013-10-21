@@ -12,6 +12,8 @@ public abstract interface ProductService{
   
   public abstract List<Product> listRelatedProducts(Product product, int limit);
   
+  public abstract List<Product> listSameBrandProducts(Product product, int limit);
+  
   public abstract List<Product> listOrderedProducts(String orderBy,String orderType,int limit);
   
   public abstract Product singleProduct(String id);

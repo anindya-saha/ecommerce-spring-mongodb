@@ -61,6 +61,9 @@ public class ProductController {
 		
 		List<Product> relatedProduct = productService.listRelatedProducts(singleProduct, 3);
 		mav.addObject("relatedProduct",relatedProduct);
+		
+		List<Product> sameBrandProducts = productService.listSameBrandProducts(singleProduct, 4);
+		mav.addObject("sameBrandProducts",sameBrandProducts);
 
 		mav.setViewName("productDetails");
 		return mav;

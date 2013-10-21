@@ -20,7 +20,7 @@ import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
 
 @Controller
-@RequestMapping(value = "/homepage")
+@RequestMapping(value = "/")
 //@SessionAttributes({"user"})
 public class HomepageController {
 	

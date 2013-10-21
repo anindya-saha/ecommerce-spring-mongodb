@@ -17,87 +17,24 @@
 			</div><!--end titleHeader-->
 
 			<ul class="vProductItemsTiny">
-				<li class="span4 clearfix">
-					<div class="thumbImage">
-						<a href="#"><img src="static/img/92x92.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the title here
-							</a>
+				<c:forEach var="sameBrandProduct" items="${sameBrandProducts}">
+					<li class="span4 clearfix">
+						<div class="thumbImage">
+							<a href="${pageContext.request.contextPath}/product?productid=${sameBrandProduct.id}"><img src="static/img/92x92.jpg" alt=""></a>
 						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
+						<div class="thumbSetting">
+							<div class="thumbTitle">
+								<a href="${pageContext.request.contextPath}/product?productid=${sameBrandProduct.id}" class="invarseColor">
+									${sameBrandProduct.name}
+								</a>
+							</div>
+							<div class="thumbPrice">
+								<span>${sameBrandProduct.price}</span>
+							</div>
+							<rating value="${sameBrandProduct.rating}" max="5" readonly="true"></rating>
 						</div>
-						<ul class="rating">
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-						</ul>
-					</div>
-				</li>
-				<li class="span4 clearfix">
-					<div class="thumbImage">
-						<a href="#"><img src="static/img/92x92.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								getfolio
-							</a>
-						</div>
-						<div class="thumbPrice">
-							<span>$231</span>
-						</div>
-						<ul class="rating">
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-						</ul>
-					</div>
-				</li>
-				<li class="span4 clearfix">
-					<div class="thumbImage">
-						<a href="#"><img src="static/img/92x92.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the designer portfolio
-							</a>
-						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
-						</div>
-						<ul class="rating">
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-on"></i></li>
-							<li><i class="star-off"></i></li>
-							<li><i class="star-off"></i></li>
-						</ul>
-					</div>
-				</li>
-				<li class="span4 clearfix">
-					<div class="thumbImage">
-						<a href="#"><img src="static/img/92x92.jpg" alt=""></a>
-					</div>
-					<div class="thumbSetting">
-						<div class="thumbTitle">
-							<a href="#" class="invarseColor">
-								Foliomania the designer portfolio
-							</a>
-						</div>
-						<div class="thumbPrice">
-							<span>$150.00</span>
-						</div>
-					</div>
-				</li>
+					</li>
+				</c:forEach>
 			</ul>
 		</div><!--end special-->
 
@@ -227,7 +164,7 @@
 							</span>
 						</div><!--end product-price-->
 						<div class="product-rate clearfix">
-							<%@include file="/WEB-INF/view/tiles/common/product_rating.jsp" %>
+							<rating value="${product.rating}" max="5" readonly="true"></rating>
 							<span>${fn:length(product.comment)} Yorum <a href="#">Make a Review</a></span>
 						</div><!--end product-inputs-->
 						<div class="product-info">
@@ -322,52 +259,7 @@
 
 
 		<div class="related-product">
-			<div class="titleHeader clearfix">
-				<h3>Related Products</h3>
-			</div><!--end titleHeader-->
-
-			<div class="row">
-			<ul class="hProductItems clearfix">
-				<c:forEach var="relProd" items="${relatedProduct}">
-					<li class="span3 clearfix">
-						<div class="thumbnail">
-							<a href="#"><img src="static/img/212x192.jpg" alt=""></a>
-						</div>
-						<div class="thumbSetting">
-							<div class="thumbTitle">
-								<a href="#" class="invarseColor">
-									${relProd.name}
-								</a>
-							</div>
-							<div class="thumbPrice">
-								<span>${relProd.price}</span>
-							</div>
-				
-							<div class="thumbButtons">
-								<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" rel="tooltip">
-									<i class="icon-shopping-cart"></i>
-								</button>
-								<button class="btn btn-small" data-title="+To WishList" data-placement="top" rel="tooltip">
-									<i class="icon-heart"></i>
-								</button>
-							
-								<button class="btn btn-small" data-title="+To Compare" data-placement="top" rel="tooltip">
-									<i class="icon-refresh"></i>
-								</button>
-							</div>
-				
-							<ul class="rating">
-								<li><i class="star-on"></i></li>
-								<li><i class="star-on"></i></li>
-								<li><i class="star-on"></i></li>
-								<li><i class="star-on"></i></li>
-								<li><i class="star-off"></i></li>
-							</ul>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
-			</div><!--end row-->
+			<%@include file="/WEB-INF/view/tiles/product/related_products.jsp" %>
 		</div><!--end related-product-->
 
 	</div><!--end span9-->

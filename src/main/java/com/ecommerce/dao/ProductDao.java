@@ -12,6 +12,8 @@ public abstract interface ProductDao {
   
   public abstract List<Product> getRelatedProducts(Product product,int limit);
   
+  public abstract List<Product> getSameBrandProducts(Product product, int limit);
+  
   public abstract List<Product> getOrderedProducts(String orderBy,String orderType,int limit);
   
   public abstract Product getSingleProduct(String id);

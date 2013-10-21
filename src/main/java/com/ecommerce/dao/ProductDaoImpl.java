@@ -38,6 +38,15 @@ public class ProductDaoImpl implements ProductDao {
 		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
 	}
 	
+	public List<Product> getSameBrandProducts(Product product, int limit){
+		Query query = new Query();
+		query.addCriteria(
+				Criteria.where("brand.name").is(product.getBrand().getName())
+				.andOperator(Criteria.where("_id").ne(product.getId())))
+				.limit(limit);
+		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
+	}
+	
 	public List<Product> getOrderedProducts(String orderBy,String orderType,int limit){
 		Query query = new Query();
 		if(orderType.equals("DESC")){

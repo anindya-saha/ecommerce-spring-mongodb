@@ -31,8 +31,7 @@
 				<i class="icon-refresh"></i>
 			</button>
 		</div>
-
-		<%@include file="/WEB-INF/view/tiles/common/product_rating.jsp" %>
+		<rating value="${product.rating}" max="5" readonly="true"></rating>
 	</div>
 </li>
 </c:forEach>
