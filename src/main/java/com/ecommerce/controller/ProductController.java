@@ -71,13 +71,13 @@ public class ProductController {
 
 	@RequestMapping(value = "/add-comment", method = RequestMethod.POST)
 	public String addProductComment(
-			@ModelAttribute("user") User user,
+			HttpSession session,
 			@RequestParam(value = "productid", required = false) String productId,
 			@RequestParam(value = "productComment", required = false) String comment,
 			@RequestParam(value = "productCommentRating", required = false) int commentRating){
 		
 		Product existingProduct = productService.singleProduct(productId);
-
+		User user = (User) session.getAttribute("user");
 		ProductComment newProductComment = new ProductComment();
 		newProductComment.setUserId(user.getId());
 		newProductComment.setComment(comment);
@@ -90,7 +90,7 @@ public class ProductController {
 		
 		productService.addProductComment(existingProduct, newProductComment);
 		
-		return "redirect:/homepage";
+		return "redirect:/";
 	}
 	
 	@SuppressWarnings("unchecked")

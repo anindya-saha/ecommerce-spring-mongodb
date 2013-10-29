@@ -103,11 +103,11 @@
 <!-- 		</property> -->
 <!-- 	</bean> -->
 	 
-	<bean id="commonInterceptor" class="com.ecommerce.interceptor.CommonInterceptor" />
+<!-- 	<bean id="commonInterceptor" class="com.ecommerce.interceptor.CommonInterceptor" /> -->
 	
-	<mvc:interceptors>
-		<ref bean="commonInterceptor"/>
-	</mvc:interceptors>
+<!-- 	<mvc:interceptors> -->
+<!-- 		<ref bean="commonInterceptor"/> -->
+<!-- 	</mvc:interceptors> -->
 	
 	
 </beans>

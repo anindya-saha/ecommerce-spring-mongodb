@@ -12,19 +12,28 @@
 	<put-attribute name="container-row2" value=""/>
 	<put-attribute name="container-row3" value=""/>
 	<put-attribute name="container-row4" value=""/>
+	<put-attribute name="container-row5" value=""/>
+	<put-attribute name="modal-windows" value="/WEB-INF/view/tiles/common/modal_windows.jsp"/>
 	<put-attribute name="scripts" value="/WEB-INF/view/tiles/common/scripts.jsp"/>
   </definition>
   
   <definition name="homepage" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/homepage.jsp"/>
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/slider.jsp"/>
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/homepage/new_added_products.jsp"/>
+  	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/homepage/special_offers.jsp"/>
+  	<put-attribute name="container-row4" value="/WEB-INF/view/tiles/homepage/latest_news.jsp"/>
+  	<put-attribute name="container-row5" value="/WEB-INF/view/tiles/homepage/brands.jsp"/>
   </definition>
   
   <definition name="productDetails" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/product/product_details.jsp"/>
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/product/product_details.jsp"/>
+  	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/product/related_products.jsp"/>
   </definition>
   
   <definition name="categoryGrid" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/category/category_grid.jsp"/>
+    <put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/category/category_grid.jsp"/>
   </definition>
   
   <definition name="register" extends="commonpage">

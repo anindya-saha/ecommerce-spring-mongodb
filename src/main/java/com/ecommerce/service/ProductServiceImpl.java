@@ -117,11 +117,11 @@ public class ProductServiceImpl implements ProductService {
 
 	public void addProductComment(Product product,ProductComment comment) {
 		logger.debug("Adding comment to existing product");
-		try {
+		//try {
 			productDao.saveProductComment(product,comment);
-		} catch (Exception e) {
-			logger.error("An error has occured while trying to adding new comment on an existing product");
-		}
+		//} catch (Exception e) {
+			//logger.error("An error has occured while trying to adding new comment on an existing product");
+		//}
 		
 	}
 

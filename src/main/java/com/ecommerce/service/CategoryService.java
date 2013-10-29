@@ -13,6 +13,10 @@ public abstract interface CategoryService {
 	
 	public abstract Category getCategoryByName(String name);
 	
+	public abstract List<Category> getMainCategories();
+	
+	public abstract List<Category> getChildCategories(String parent);
+	
 	public abstract HashMap<String,String> getCategoryTree(String name);
 	
 	public abstract void saveNewCategory(Category category);

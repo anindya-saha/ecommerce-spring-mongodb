@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,6 @@ import com.ecommerce.service.UserService;
 
 @Controller
 @RequestMapping(value="/user")
-@SessionAttributes({"user"})
 public class LoginController {
 	
 	protected static Logger logger = Logger.getLogger("controller");
@@ -40,15 +40,15 @@ public class LoginController {
 			@RequestParam(value="email", required = false) String email,
 			@RequestParam(value="password", required = false) String password,
 			@RequestParam(value="remember", required = false) boolean remember,
-			Model model,
 			HttpServletResponse response,
-			HttpServletRequest request) throws Exception{
+			HttpSession session) throws Exception{
 		
 		boolean login = userService.loginUser(email,password);
 		
 		if(login){
 			User user = userService.getUserByEmail(email);
-			model.addAttribute(user);
+			//model.addAttribute(user);
+			session.setAttribute("user", user);
 			if(remember){
 				Cookie userIdCookie = new Cookie("userId",user.getId());
 				userIdCookie.setMaxAge(60*60);
@@ -58,11 +58,11 @@ public class LoginController {
 			}
 		}
 		
-		return "redirect:/homepage";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/logout")
-	public String logout(SessionStatus status,HttpServletResponse response){
+	public String logout(SessionStatus status,HttpServletResponse response,HttpSession session){
 		
 		Cookie userIdCookie = new Cookie("userId",null);
 		userIdCookie.setMaxAge(0);
@@ -70,8 +70,12 @@ public class LoginController {
 		userIdCookie.setHttpOnly(true);
 		response.addCookie(userIdCookie);
 		
-		status.setComplete();
-		return "redirect:/homepage";
+		if (session.getAttribute("user") != null) {  
+		    session.invalidate();
+		    status.setComplete();
+		}
+		
+		return "redirect:/";
 	}
 	
 }

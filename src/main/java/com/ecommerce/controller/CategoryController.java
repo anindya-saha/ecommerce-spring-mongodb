@@ -31,6 +31,17 @@ public class CategoryController {
 
 		Category category = categoryService.getCategory(categoryId);
 		List<Product> products = productService.listCategorizedProducts(category.getName());
+		
+		if(category.getParent() != null){ // Child Category (it may be parent)
+			Category parentCategory = categoryService.getCategoryByName(category.getParent());
+			mav.addObject("parentCategory",parentCategory);
+		}else{ // Top Level Category
+			
+		}
+		//if(category.getParent() ==null){
+			List<Category> childCategories = categoryService.getChildCategories(category.getName());
+			mav.addObject("childCategories",childCategories);
+		//}
 		mav.addObject("category",category);
 		mav.addObject("products", products);
 		

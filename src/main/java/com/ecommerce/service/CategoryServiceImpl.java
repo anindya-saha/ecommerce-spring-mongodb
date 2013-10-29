@@ -52,6 +52,26 @@ public class CategoryServiceImpl implements CategoryService{
 		return map;
 	}
 
+	public List<Category> getMainCategories(){
+		logger.debug("Getting main categories");
+		try {
+			return categoryDao.getMainCategories();
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to get main categories");
+			return null;
+		}
+	}
+	
+	public List<Category> getChildCategories(String parent){
+		logger.debug("Getting child categories");
+		try {
+			return categoryDao.getSameChilds(parent);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to get child categories");
+			return null;
+		}
+	}
+	
 	//Save category
 	@Override
 	public void saveNewCategory(Category category) {

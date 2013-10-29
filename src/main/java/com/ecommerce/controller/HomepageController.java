@@ -3,7 +3,6 @@ package com.ecommerce.controller;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
-import com.ecommerce.model.User;
+import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
 
@@ -28,6 +27,9 @@ public class HomepageController {
 	private ProductService productService;
 	
 	@Inject
+	private CategoryService categoryService;
+	
+	@Inject
 	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -35,9 +37,11 @@ public class HomepageController {
 			HttpServletResponse response,Model model) {
 		ModelAndView mav = new ModelAndView();
 
-		List<Product> products = productService.listOrderedProducts("productAddedDate","DESC",4);
-				
+		List<Product> products = productService.listOrderedProducts("_id","DESC",9);
 		mav.addObject("products", products);
+		
+		List<Category> mainCategory = categoryService.getMainCategories();
+		mav.addObject("mainCategory",mainCategory);
 		
 		mav.setViewName("homepage");
 		

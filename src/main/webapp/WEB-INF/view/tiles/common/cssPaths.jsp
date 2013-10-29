@@ -1,23 +1,27 @@
-<!-- CSS
-================================================== -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" media="screen">
-<!-- jquery ui css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/jquery-ui-1.10.1.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/customize.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font-awesome.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
-<!-- flexslider css-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/flexslider.css">
-<!-- fancybox -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/js/lib/fancybox/jquery.fancybox.css">
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-	<link rel="stylesheet" href="static/css/font-awesome-ie7.css">
-<![endif]-->
-<!-- Favicons
-================================================== -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/favicon.html">
-<link rel="apple-touch-icon" href="${pageContext.request.contextPath}/static/images/apple-touch-icon.html">
-<link rel="apple-touch-icon" sizes="72x72" href="${pageContext.request.contextPath}/static/images/apple-touch-icon-72x72.html">
-<link rel="apple-touch-icon" sizes="114x114" href="${pageContext.request.contextPath}/static/images/apple-touch-icon-114x114.html">
+<!--  Google Fonts  -->
+<link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css' />
+
+<!-- Twitter Bootstrap -->
+<link href="${pageContext.request.contextPath}/static/stylesheets/bootstrap.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/static/stylesheets/responsive.css" rel="stylesheet" />
+<!-- Slider Revolution -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/js/rs-plugin/css/settings.css" type="text/css" />
+<!-- jQuery UI -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/js/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+<!-- PrettyPhoto -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/js/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<!-- main styles -->
+ 
+<link href="${pageContext.request.contextPath}/static/stylesheets/main.css" rel="stylesheet" />
+ 
+
+
+<!-- Modernizr -->
+<script src="${pageContext.request.contextPath}/static/js/modernizr.custom.56918.js"></script>    
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/static/images/apple-touch/144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/static/images/apple-touch/114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/static/images/apple-touch/72.png" />
+<link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/static/images/apple-touch/57.png" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/apple-touch/57.png" />

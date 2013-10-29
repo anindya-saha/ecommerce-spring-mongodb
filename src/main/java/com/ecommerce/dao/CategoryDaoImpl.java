@@ -62,6 +62,19 @@ public class CategoryDaoImpl implements CategoryDao {
 		
 	}
 	
+	public List<Category> getMainCategories(){
+		Query query = new Query();
+		query.addCriteria(Criteria.where("parent").is(null));
+		return mongoTemplate.find(query, Category.class, COLLECTION_NAME);
+	}
+	
+	public List<Category> getSameChilds(String parent){
+		Query query = new Query();
+		query.addCriteria(Criteria.where("parent").is(parent));
+		
+		return mongoTemplate.find(query, Category.class, COLLECTION_NAME);
+	}
+	
 	//Save Category
 	@Override
 	public void saveCategory(Category category) {

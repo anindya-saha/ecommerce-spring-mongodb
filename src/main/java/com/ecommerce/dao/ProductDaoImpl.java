@@ -3,6 +3,7 @@ package com.ecommerce.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Sort;
@@ -20,6 +21,8 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
+	protected static Logger logger = Logger.getLogger("dao");
 	
 	public static final String COLLECTION_NAME = "product";
 
@@ -98,11 +101,12 @@ public class ProductDaoImpl implements ProductDao {
 		ProductComment[] exProdComment = existingProduct.getComment();
 		
 		boolean checkUserId = true;
-		
-		for(ProductComment pCom : exProdComment){
-			if(pCom.getUserId().equals(comment.getUserId())){
-				checkUserId = false;
-				throw new IllegalStateException("Comment have been storing with same user id");
+		if(exProdComment != null){
+			for(ProductComment pCom : exProdComment){
+				if(pCom.getUserId().equals(comment.getUserId())){
+					checkUserId = false;
+					throw new IllegalStateException("Comment have been storing with same user id");
+				}
 			}
 		}
 		
@@ -113,7 +117,14 @@ public class ProductDaoImpl implements ProductDao {
 			Query query = new Query();
 			query.addCriteria(Criteria.where("_id").is(product.getId()));
 			
-			mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+			
+			try {
+				mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+				logger.debug("PRODUCT DAO OK");
+			} catch (Exception e) {
+				logger.error("PRODUCT DAO ERROR");
+			}
+			
 		}
 		
 		//mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
