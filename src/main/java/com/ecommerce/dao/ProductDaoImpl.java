@@ -74,6 +74,10 @@ public class ProductDaoImpl implements ProductDao {
 	public Product getSingleProduct(String id) {
 		return mongoTemplate.findById(id, Product.class, COLLECTION_NAME);
 	}
+	
+	public ProductComment getSingleComment(String id){
+		return mongoTemplate.findById(id, ProductComment.class, COLLECTION_NAME);
+	}
 
 	public void saveNewProduct(Product product){
 		if (!mongoTemplate.collectionExists(COLLECTION_NAME)) {
@@ -97,39 +101,39 @@ public class ProductDaoImpl implements ProductDao {
 	
 	public void saveProductComment(Product product,ProductComment comment){
 
-		Product existingProduct = getSingleProduct(product.getId());
-		ProductComment[] exProdComment = existingProduct.getComment();
-		
-		boolean checkUserId = true;
-		if(exProdComment != null){
-			for(ProductComment pCom : exProdComment){
-				if(pCom.getUserId().equals(comment.getUserId())){
-					checkUserId = false;
-					throw new IllegalStateException("Comment have been storing with same user id");
-				}
-			}
-		}
-		
-		if(checkUserId){
-			Update update = new Update();
-			update.push("comment",comment);
-			
-			Query query = new Query();
-			query.addCriteria(Criteria.where("_id").is(product.getId()));
-			
-			
-			try {
-				mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
-				logger.debug("PRODUCT DAO OK");
-			} catch (Exception e) {
-				logger.error("PRODUCT DAO ERROR");
-			}
-			
-		}
-		
-		//mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
-		
-	}
+        Product existingProduct = getSingleProduct(product.getId());
+        ProductComment[] exProdComment = existingProduct.getComment();
+        
+        boolean checkUserId = true;
+        if(exProdComment != null){
+                for(ProductComment pCom : exProdComment){
+                        if(pCom.getUserId().equals(comment.getUserId())){
+                                checkUserId = false;
+                                throw new IllegalStateException("Comment have been storing with same user id");
+                        }
+                }
+        }
+        
+        if(checkUserId){
+                Update update = new Update();
+                update.push("comment",comment);
+                
+                Query query = new Query();
+                query.addCriteria(Criteria.where("_id").is(product.getId()));
+                
+                
+                try {
+                        mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+                        logger.debug("PRODUCT DAO OK");
+                } catch (Exception e) {
+                        logger.error("PRODUCT DAO ERROR");
+                }
+                
+        }
+        
+        //mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
+        
+}
 	
 	public void saveProductSpecification(Product product, ProductSpecification productSpecification){
 		

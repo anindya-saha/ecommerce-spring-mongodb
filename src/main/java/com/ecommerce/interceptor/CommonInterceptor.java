@@ -30,7 +30,6 @@ public class CommonInterceptor implements HandlerInterceptor{
 	public void postHandle(HttpServletRequest request,HttpServletResponse response, Object handler,ModelAndView mav) throws Exception{
 //		System.out.println("posthandle");
 //		HttpSession session = request.getSession();
-		// TODO for mainMenuCategories
 		List<Category> categoryList = categoryService.getCategories();
 		mav.addObject("catList",categoryList);
 		
@@ -54,14 +53,12 @@ public class CommonInterceptor implements HandlerInterceptor{
 	public void afterCompletion(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
 		System.out.println("aftercomplete");
 	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2) throws Exception {
-		// TODO Auto-generated method stub
 		System.out.println("prehandle");
 		return true;
 	}

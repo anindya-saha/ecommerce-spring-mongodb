@@ -15,7 +15,9 @@ public abstract interface CategoryService {
 	
 	public abstract List<Category> getMainCategories();
 	
-	public abstract List<Category> getChildCategories(String parent);
+	public abstract List<Category> getChildCategories();
+	
+	public abstract List<Category> getSameChildCategories(String parent);
 	
 	public abstract HashMap<String,String> getCategoryTree(String name);
 	

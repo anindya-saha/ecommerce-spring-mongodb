@@ -62,7 +62,17 @@ public class CategoryServiceImpl implements CategoryService{
 		}
 	}
 	
-	public List<Category> getChildCategories(String parent){
+	public List<Category> getChildCategories(){
+		logger.debug("Getting child categories");
+		try {
+			return categoryDao.getChildCategories();
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to get child categories");
+			return null;
+		}
+	}
+	
+	public List<Category> getSameChildCategories(String parent){
 		logger.debug("Getting child categories");
 		try {
 			return categoryDao.getSameChilds(parent);

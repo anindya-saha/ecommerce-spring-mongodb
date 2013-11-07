@@ -68,6 +68,12 @@ public class CategoryDaoImpl implements CategoryDao {
 		return mongoTemplate.find(query, Category.class, COLLECTION_NAME);
 	}
 	
+	public List<Category> getChildCategories(){
+		Query query = new Query();
+		query.addCriteria(Criteria.where("parent").ne(null));
+		return mongoTemplate.find(query, Category.class, COLLECTION_NAME);
+	}
+	
 	public List<Category> getSameChilds(String parent){
 		Query query = new Query();
 		query.addCriteria(Criteria.where("parent").is(parent));

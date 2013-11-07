@@ -26,6 +26,8 @@ public class Product {
 
 	private String description;
 	
+	private String shortDesc;
+	
 	private ProductSpecification[] specification;
 
 	private ProductComment[] comment;
@@ -109,6 +111,13 @@ public class Product {
 
 	public void setAddedDate(Date addedDate) {
 		this.addedDate = addedDate;
+	}
+	
+	public String getShortDescription() {
+		return this.shortDesc;
+	}
+	public void setShortDescription(String shortDesc) {
+		this.shortDesc = shortDesc;
 	}
 
 	public String getDescription() {

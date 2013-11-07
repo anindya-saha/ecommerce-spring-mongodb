@@ -1,5 +1,6 @@
 package com.ecommerce.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
+import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
@@ -31,6 +34,9 @@ public class HomepageController {
 	
 	@Inject
 	private UserService userService;
+	
+	@Inject
+	private BrandService brandService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView homePage(HttpServletRequest request,
@@ -42,6 +48,12 @@ public class HomepageController {
 		
 		List<Category> mainCategory = categoryService.getMainCategories();
 		mav.addObject("mainCategory",mainCategory);
+		
+		List<Category> childCategories = categoryService.getChildCategories();
+		mav.addObject("childCategories",childCategories);
+		
+		List<Brand> brands = brandService.getBrands();
+		mav.addObject("brands",brands);
 		
 		mav.setViewName("homepage");
 		

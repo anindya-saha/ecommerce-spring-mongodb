@@ -7,36 +7,26 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.constant.ConfirmationStatus;
 import com.ecommerce.model.CartItem;
-import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
-import com.ecommerce.model.ProductSpecification;
 import com.ecommerce.model.User;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/product")
-//@SessionAttributes({"cart"})
 public class ProductController {
 	protected static Logger logger = Logger.getLogger("controller");
 

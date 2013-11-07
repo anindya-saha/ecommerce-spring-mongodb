@@ -2,7 +2,7 @@ package com.ecommerce.model;
 
 import java.util.Date;
 
-public class UserOrder {
+public class Order {
 	
 	private String id;
 	
@@ -11,6 +11,8 @@ public class UserOrder {
 	private Product product;
 	
 	private int status;
+	
+	private Date updateDate;
 	
 	public String getId(){
 		return this.id;
@@ -38,6 +40,13 @@ public class UserOrder {
 	}
 	public void setStatus(int status){
 		this.status = status;
+	}
+	
+	public Date getUpdateDate(){
+		return this.updateDate;
+	}
+	public void setUpdateDate(Date updateDate){
+		this.updateDate = updateDate;
 	}
 	
 }

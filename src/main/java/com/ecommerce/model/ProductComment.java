@@ -3,7 +3,9 @@ package com.ecommerce.model;
 import java.util.Date;
 
 public class ProductComment{
-
+	
+	private String id;
+	
 	private String userId;
 
 	private String userName;
@@ -15,6 +17,13 @@ public class ProductComment{
 	private Date date;
 
 	private int status;
+	
+	public String getId(){
+		return this.id;
+	}
+	public void setId(String id){
+		this.id = id;
+	}
 
 	public String getUserId() {
 		return this.userId;

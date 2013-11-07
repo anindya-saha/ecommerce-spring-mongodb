@@ -39,7 +39,7 @@ public class CategoryController {
 			
 		}
 		//if(category.getParent() ==null){
-			List<Category> childCategories = categoryService.getChildCategories(category.getName());
+			List<Category> childCategories = categoryService.getSameChildCategories(category.getName());
 			mav.addObject("childCategories",childCategories);
 		//}
 		mav.addObject("category",category);

@@ -8,7 +8,7 @@
 var WebMarketVars = {
     currencyBefore: true, // true foe the currencies like USD, where the symbol comes before the number ($123.45). False for the symbol after the number (123,45 €) 
     currencySymbol: "$",
-    priceRange: [ 0, 1750 ], // minimum and maximum range for the price range selector
+    priceRange: [ $(".priceRangeMin").text(), $(".priceRangeMax").text() ], // minimum and maximum range for the price range selector
     priceStep: 50
 };
 
@@ -589,6 +589,10 @@ jQuery(document).ready(function($) {
     //  ========== 
     $(window).trigger("scroll").trigger("resize");
     
+    function showResult(id,data){
+    	$("#"+id+" .modal-body p").text(data);
+    	$("#"+id+"").modal("show");
+    }
     
     // ========
     // = Custom Functions
@@ -602,9 +606,9 @@ jQuery(document).ready(function($) {
                     productId:productId
             }
         }).done(function(data) {
-              alert(productId + " " + data);
+        	showResult("resultModal",data);
         }).fail(function(){
-              alert("Error while adding product to cart");
+        	showResult("resultModal","Error while adding product");
         });
     });
     $(".remove-from-cart").on("click",function(){
@@ -616,7 +620,7 @@ jQuery(document).ready(function($) {
                     productId:productId
             }
         }).done(function(data) {
-              alert(productId + " " + data);
+        	showResult("resultModal",data);
         }).fail(function(){
               alert("Error while removing product from cart");
         });

@@ -16,6 +16,8 @@ public abstract interface ProductDao {
   
   public abstract List<Product> getOrderedProducts(String orderBy,String orderType,int limit);
   
+  public abstract ProductComment getSingleComment(String id);
+  
   public abstract Product getSingleProduct(String id);
   
   public abstract void saveNewProduct(Product product);
