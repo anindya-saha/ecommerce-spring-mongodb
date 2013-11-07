@@ -2,7 +2,7 @@ package com.ecommerce.constant;
 
 public enum OrderStatus {
 
-	WAITING_STOCK(0), PREPARING(1), SHIPPING(2), SHIPPED(3), COMPLETED(4);
+	PENDING(0), WAITING_STOCK(1), PREPARING(2), SHIPPING(3), SHIPPED(4), COMPLETED(5), CANCELLED(6), RETURNED(7);
 	
 	private final int status;
 	
@@ -12,6 +12,6 @@ public enum OrderStatus {
 	
 	public int getOrderStatus(){
 		return this.status;
-	} 
+	}
 	
 }
