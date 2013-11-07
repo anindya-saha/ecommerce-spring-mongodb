@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="categoryTag" %>
 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
   <span class="icon-bar"></span>
   <span class="icon-bar"></span>
@@ -86,9 +87,10 @@
 			<c:forEach var="mainCategory" items="${mainCategory}">
 				<li class="dropdown">
 				     <a href="category/${mainCategory.id}" class="dropdown-toggle"><i class="icon-caret-right pull-right visible-desktop"></i>${mainCategory.name}</a>
-					<ul class="dropdown-menu">
-					    <li><a href="features.html#headings">Headings</a></li>
-					</ul>
+					<%@include file="/WEB-INF/view/tiles/common/child_category.jsp" %>
+<%-- 						<c:forEach var="childCat" items="${childCategories}"> --%>
+<%-- 							<categoryTag:category childList="${childCategories}" parentName="${mainCategory.name}"/> --%>
+<%-- 						</c:forEach> --%>
 				</li>
 			</c:forEach>
 	         

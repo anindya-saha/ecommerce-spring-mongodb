@@ -63,6 +63,7 @@
                         		</c:otherwise>
                         	</c:choose>
                         </span>
+                        <span class="brand">${product.brand.name}</span>
                     </div>
                 </div>
                 <div class="product-description">

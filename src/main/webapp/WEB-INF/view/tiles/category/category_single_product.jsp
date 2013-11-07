@@ -5,7 +5,7 @@
 <!--  = Single Product =  -->
 <!--  ==========  -->
 <c:forEach var="product" items="${products}">
-<div class="span3 filter--shirts" data-price="529" data-popularity="4" data-size="m|l" data-color="blue|orange" data-brand="${product.brand.name}">
+<div class="span3 ${product.category.id}" data-price="${product.price}" data-popularity="4" data-size="m|l" data-color="blue|orange" data-brand="${product.brand.name}">
  <div class="product">
      <div class="product-img">
          <div class="picture">

@@ -78,3 +78,17 @@
         
     </div>
 </div>
+
+<!--  = Result Modal =  -->
+<div id="resultModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Action Result</h3>
+    </div>
+    <div class="modal-body">
+    	<p></p>
+        <button type="button" data-dismiss="modal" class="btn btn-primary input-block-level bold higher">
+			Okay
+        </button>
+    </div>
+</div>

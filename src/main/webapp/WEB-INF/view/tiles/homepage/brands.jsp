@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!--  ==========  -->
 <!--  = Brands Carousel =  -->
 <!--  ==========  -->
@@ -30,24 +32,9 @@
 		<div class="span12">
 			<div class="brands carouFredSel" data-nav="brands"
 				data-autoplay="true">
-				<img src="static/images/dummy/brands/brands_01.jpg" alt="" width="203"
-					height="104" /> <img src="static/images/dummy/brands/brands_02.jpg"
-					alt="" width="203" height="104" /> <img
-					src="static/images/dummy/brands/brands_03.jpg" alt="" width=""203""
-					height="104" /> <img src="static/images/dummy/brands/brands_04.jpg"
-					alt="" width="203" height="104" /> <img
-					src="static/images/dummy/brands/brands_05.jpg" alt="" width=""203""
-					height="104" /> <img src="static/images/dummy/brands/brands_06.jpg"
-					alt="" width="203" height="104" /> <img
-					src="static/images/dummy/brands/brands_02.jpg" alt="" width="203"
-					height="104" /> <img src="static/images/dummy/brands/brands_04.jpg"
-					alt="" width="203" height="104" /> <img
-					src="static/images/dummy/brands/brands_06.jpg" alt="" width="203"
-					height="104" /> <img src="static/images/dummy/brands/brands_01.jpg"
-					alt="" width="203" height="104" /> <img
-					src="static/images/dummy/brands/brands_03.jpg" alt="" width="203"
-					height="104" /> <img src="static/images/dummy/brands/brands_05.jpg"
-					alt="" width="203" height="104" />
+				<c:forEach var="brand" items="${brands}">
+					<img src="static/images/dummy/brands/brands_01.jpg" alt="${brand.name}" title="${brand.name}" width="203" height="104" />
+				</c:forEach>
 			</div>
 		</div>
 	</div>

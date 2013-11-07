@@ -12,7 +12,7 @@
         <div class="row">
             <div class="span12">
                 <div class="main-titles lined">
-                	<h2 class="title"><span class="light">New</span> Products in the Shop</h2>
+                	<h2 class="title"><span class="light">Special Offers</span> for You</h2>
                 </div>
             </div>
         </div> <!-- /title -->

@@ -25,7 +25,7 @@
                             <div id="filterOne" class="accordion-body collapse in">
                                 <div class="accordion-inner">
                                 	<c:forEach var="childCategory" items="${childCategories}">
-                                    	<a href="category/${childCategory.id}" data-target=".filter--accessories" class="selectable"><i class="box"></i>${childCategory.name}</a>
+                                    	<a href="category/${childCategory.id}" data-target=".${childCategory.id}" class="selectable"><i class="box"></i>${childCategory.name}</a>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -34,6 +34,8 @@
         <!--  ==========  -->
         <!--  = Prices slider =  -->
         <!--  ==========  -->
+        <div class="priceRangeMin hide">0</div>
+        <div class="priceRangeMax hide">5000</div>
         <div class="accordion-group">
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">Price <b class="caret"></b></a>
