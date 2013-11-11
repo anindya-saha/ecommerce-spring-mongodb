@@ -66,9 +66,11 @@
         <!--  ==========  -->
         <!--  = Cart =  -->
         <!--  ==========  -->
-        <div class="span3">
+        <div class="span3" id="shopping-cart">
 			<%@include file="/WEB-INF/view/tiles/common/header_cart.jsp" %>
         </div> <!-- /cart -->
+        <div class="span3" id="cart-ajax-loader">
+        </div>
       </div>
     </div>
   </div>

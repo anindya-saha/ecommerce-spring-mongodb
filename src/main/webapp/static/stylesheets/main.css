@@ -959,3 +959,4 @@ label { font-weight: bold; }
 
 .lt-ie9 .featured.product-img { background-image: url('../images/shelf-ie8.png?1366305810'); }
 .hide{display:none;}
+.ajax-laoder{width: 32px; height: 32px;display:block;}

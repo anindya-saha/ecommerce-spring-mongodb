@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="static/js/|vendor/js" kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="admin_static/|static/js/|vendor/js" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>

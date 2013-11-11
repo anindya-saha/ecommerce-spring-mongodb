@@ -55,7 +55,7 @@ public class ProductController {
 		List<Product> sameBrandProducts = productService.listSameBrandProducts(singleProduct, 4);
 		mav.addObject("sameBrandProducts",sameBrandProducts);
 
-		mav.setViewName("productDetails");
+		mav.setViewName("product-details");
 		return mav;
 	}
 
@@ -83,12 +83,14 @@ public class ProductController {
 		return "redirect:/";
 	}
 	
-	@SuppressWarnings("unchecked")
-	@ResponseBody
+	//@SuppressWarnings("unchecked")
+	//@ResponseBody
 	@RequestMapping(value="/add-to-cart", method = RequestMethod.POST)
-	public String addProductToCart(
+	public ModelAndView addProductToCart(
 			@RequestParam(value = "productId" ,required = true) String productId,
 			HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("header-cart");
 		//TODO: add count for one product item
 		boolean checkContain = false;
 		double total = 0;
@@ -100,7 +102,7 @@ public class ProductController {
 			List<CartItem> cartItemList = new ArrayList<CartItem>();
 			cartItemList.add(cartItem);
 			session.setAttribute("cart", cartItemList);
-			total = cartItem.getProduct().getPrice();
+			total = cartItem.getProduct().getPrice()*cartItem.getCount();
 			session.setAttribute("cartTotal",total);
 		}
 		else{
@@ -118,22 +120,22 @@ public class ProductController {
 			if(checkContain){
 				
 				for(CartItem c : cartItemList){
-					total += c.getProduct().getPrice();
+					total += (c.getProduct().getPrice()*c.getCount());
 				}
 				session.setAttribute("cartTotal", total);
-				return "Product is already in your cart, so product count increased by one";
+				//return "Product is already in your cart, so product count increased by one";
 			}
 			else{
 				cartItemList.add(cartItem);
 				session.setAttribute("cart", cartItemList);
 				for(CartItem c : cartItemList){
-					total += c.getProduct().getPrice();
+					total += (c.getProduct().getPrice()*c.getCount());
 				}
 				session.setAttribute("cartTotal", total);
 			}
 		}
 		
-		return "added product to cart";
+		return mav;
 	}
 	
 	@SuppressWarnings("unchecked")

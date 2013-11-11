@@ -163,7 +163,7 @@ public class AdminController {
 	}
 
 	//Product Update Form Page
-	@RequestMapping(value = "/productupdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/product-update", method = RequestMethod.GET)
 	public ModelAndView updateProduct(
 			@RequestParam(value = "productId", required = false) String productId,
 			@ModelAttribute Product product,

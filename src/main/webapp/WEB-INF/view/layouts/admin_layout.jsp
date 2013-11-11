@@ -33,13 +33,13 @@
         
         	<!-- Inner Container Start -->
             <div class="container">
-            
-         </div>
+            	<tiles:insertAttribute name="container"/>
+         	</div>
             <!-- Inner Container End -->
                        
             <!-- Footer -->
             <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
+            	Copyright Your Website 2013. All Rights Reserved.
             </div>
             
         </div>

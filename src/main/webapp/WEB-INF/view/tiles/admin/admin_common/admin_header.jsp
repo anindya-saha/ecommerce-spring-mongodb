@@ -8,7 +8,7 @@
        
        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
        	<div id="mws-logo-wrap">
-           	<img src="images/mws-logo.png" alt="mws admin">
+           	<img src="${pageContext.request.contextPath}/admin_static/images/mws-logo.png" alt="mws admin">
 		</div>
        </div>
        
@@ -142,7 +142,7 @@
            
            	<!-- User Photo -->
            	<div id="mws-user-photo">
-               	<img src="example/profile.jpg" alt="User Photo">
+               	<img src="${pageContext.request.contextPath}/admin_static/example/profile.jpg" alt="User Photo">
                </div>
                
                <!-- Username and Functions -->

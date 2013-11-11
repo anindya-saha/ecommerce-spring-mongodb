@@ -25,6 +25,7 @@
 	<mvc:annotation-driven />
 	
 	<mvc:resources mapping="/static/**" location="/static/"/>
+	<mvc:resources mapping="/admin_static/**" location="/admin_static/"/>
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <property name="order" value="1"/>

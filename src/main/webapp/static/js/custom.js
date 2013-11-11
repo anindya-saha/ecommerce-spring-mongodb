@@ -428,10 +428,11 @@ jQuery(document).ready(function($) {
     //  ========== 
     //  = Cart Container Effects = 
     //  ========== 
-    $("#cartContainer").hover(function() {
+    $("body").on("mouseenter","#cartContainer",function() {
         $(this).children(".cart").addClass("opened");
         $(this).children(".open-panel").stop(true, true).slideDown(150);
-    }, function() {
+    }); 
+    $("body").on("mouseleave","#cartContainer",function() {
         var $this = $(this);
         setTimeout(function() {
             $this.children(".cart").removeClass("opened");
@@ -600,14 +601,21 @@ jQuery(document).ready(function($) {
     $(".add-to-cart").on("click",function(){
         var productId = $(this).data("productid");
         $.ajax({
+        	beforeSend:function(){
+        		$("#shopping-cart").empty();
+        		$("#shopping-cart").append('<div class="ajax-loader"><img src="/ecommerce/static/images/ajax-loader.gif"/></div>');
+        	},
             url: "/ecommerce/product/add-to-cart",
             type: "POST",
             data: {
                     productId:productId
             }
         }).done(function(data) {
-        	showResult("resultModal",data);
+        	$("#shopping-cart").empty();
+        	$("#shopping-cart").html(data);
+        	//showResult("resultModal",data);
         }).fail(function(){
+        	//$("#shopping-cart").html(data);
         	showResult("resultModal","Error while adding product");
         });
     });

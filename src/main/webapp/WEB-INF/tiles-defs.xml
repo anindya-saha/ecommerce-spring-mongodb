@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
   <definition name="commonpage" template="/WEB-INF/view/layouts/common.jsp">
-  	<put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/cssPaths.jsp"/>
+  	<put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/css_paths.jsp"/>
 	<put-attribute name="metas" value="/WEB-INF/view/tiles/common/metas.jsp"/>
 	<put-attribute name="header" value="/WEB-INF/view/tiles/common/header.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/view/tiles/common/footer.jsp"/>
@@ -18,7 +18,7 @@
   </definition>
   
   <definition name="checkout" template="/WEB-INF/view/layouts/checkout.jsp">
-    <put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/cssPaths.jsp"/>
+    <put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/css_paths.jsp"/>
 	<put-attribute name="metas" value="/WEB-INF/view/tiles/common/metas.jsp"/>
 	<put-attribute name="content" value=""/>
   </definition>
@@ -31,10 +31,13 @@
   	<put-attribute name="container-row5" value="/WEB-INF/view/tiles/homepage/brands.jsp"/>
   </definition>
   
-  <definition name="productDetails" extends="commonpage">
+  <definition name="product-details" extends="commonpage">
   	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/product/product_details.jsp"/>
   	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/product/related_products.jsp"/>
+  </definition>
+  
+  <definition name="header-cart" template="/WEB-INF/view/tiles/common/header_cart.jsp">
   </definition>
   
   <definition name="categoryGrid" extends="commonpage">

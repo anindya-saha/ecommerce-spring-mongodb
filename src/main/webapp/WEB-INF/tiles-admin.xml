@@ -7,21 +7,15 @@
   	<put-attribute name="csspaths" value="/WEB-INF/view/tiles/admin/admin_common/admin_css_paths.jsp"/>
 	<put-attribute name="header" value="/WEB-INF/view/tiles/admin/admin_common/admin_header.jsp"/>
 	<put-attribute name="sidebar" value="/WEB-INF/view/tiles/admin/admin_common/admin_sidebar.jsp"/>
-	<put-attribute name="container-row1" value=""/>
-	<put-attribute name="container-row2" value=""/>
-	<put-attribute name="container-row3" value=""/>
-	<put-attribute name="container-row4" value=""/>
-	<put-attribute name="container-row5" value=""/>
+	<put-attribute name="container" value=""/>
 	<put-attribute name="scripts" value="/WEB-INF/view/tiles/admin/admin_common/admin_scripts.jsp"/>
   </definition>
   
   <definition name="admin-dashboard" extends="admin-common">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/slider.jsp"/>
-  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/homepage/new_added_products.jsp"/>
-  	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/homepage/special_offers.jsp"/>
-  	<put-attribute name="container-row4" value="/WEB-INF/view/tiles/homepage/latest_news.jsp"/>
-  	<put-attribute name="container-row5" value="/WEB-INF/view/tiles/homepage/brands.jsp"/>
+  	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/dashboard/admin_dashboard.jsp"/>
   </definition>
-
   
+  <definition name="admin-product-update" extends="admin-common">
+  	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/product/admin_product_update.jsp"/>
+  </definition>
 </tiles-definitions>
