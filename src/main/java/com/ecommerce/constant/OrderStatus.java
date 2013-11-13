@@ -2,15 +2,15 @@ package com.ecommerce.constant;
 
 public enum OrderStatus {
 
-	PENDING(0), WAITING_STOCK(1), PREPARING(2), SHIPPING(3), SHIPPED(4), COMPLETED(5), CANCELLED(6), RETURNED(7);
+	PENDING("PENDING"), WAITING_STOCK("WAITING_STOCK"), PREPARING("PREPARING"), SHIPPING("SHIPPING"), SHIPPED("SHIPPED"), COMPLETED("COMPLETED"), CANCELLED("CANCELLED"), RETURNED("RETURNED");
 	
-	private final int status;
+	private final String status;
 	
-	private OrderStatus(int status){
+	private OrderStatus(String status){
 		this.status = status;
 	}
 	
-	public int getOrderStatus(){
+	public String getOrderStatus(){
 		return this.status;
 	}
 	

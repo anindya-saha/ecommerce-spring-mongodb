@@ -2,15 +2,15 @@ package com.ecommerce.constant;
 
 public enum ShipmentType {
 	
-	FREE_SHIPMENT(0) , BUYER_PAYS(1);
+	FREE_SHIPMENT("FREE_SHIPMENT") , BUYER_PAYS("BUYER_PAYS");
 	
-	private final int type;
+	private final String type;
 	
-	private ShipmentType(int type){
+	private ShipmentType(String type){
 		this.type = type;
 	}
 	
-	public int getShipmentType(){
+	public String getShipmentType(){
 		return this.type;
 	} 
 
