@@ -60,6 +60,20 @@ public class AdminController {
 		mav.setViewName("admin-dashboard");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/add-new-product", method = RequestMethod.GET)
+	public ModelAndView addProduct(){
+
+		ModelAndView mav = new ModelAndView();
+		List<Category> category = categoryService.getCategories();
+		mav.addObject("categoryList",category);
+		
+		List<Brand> brands = brandService.getBrands();
+		mav.addObject("brandList",brands);
+		
+		mav.setViewName("admin-product-add");
+		return mav;
+	}
 
 	// Create new product & update product
 	@RequestMapping(value = "/productsave", method = RequestMethod.POST)
@@ -112,43 +126,6 @@ public class AdminController {
 		}
 		return "redirect:/admin";
 	}
-	
-	//Add ProductComment to product
-	@RequestMapping(value = "/addproductcomment", method = RequestMethod.POST)
-    public ModelAndView addProductComment(
-            @RequestParam(value = "productId", required = false) String productId,
-            @RequestParam(value = "userId", required = false) String userId,
-            @RequestParam(value = "userName", required = false) String userName,
-            @RequestParam(value = "productComment", required = false) String comment,
-            @RequestParam(value = "productCommentRating", required = false) int commentRating,
-            @RequestParam(value = "productCommentStatus", required = false) int commentStatus) {
-	    ModelAndView mav = new ModelAndView("admin");
-	
-	    Product existingProduct = productService.singleProduct(productId);
-	
-	    ProductComment newProductComment = new ProductComment();
-	    newProductComment.setUserId(userId);
-	    newProductComment.setComment(comment);
-	    newProductComment.setUserName(userName);
-	    newProductComment.setRating(commentRating);
-	    newProductComment.setStatus(commentStatus);
-	    
-	    Date now = new Date();
-	    newProductComment.setDate(now);
-	    
-	    List<ProductComment> prodComment = new ArrayList<ProductComment>();
-	    if(productService.singleProduct(productId).getComment() == null){
-	            prodComment.add(newProductComment);
-	    }else{
-	    //        prodComment.addAll(productService.singleProduct(productId).getComment());
-	            prodComment.add(newProductComment);
-	    }
-	    
-	    //productService.addProductComment(existingProduct, prodComment);
-	
-	    return mav;
-	}
-
 
 	// Remove existing product
 	@RequestMapping(value = "/productremove", method = RequestMethod.GET)
