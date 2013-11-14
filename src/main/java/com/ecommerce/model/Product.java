@@ -26,7 +26,7 @@ public class Product {
 
 	private String description;
 	
-	private String shortDesc;
+	private String shortDescription;
 	
 	private ProductSpecification[] specification;
 
@@ -114,10 +114,10 @@ public class Product {
 	}
 	
 	public String getShortDescription() {
-		return this.shortDesc;
+		return this.shortDescription;
 	}
-	public void setShortDescription(String shortDesc) {
-		this.shortDesc = shortDesc;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 
 	public String getDescription() {

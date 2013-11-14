@@ -10,7 +10,7 @@ public class Order {
 	
 	private Product product;
 	
-	private int status;
+	private String status;
 	
 	private Date updateDate;
 	
@@ -35,10 +35,10 @@ public class Order {
 		this.product = product;
 	}
 	
-	public int getStatus(){
+	public String getStatus(){
 		return this.status;
 	}
-	public void setStatus(int status){
+	public void setStatus(String status){
 		this.status = status;
 	}
 	

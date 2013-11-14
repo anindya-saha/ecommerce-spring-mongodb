@@ -16,7 +16,7 @@ public class ProductComment{
 
 	private Date date;
 
-	private int status;
+	private String status;
 	
 	public String getId(){
 		return this.id;
@@ -65,11 +65,11 @@ public class ProductComment{
 		this.date = date;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 }
