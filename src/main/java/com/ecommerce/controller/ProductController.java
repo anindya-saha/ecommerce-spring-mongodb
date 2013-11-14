@@ -73,7 +73,7 @@ public class ProductController {
 		newProductComment.setComment(comment);
 		newProductComment.setUserName(user.getName());
 		newProductComment.setRating(commentRating);
-		newProductComment.setStatus(ConfirmationStatus.WAITING.getConfirmation());
+		newProductComment.setStatus(ConfirmationStatus.WAITING.getConfirmationStatus());
 		
 		Date now = new Date();
 		newProductComment.setDate(now);
