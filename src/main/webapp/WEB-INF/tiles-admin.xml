@@ -18,4 +18,8 @@
   <definition name="admin-product-update" extends="admin-common">
   	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/product/admin_product_update.jsp"/>
   </definition>
+  
+  <definition name="admin-product-add" extends="admin-common">
+  	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/product/admin_product_add.jsp"/>
+  </definition>
 </tiles-definitions>
