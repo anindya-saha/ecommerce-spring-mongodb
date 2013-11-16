@@ -7,7 +7,7 @@
 	<div class="mws-panel-body no-padding">
 		<form class="mws-form" action="productsave" method="POST">
 			<input type="hidden" name="productid" value=""/>
-			<input type="hidden" name="productUpdate" value="true"/>
+			<input type="hidden" name="productUpdate" value="false"/>
 			<div class="mws-form-inline">
 				<div class="mws-form-row">
 					<label class="mws-form-label">Product Name</label>
@@ -32,7 +32,7 @@
 					<div class="mws-form-item">
                         <div id="mws-ui-button-radio">
                         	<c:forEach var="brand" items="${brandList}" varStatus="count">
-                            	<input name="brand" value="${brand.id}" id="${brand.id}" class="ibutton" type="radio"/> <label for="${brand.id}">${brand.name}</label>
+                            	<input name="brandId" value="${brand.id}" id="${brand.id}" class="ibutton" type="radio"/> <label for="${brand.id}">${brand.name}</label>
                             </c:forEach>
                         </div>
                     </div>
@@ -53,7 +53,10 @@
 				<div class="mws-form-row">
 					<label class="mws-form-label">Product Shipment Type</label>
 					<div class="mws-form-item">
-						<input type="text" name="productShipmentType" value="" class="large">
+						<div id="mws-ui-button-radio">
+                            <input name="productShipmentType" value="FREE_SHIPMENT" id="FREE_SHIPMENT" class="ibutton" type="radio"/> <label for="FREE_SHIPMENT">FREE_SHIPMENT</label>
+                            <input name="productShipmentType" value="BUYER_PAYS" id="BUYER_PAYS" class="ibutton" type="radio"/> <label for="BUYER_PAYS">BUYER_PAYS</label>
+                        </div>
 					</div>
 				</div>
 				<div class="mws-form-row">
@@ -66,6 +69,12 @@
 					<label class="mws-form-label">Product Rating</label>
 					<div class="mws-form-item">
 						<input type="text" name="productRating" value="" class="large">
+					</div>
+				</div>
+				<div class="mws-form-row">
+					<label class="mws-form-label">Product Short Description</label>
+					<div class="mws-form-item">
+						<textarea class="large autosize" name="productDescription"></textarea>
 					</div>
 				</div>
 				<div class="mws-form-row">
