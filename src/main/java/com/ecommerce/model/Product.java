@@ -16,7 +16,7 @@ public class Product {
 	
 	private Brand brand;
 	
-	private int shipmentType;
+	private String shipmentType;
 
 	private int stock;
 
@@ -81,11 +81,11 @@ public class Product {
 		this.brand = brand;
 	}
 
-	public int getShipmentType() {
+	public String getShipmentType() {
 		return this.shipmentType;
 	}
 
-	public void setShipmentType(int shipmentType) {
+	public void setShipmentType(String shipmentType) {
 		this.shipmentType = shipmentType;
 	}
 
