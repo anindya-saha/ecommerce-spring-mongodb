@@ -20,9 +20,9 @@
                         </a>
                     </div>
                     <div class="span4">
-                        <a href="#" class="btn btn-block colored banner">
+                        <a href="${pageContext.request.contextPath}/product/free-shipping" class="btn btn-block colored banner">
                             <span class="title"><span class="light">FREE</span> SHIPPING</span>
-                            <em>on orders over $69</em>
+                            <em>Show all free shipping products</em>
                         </a>
                     </div>
                     <div class="span4">
