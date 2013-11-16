@@ -10,6 +10,8 @@ public abstract interface ProductDao {
 	
   public abstract List<Product> getAllProducts();
   
+  public abstract List<Product> getShipmentTypedProducts(String type);
+  
   public abstract List<Product> getRelatedProducts(Product product,int limit);
   
   public abstract List<Product> getSameBrandProducts(Product product, int limit);

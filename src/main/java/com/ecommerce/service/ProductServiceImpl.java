@@ -32,6 +32,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	public List<Product> shipmentTypedProduct(String type){
+		logger.debug("Getting free shipping products");
+		try {
+			return productDao.getShipmentTypedProducts(type);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to getting free shipping products");
+			return null;
+		}
+	}
+	
 	public List<Product> listRelatedProducts(Product product, int limit) {
 		logger.debug("Getting related products");
 		try {

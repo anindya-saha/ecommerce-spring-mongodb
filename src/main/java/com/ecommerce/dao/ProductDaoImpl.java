@@ -24,10 +24,16 @@ public class ProductDaoImpl implements ProductDao {
 	
 	protected static Logger logger = Logger.getLogger("dao");
 	
-	public static final String COLLECTION_NAME = "product";
+	public static final String PRODUCT_COLLECTION = "product";
 
 	public List<Product> getAllProducts() {
-		return mongoTemplate.findAll(Product.class, COLLECTION_NAME);
+		return mongoTemplate.findAll(Product.class, PRODUCT_COLLECTION);
+	}
+	
+	public List<Product> getShipmentTypedProducts(String type){
+		Query query = new Query();
+		query.addCriteria(Criteria.where("shipmentType").is(type));
+		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
 	public List<Product> getRelatedProducts(Product product, int limit){
@@ -38,7 +44,7 @@ public class ProductDaoImpl implements ProductDao {
 				.andOperator(Criteria.where("_id").ne(product.getId())))
 				.limit(limit);
 		
-		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
+		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
 	public List<Product> getSameBrandProducts(Product product, int limit){
@@ -47,7 +53,7 @@ public class ProductDaoImpl implements ProductDao {
 				Criteria.where("brand.name").is(product.getBrand().getName())
 				.andOperator(Criteria.where("_id").ne(product.getId())))
 				.limit(limit);
-		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
+		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
 	public List<Product> getOrderedProducts(String orderBy,String orderType,int limit){
@@ -68,25 +74,25 @@ public class ProductDaoImpl implements ProductDao {
 			}
 		}
 
-		return mongoTemplate.find(query, Product.class, COLLECTION_NAME);
+		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
 	public Product getSingleProduct(String id) {
-		return mongoTemplate.findById(id, Product.class, COLLECTION_NAME);
+		return mongoTemplate.findById(id, Product.class, PRODUCT_COLLECTION);
 	}
 	
 	public ProductComment getSingleComment(String id){
-		return mongoTemplate.findById(id, ProductComment.class, COLLECTION_NAME);
+		return mongoTemplate.findById(id, ProductComment.class, PRODUCT_COLLECTION);
 	}
 
 	public void saveNewProduct(Product product){
-		if (!mongoTemplate.collectionExists(COLLECTION_NAME)) {
-			mongoTemplate.createCollection(COLLECTION_NAME);
+		if (!mongoTemplate.collectionExists(PRODUCT_COLLECTION)) {
+			mongoTemplate.createCollection(PRODUCT_COLLECTION);
 		}
 		Date now = new Date();
 		product.setAddedDate(now);
 
-		mongoTemplate.insert(product, COLLECTION_NAME);
+		mongoTemplate.insert(product, PRODUCT_COLLECTION);
 	}
 	
 	public void updateExistingProduct(Product product){
@@ -96,7 +102,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	public void deleteExistingProduct(Product product){
-		mongoTemplate.remove(product, COLLECTION_NAME);
+		mongoTemplate.remove(product, PRODUCT_COLLECTION);
 	}
 	
 	public void saveProductComment(Product product,ProductComment comment){
@@ -123,7 +129,7 @@ public class ProductDaoImpl implements ProductDao {
                 
                 
                 try {
-                        mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+                        mongoTemplate.updateFirst(query,update,PRODUCT_COLLECTION);
                         logger.debug("PRODUCT DAO OK");
                 } catch (Exception e) {
                         logger.error("PRODUCT DAO ERROR");
@@ -143,7 +149,7 @@ public class ProductDaoImpl implements ProductDao {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("_id").is(product.getId()));
 		
-		mongoTemplate.updateFirst(query,update,COLLECTION_NAME);
+		mongoTemplate.updateFirst(query,update,PRODUCT_COLLECTION);
 		
 	}
 	

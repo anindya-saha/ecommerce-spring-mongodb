@@ -10,6 +10,8 @@ public abstract interface ProductService{
 
   public abstract List<Product> listProducts();
   
+  public abstract List<Product> shipmentTypedProduct(String type);
+  
   public abstract List<Product> listRelatedProducts(Product product, int limit);
   
   public abstract List<Product> listSameBrandProducts(Product product, int limit);
