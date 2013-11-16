@@ -17,12 +17,6 @@
 	<put-attribute name="scripts" value="/WEB-INF/view/tiles/common/scripts.jsp"/>
   </definition>
   
-  <definition name="checkout" template="/WEB-INF/view/layouts/checkout.jsp">
-    <put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/css_paths.jsp"/>
-	<put-attribute name="metas" value="/WEB-INF/view/tiles/common/metas.jsp"/>
-	<put-attribute name="content" value=""/>
-  </definition>
-  
   <definition name="homepage" extends="commonpage">
   	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/slider.jsp"/>
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/homepage/new_added_products.jsp"/>
@@ -37,40 +31,29 @@
   	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/product/related_products.jsp"/>
   </definition>
   
+  <definition name="free-shipping-products" extends="commonpage">
+    <put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/product/free_shipping_products.jsp"/>
+  </definition>
+  
   <definition name="header-cart" template="/WEB-INF/view/tiles/common/header_cart.jsp">
   </definition>
   
-  <definition name="categoryGrid" extends="commonpage">
+  <definition name="category-grid" extends="commonpage">
     <put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/category/category_grid.jsp"/>
+  </definition>
+  
+  <definition name="checkout" template="/WEB-INF/view/layouts/checkout.jsp">
+    <put-attribute name="cssPaths" value="/WEB-INF/view/tiles/common/css_paths.jsp"/>
+	<put-attribute name="metas" value="/WEB-INF/view/tiles/common/metas.jsp"/>
+	<put-attribute name="content" value=""/>
   </definition>
   
   <definition name="checkout-step-one" extends="checkout">
       <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_one.jsp"/>
   </definition>
+
   
-  <definition name="register" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/register.jsp"/>
-  </definition>
-  
-  <definition name="login" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login.jsp"/>
-  </definition>
-  
-  <definition name="login-success" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login-success.jsp"/>
-  </definition>
-  
-  <definition name="login-error" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/login-error.jsp"/>
-  </definition>
-  
-  <definition name="admin" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/admin/admin.jsp"/>
-  </definition>
-  
-  <definition name="admin-product-update" extends="commonpage">
-  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/admin/admin_product_update.jsp"/>
-  </definition>
   
 </tiles-definitions>
