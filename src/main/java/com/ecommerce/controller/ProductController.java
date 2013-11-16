@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.constant.ConfirmationStatus;
+import com.ecommerce.constant.ShipmentType;
 import com.ecommerce.model.CartItem;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
@@ -56,6 +57,18 @@ public class ProductController {
 		mav.addObject("sameBrandProducts",sameBrandProducts);
 
 		mav.setViewName("product-details");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/free-shipping", method = RequestMethod.GET)
+	public ModelAndView freeShippingProducts(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		List<Product> products = productService.shipmentTypedProduct(ShipmentType.FREE_SHIPMENT.getShipmentType());
+		mav.addObject("products",products);
+		
+		mav.setViewName("free-shipping-products");
 		return mav;
 	}
 
