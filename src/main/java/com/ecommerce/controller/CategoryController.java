@@ -45,7 +45,7 @@ public class CategoryController {
 		mav.addObject("category",category);
 		mav.addObject("products", products);
 		
-		mav.setViewName("categoryGrid");
+		mav.setViewName("category-grid");
 		return mav;
 	}
 	
