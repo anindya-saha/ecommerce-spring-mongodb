@@ -46,7 +46,7 @@ public class AdminController {
 	
 	//List all items
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getItems(){
+	public ModelAndView adminDashboard(){
 
 		ModelAndView mav = new ModelAndView();
 		List<Product> product = productService.listProducts();
@@ -83,22 +83,27 @@ public class AdminController {
 			@RequestParam(value = "productPrice", required = false) double productPrice,
 			@RequestParam(value = "productInvalidPrice", required = false) double productInvalidPrice,
 			@RequestParam(value = "productCategory", required = false) String productCategory,
-			@RequestParam(value = "productShipmentType", required = false) int productShipmentType,
+			@RequestParam(value = "productShipmentType", required = false) String productShipmentType,
 			@RequestParam(value = "productStock", required = false) int productStock,
 			@RequestParam(value = "productRating", required = false) int productRating,
+			@RequestParam(value = "productShortDescription", required = false) String productShortDescription,
 			@RequestParam(value = "productDescription", required = false) String productDescription,
 			@RequestParam(value = "productUpdate", required = false) boolean productUpdate,
-			@RequestParam(value = "brand", required = false) String brand) {
+			@RequestParam(value = "brandId", required = false) String brandId) {
 
 		Product newProduct = new Product();
+		Category category = categoryService.getCategory(productCategory);
+		Brand brand = brandService.getBrand(brandId);
 
 		newProduct.setName(productName);
 		newProduct.setPrice(productPrice);
 		newProduct.setInvalidPrice(productInvalidPrice);
-		//newProduct.setCategory(productCategory);
+		newProduct.setCategory(category);
+		newProduct.setBrand(brand);
 		newProduct.setShipmentType(productShipmentType);
 		newProduct.setStock(productStock);
 		newProduct.setRating(productRating);
+		newProduct.setShortDescription(productShortDescription);
 		newProduct.setDescription(productDescription);
 		
 		if(!productUpdate){
@@ -108,18 +113,17 @@ public class AdminController {
 			//Updating Existing Product
 			if(!id.isEmpty() && id != null){
 				Product existingProduct = productService.singleProduct(id);
-				Category existingCategory = categoryService.getCategory(productCategory);
-				Brand existingBrand = brandService.getBrand(brand);
 				
 				existingProduct.setName(productName);
 				existingProduct.setPrice(productPrice);
 				existingProduct.setInvalidPrice(productInvalidPrice);
-				existingProduct.setCategory(existingCategory);
+				existingProduct.setCategory(category);
 				existingProduct.setShipmentType(productShipmentType);
 				existingProduct.setStock(productStock);
 				existingProduct.setRating(productRating);
+				existingProduct.setShortDescription(productShortDescription);
 				existingProduct.setDescription(productDescription);
-				existingProduct.setBrand(existingBrand);
+				existingProduct.setBrand(brand);
 				
 				productService.updateProduct(existingProduct);
 			}
