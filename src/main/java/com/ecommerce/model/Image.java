@@ -23,7 +23,6 @@ public class Image {
 	private String mediumUrl;
 	
 	private String largeUrl;
-	// TODO: image get set methods
 
 	public String getId() {
 		return id;
