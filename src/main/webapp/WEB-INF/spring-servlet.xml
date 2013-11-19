@@ -110,6 +110,9 @@
 <!-- 	<mvc:interceptors> -->
 <!-- 		<ref bean="commonInterceptor"/> -->
 <!-- 	</mvc:interceptors> -->
+
+	<bean id="fileValidator" class="com.ecommerce.validator.FileValidator" />
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	
 </beans>
