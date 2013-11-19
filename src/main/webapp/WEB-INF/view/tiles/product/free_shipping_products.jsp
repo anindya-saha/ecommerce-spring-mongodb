@@ -66,7 +66,7 @@
 											<img width="540" height="374" alt=""
 												src="${pageContext.request.contextPath}/static/images/dummy/products/product-6.jpg" />
 											<div class="img-overlay">
-												<a class="btn more btn-primary" href="#">More</a> <a
+												<a class="btn more btn-primary" href="${pageContext.request.contextPath}/product?productid=${product.id}">More</a> <a
 													href="javascript:void(0);" class="btn add-to-cart"
 													data-productid="${product.id}">Add to Cart</a> <a href="#"
 													class="btn buy btn-danger">Buy</a>
