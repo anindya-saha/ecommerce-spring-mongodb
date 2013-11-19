@@ -1,5 +1,10 @@
 package com.ecommerce.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,12 +12,15 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.model.Brand;
@@ -20,12 +28,18 @@ import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
 import com.ecommerce.model.ProductSpecification;
+import com.ecommerce.model.UploadedFile;
 import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
-
+import com.ecommerce.validator.FileValidator;
+/**
+ * 
+ * @author İlker Korkut
+ *
+ */
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
@@ -43,6 +57,9 @@ public class AdminController {
 	
 	@Inject
 	private UserService userService;
+	
+	@Autowired
+	FileValidator fileValidator;
 	
 	//List all items
 	@RequestMapping(method = RequestMethod.GET)
@@ -130,7 +147,55 @@ public class AdminController {
 		}
 		return "redirect:/admin";
 	}
+	
+	@RequestMapping(value = "/product-add-image", method = RequestMethod.GET)
+	public ModelAndView addProduct(
+			@RequestParam(value = "productId", required = false) String id){
 
+		ModelAndView mav = new ModelAndView();
+		Product product = productService.singleProduct(id);
+		mav.addObject("product",product);
+		
+		mav.setViewName("admin-product-add-image");
+		return mav;
+	}
+	
+	//File Upload
+	@RequestMapping(value = "/upload-product-image", method = RequestMethod.POST)
+	public String uploadProductImage(
+			@RequestParam(value = "uploadedFile",required = false)MultipartFile uploadedFile,
+			@RequestParam(value = "productId",required=false)String productId){
+		logger.debug("Image upload controller " + productId);
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		
+		MultipartFile file = uploadedFile;
+		//fileValidator.validate(uploadedFile, result);
+		String fileName = file.getOriginalFilename();
+		//if(result.hasErrors()){
+		//	return "Upload Failed";
+		//}
+		
+		try {
+			inputStream = file.getInputStream();
+			File newFile = new File("C:/DEV/Apache/htdocs/test/"+fileName);
+			if(!newFile.exists()){
+				newFile.createNewFile();
+			}
+			outputStream = new FileOutputStream(newFile);
+			int read = 0;
+			byte[] bytes = new byte[1024];
+			while((read = inputStream.read(bytes)) != -1){
+				outputStream.write(bytes, 0, read);
+			}
+			outputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "File Uploaded";
+	}
+	
 	// Remove existing product
 	@RequestMapping(value = "/productremove", method = RequestMethod.GET)
 	public ModelAndView removeProduct(@ModelAttribute Product product,
