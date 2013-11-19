@@ -105,6 +105,7 @@
 					<th>Product Comments</th>
 					<th></th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -125,6 +126,7 @@
 						${comment.comment}
 					</c:forEach>
 					</td>
+					<td><a type="button" class="btn" href="${pageContext.request.contextPath}/admin/product-add-image?productId=${product.id}">Add Image(s)</a></td>
 					<td><a type="button" class="btn" href="${pageContext.request.contextPath}/admin/product-update?productId=${product.id}">Update</a></td>
 					<td><a type="button" class="btn" onclick="window.location='admin/productupdate?productId=${product.id}'">Delete</a></td>
 				</tr>
