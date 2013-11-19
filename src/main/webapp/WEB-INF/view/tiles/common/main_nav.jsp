@@ -15,13 +15,7 @@
 <div class="nav-collapse collapse">
   <ul class="nav" id="mainNavigation">
     <li class="dropdown active">
-        <a href="index.html" class="dropdown-toggle"> Home <b class="caret"></b> </a>
-        <ul class="dropdown-menu">
-            <li class="active"><a href="index.html">Default Theme</a></li>
-            <li><a href="index-grass-green.html">Grass Green Theme</a></li>
-            <li><a href="index-oil-green.html">Oil Green Theme</a></li>
-            <li><a href="index-gray.html">Gray Theme</a></li>
-        </ul>
+        <a href="${pageContext.request.contextPath}">Home</a>
     </li>
     
     <li class="dropdown">
