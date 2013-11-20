@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,7 +13,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,18 +20,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.constant.DirectoryPrefix;
 import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
-import com.ecommerce.model.ProductComment;
 import com.ecommerce.model.ProductSpecification;
-import com.ecommerce.model.UploadedFile;
 import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
 import com.ecommerce.validator.FileValidator;
+import com.ecommerce.util.DirectoryUtil;
 /**
  * 
  * @author İlker Korkut
@@ -60,6 +57,9 @@ public class AdminController {
 	
 	@Autowired
 	FileValidator fileValidator;
+	
+	@Autowired
+	private DirectoryUtil directoryUtil;
 	
 	//List all items
 	@RequestMapping(method = RequestMethod.GET)
@@ -178,10 +178,11 @@ public class AdminController {
 		
 		try {
 			inputStream = file.getInputStream();
-			File newFile = new File("C:/DEV/Apache/htdocs/test/"+fileName);
-			if(!newFile.exists()){
+			File parentFolder = directoryUtil.prepareUploadDirectory(DirectoryPrefix.PRODUCT_DIRECTORY.getDirectoryPrefix());
+			File newFile = new File(parentFolder,fileName);
+			//if(!newFile.exists()){
 				newFile.createNewFile();
-			}
+			//}
 			outputStream = new FileOutputStream(newFile);
 			int read = 0;
 			byte[] bytes = new byte[1024];
