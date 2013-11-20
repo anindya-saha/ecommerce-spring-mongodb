@@ -12,6 +12,19 @@ public class DirectoryUtil {
 	private static final String root = "C:/DEV/Apache/htdocs/";
 	
 	private static final long maxDirectorySize = 1024 * 1024 * 1; // 1MB
+	
+	private File newDestDir;
+	
+	private boolean status = false;
+	
+	public File getNewDestDir(){
+		return this.newDestDir;
+	}
+	
+	public void setNewDestDir(File newDestDir){
+		this.newDestDir = newDestDir;
+	}
+	
 	/**
 	 * The upload directory will be prepared (eg. "product_images" directory)  // setUpladDirectory("product_images");
 	 * This method will check destination with directories
@@ -19,36 +32,64 @@ public class DirectoryUtil {
 	 * @return File
 	 */
 	public File prepareUploadDirectory(String destination) throws IOException{
-		File destDirectory = new File(root + destination);
+		
+		File rootDirectory = new File(root);
 		
 		if(destination.equals(DirectoryPrefix.PRODUCT_DIRECTORY.getDirectoryPrefix())){
-			if(checkDirectorySize(destDirectory)){
 				// create new directory with timestamp prefix (eg. "product_images_1384903499")
 				// and get its name
 				// if the directory does not exist, create it
-				
-				if (!destDirectory.exists()) {
-					System.out.println("Creating new product_images directory as: " + destination + System.currentTimeMillis());
-					boolean result = destDirectory.mkdir();  
-
-					if(result){
-						System.out.println(DirectoryPrefix.PRODUCT_DIRECTORY.getDirectoryPrefix() + " created under the "+ root + "root");
+			if(rootDirectory.listFiles().length > 0){
+				for(File child : rootDirectory.listFiles()){
+					if(child.getName().startsWith(DirectoryPrefix.PRODUCT_DIRECTORY.getDirectoryPrefix())){
+						if(checkDirectorySize(child)){
+							setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+							getNewDestDir().mkdir();
+							return getNewDestDir();
+						}
+						else{
+							return child;
+						}
+					}
+					else{
+						status = true;
 					}
 				}
-				
-				return null; // Return created directory file as a file object
-			}else{
-				// Found directory with enough space
-				return null; // Return found directory as a file object<
+				if(status){
+					setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+					getNewDestDir().mkdir();
+					return getNewDestDir();
+				}
+				return getNewDestDir();
+			}
+			else{
+				setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+				getNewDestDir().mkdir();
+				return getNewDestDir();
 			}
 		}else if(destination.equals(DirectoryPrefix.BRAND_DIRECTORY.getDirectoryPrefix())){
-			if(checkDirectorySize(destDirectory)){
-				// create new directory with timestamp prefix (eg. "product_images_1384903499")
-				// and get its name
-				return null; // Return created directory file as a file object
+			if(rootDirectory.listFiles().length > 0){
+				for(File child : rootDirectory.listFiles()){
+					if(child.getName().startsWith(DirectoryPrefix.BRAND_DIRECTORY.getDirectoryPrefix())){
+						if(checkDirectorySize(child)){
+							setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+							getNewDestDir().mkdir();
+							return getNewDestDir();
+						}
+						else{
+							return child;
+						}
+					}else{
+						setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+						getNewDestDir().mkdir();
+						return getNewDestDir();
+					}
+				}
+				return newDestDir;
 			}else{
-				// Found directory with enough space
-				return null; // Return found directory as a file object<
+				setNewDestDir(new File(root + destination + "_" + System.currentTimeMillis()));
+				getNewDestDir().mkdir();
+				return getNewDestDir();
 			}
 		}else{
 			return null;
