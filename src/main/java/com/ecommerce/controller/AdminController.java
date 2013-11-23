@@ -30,7 +30,6 @@ import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
-import com.ecommerce.validator.FileValidator;
 import com.ecommerce.util.DirectoryUtil;
 /**
  * 
@@ -41,7 +40,7 @@ import com.ecommerce.util.DirectoryUtil;
 @RequestMapping(value = "/admin")
 public class AdminController {
 	
-	protected static Logger logger = Logger.getLogger("controller");
+	protected static Logger logger = Logger.getLogger(AdminController.class);
 
 	@Inject
 	private ProductService productService;
@@ -54,9 +53,6 @@ public class AdminController {
 	
 	@Inject
 	private UserService userService;
-	
-	@Autowired
-	FileValidator fileValidator;
 	
 	@Autowired
 	private DirectoryUtil directoryUtil;
@@ -180,9 +176,9 @@ public class AdminController {
 			inputStream = file.getInputStream();
 			File parentFolder = directoryUtil.prepareUploadDirectory(DirectoryPrefix.PRODUCT_DIRECTORY.getDirectoryPrefix());
 			File newFile = new File(parentFolder,fileName);
-			//if(!newFile.exists()){
-				newFile.createNewFile();
-			//}
+			if(!newFile.exists()){
+				//newFile.createNewFile();
+			}
 			outputStream = new FileOutputStream(newFile);
 			int read = 0;
 			byte[] bytes = new byte[1024];

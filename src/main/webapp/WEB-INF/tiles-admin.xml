@@ -26,4 +26,8 @@
   <definition name="admin-product-add-image" extends="admin-common">
   	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/product/admin_product_add_image.jsp"/>
   </definition>
+  
+  <definition name="admin-add-blog-post" extends="admin-common">
+  	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/blog/admin_add_blog_post.jsp"/>
+  </definition>
 </tiles-definitions>

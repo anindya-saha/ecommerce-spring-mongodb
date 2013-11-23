@@ -21,7 +21,7 @@
   	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/homepage/slider.jsp"/>
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/homepage/new_added_products.jsp"/>
   	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/homepage/special_offers.jsp"/>
-  	<put-attribute name="container-row4" value="/WEB-INF/view/tiles/homepage/latest_news.jsp"/>
+  	<put-attribute name="container-row4" value="/WEB-INF/view/tiles/homepage/latest_blog_posts.jsp"/>
   	<put-attribute name="container-row5" value="/WEB-INF/view/tiles/homepage/brands.jsp"/>
   </definition>
   
@@ -54,6 +54,10 @@
       <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_one.jsp"/>
   </definition>
 
-  
+  <definition name="blog-list" extends="commonpage">
+  	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/blog/blog_list.jsp"/>
+  	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/blog/blog_sidebar.jsp"/>
+  </definition>
   
 </tiles-definitions>

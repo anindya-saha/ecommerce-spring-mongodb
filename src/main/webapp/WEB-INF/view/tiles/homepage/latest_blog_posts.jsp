@@ -15,7 +15,7 @@
 				<div class="main-titles center-align">
 					<h2 class="title">
 						<span class="clickable icon-chevron-left" id="tweetsLeft"></span>
-						&nbsp;&nbsp;&nbsp; <span class="light">Latest</span> News
+						&nbsp;&nbsp;&nbsp; <span class="light">Latest</span> Blog Posts
 						&nbsp;&nbsp;&nbsp; <span class="clickable icon-chevron-right"
 							id="tweetsRight"></span>
 					</h2>

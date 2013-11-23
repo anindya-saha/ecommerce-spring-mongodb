@@ -4,10 +4,10 @@
 		<span><i class="icon-table"></i>Add Image for ${product.name} - (${product.id}) </span>
 	</div>
 	<div class="mws-panel-body no-padding">
-	<form action="upload-product-image" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="productId" value=""/>
-		<input type="file" name="uploadedFile"/>
-		<input type="submit"/>
-	</form>
-</div>
+		<form action="upload-product-image" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="productId" value="${product.id}"/>
+			<input type="file" name="uploadedFile"/>
+			<input type="submit"/>
+		</form>
+	</div>
 </div>

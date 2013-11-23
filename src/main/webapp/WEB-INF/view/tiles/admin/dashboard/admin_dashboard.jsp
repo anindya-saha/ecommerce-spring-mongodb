@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!-- Statistics Button Container -->
 <div class="mws-stat-container clearfix">
 
@@ -49,10 +49,10 @@
 		<ul class="mws-summary clearfix">
 			<li><span class="key"><i class="icon-support"></i>
 					Support Tickets</span> <span class="val"> <span class="text-nowrap">332</span>
+					<i class="up icon-arrow-up"></i>
 			</span></li>
 			<li><span class="key"><i class="icon-certificate"></i>
-					Commision</span> <span class="val"> <span class="text-nowrap">71%
-						<i class="up icon-arrow-up"></i>
+					Total Products</span> <span class="val"> <span class="text-nowrap">${fn:length(productList)}
 				</span>
 			</span></li>
 			<li><span class="key"><i class="icon-shopping-cart"></i>
@@ -112,7 +112,7 @@
 				<c:forEach var="product" items="${productList}">
 				<tr>
 					<td>${product.id}</td>
-					<td>${product.name}</td>
+					<td><a href="product?productid=${product.id}">${product.name}</a></td>
 					<td>${product.price}</td>
 					<td>${product.invalidPrice}</td>
 					<td>${product.category.parent}/${product.category.name}</td>
@@ -135,3 +135,11 @@
 		</table>
 	</div>
 </div>
+<!-- Plugin Scripts -->
+<script src="${pageContext.request.contextPath}/admin_static/plugins/flot/jquery.flot.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin_static/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin_static/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin_static/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin_static/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<!-- Demo Scripts (remove if not needed) -->
+<script src="${pageContext.request.contextPath}/admin_static/js/demo/demo.dashboard.js"></script>
