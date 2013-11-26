@@ -23,9 +23,8 @@
 		<ul>
 			<li class="active"><a href="${pageContext.request.contextPath}/admin"><i
 					class="icon-home"></i> Dashboard</a></li>
-			<li><a href="charts.html"><i class="icon-graph"></i> Charts</a></li>
-			<li><a href="calendar.html"><i class="icon-calendar"></i>
-					Calendar</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/products"><i class="icon-graph"></i>Product Management</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/add-blog-post"><i class="icon-calendar"></i>Blog Management</a></li>
 			<li><a href="files.html"><i class="icon-folder-closed"></i>
 					File Manager</a></li>
 			<li><a href="table.html"><i class="icon-table"></i> Table</a></li>

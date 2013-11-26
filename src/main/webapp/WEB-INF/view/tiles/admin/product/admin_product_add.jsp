@@ -1,96 +1,110 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<div class="mws-panel grid_8">
-	<div class="mws-panel-header">
-		<span><i class="icon-pencil"></i> Add New Product</span>
-	</div>
-	<div class="mws-panel-body no-padding">
-		<form class="mws-form" action="productsave" method="POST">
-			<input type="hidden" name="productid" value=""/>
-			<input type="hidden" name="productUpdate" value="false"/>
-			<div class="mws-form-inline">
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Name</label>
-					<div class="mws-form-item">
-						<input type="text" name="productName" value="" class="large">
+<div class="col-md-6">
+	<div class="block">
+		<div class="header">
+			<h2>Add New Product</h2>
+		</div>
+		<div class="content controls">
+			<form class="mws-form" action="productsave" method="POST">
+				<input type="hidden" name="productid" value="" /> <input
+					type="hidden" name="productUpdate" value="false" />
+				<div class="form-row">
+					<div class="col-md-3">Product Name</div>
+					<div class="col-md-9">
+						<input type="text" name="productName" value=""
+							class="form-control">
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Price</label>
-					<div class="mws-form-item">
-						<input type="text" name="productPrice" value="" class="large">
+				<div class="form-row">
+					<div class="col-md-3">Product Price</div>
+					<div class="col-md-9">
+						<input type="text" name="productPrice" value=""
+							class="form-control">
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Invalid Price</label>
-					<div class="mws-form-item">
-						<input type="text" name="productInvalidPrice" value="" class="large">
+				<div class="form-row">
+					<div class="col-md-3">Product Invalid Price</div>
+					<div class="col-md-9">
+						<input type="text" name="productInvalidPrice" value=""
+							class="form-control">
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Brand</label>
-					<div class="mws-form-item">
-                        <div id="mws-ui-button-radio">
-                        	<c:forEach var="brand" items="${brandList}" varStatus="count">
-                            	<input name="brandId" value="${brand.id}" id="${brand.id}" class="ibutton" type="radio"/> <label for="${brand.id}">${brand.name}</label>
-                            </c:forEach>
-                        </div>
-                    </div>
-				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Category</label>
-					<div class="mws-form-item">
-						<c:forEach var="category" items="${categoryList}" varStatus="count">
-							<input type="checkbox" class="ibutton" name="productCategory" ${product.category.id eq category.id ? 'checked="true"':''} value="${category.id}"/>${category.name}
-							<c:if test="${not empty category.ancestors}">
-								<c:forEach var="ancestors" items="${category.ancestors}"> 
-									-->${ancestors}
-								</c:forEach>
-							</c:if><br>
+				<div class="form-row">
+					<div class="col-md-3">Brand</div>
+					<div class="col-md-9">
+						<c:forEach var="brand" items="${brandList}" varStatus="count">
+							<div class="radiobox-inline">
+								<label><input name="brandId" value="${brand.id}"
+									id="${brand.id}" type="radio" /> ${brand.name}</label>
+							</div>
 						</c:forEach>
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Shipment Type</label>
-					<div class="mws-form-item">
-						<div id="mws-ui-button-radio">
-                            <input name="productShipmentType" value="FREE_SHIPMENT" id="FREE_SHIPMENT" class="ibutton" type="radio"/> <label for="FREE_SHIPMENT">FREE_SHIPMENT</label>
-                            <input name="productShipmentType" value="BUYER_PAYS" id="BUYER_PAYS" class="ibutton" type="radio"/> <label for="BUYER_PAYS">BUYER_PAYS</label>
-                        </div>
+				<div class="form-row">
+					<div class="col-md-3">Category:</div>
+					<div class="col-md-9">
+						<c:forEach var="category" items="${categoryList}"
+							varStatus="count">
+							<div class="checkbox-inline">
+								<label><input type="checkbox" name="productCategory"
+									${product.category.id eq category.id ? 'checked="true"':''}
+									value="${category.id}" />${category.name}<c:if
+										test="${not empty category.ancestors}">
+										<c:forEach var="ancestors" items="${category.ancestors}"> 
+									-->${ancestors}
+								</c:forEach>
+									</c:if></label>
+							</div>
+						</c:forEach>
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Stock</label>
-					<div class="mws-form-item">
-						<input type="text" name="productStock" value="" class="large">
+				<div class="form-row">
+					<div class="col-md-3">Shipment type:</div>
+					<div class="col-md-9">
+						<div class="radiobox-inline">
+							<label><input name="productShipmentType"
+								value="FREE_SHIPMENT" id="FREE_SHIPMENT" type="radio" />
+								FREE_SHIPMENT</label> <label><input name="productShipmentType"
+								value="BUYER_PAYS" id="BUYER_PAYS" type="radio" /> BUYER_PAYS</label>
+						</div>
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Rating</label>
-					<div class="mws-form-item">
-						<input type="text" name="productRating" value="" class="large">
+				<div class="form-row">
+					<div class="col-md-3">Product Stock</div>
+					<div class="col-md-9">
+						<input type="text" name="productStock" value=""
+							class="form-control">
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Short Description</label>
-					<div class="mws-form-item">
-						<textarea class="large autosize" name="productDescription"></textarea>
+				<div class="form-row">
+					<div class="col-md-3">Product Rating</div>
+					<div class="col-md-9">
+						<input type="text" name="productRating" value=""
+							class="form-control">
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Product Description</label>
-					<div class="mws-form-item">
-						<textarea class="large autosize" name="productDescription"></textarea>
+				<div class="form-row">
+					<div class="col-md-3">Product Short Description</div>
+					<div class="col-md-9">
+						<textarea class="form-control" name="productShortDescription"></textarea>
 					</div>
 				</div>
-				<div class="mws-form-row">
-					<label class="mws-form-label">Confirmation</label>
-					<div class="mws-form-item">
-						<button class="btn btn-danger">Confirm</button>
-						<button class="btn btn-inverse">Back</button>
+				<div class="form-row">
+					<div class="col-md-3">Product Description</div>
+					<div class="col-md-9">
+						<textarea class="form-control" name="productDescription"></textarea>
 					</div>
 				</div>
-			</div>
-		</form>
+				<div class="footer">
+					<div class="col-md-3">Confirmation</div>
+					<div class="col-md-9">
+						<button class="btn">Confirm</button>
+						<button class="btn">Back</button>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>

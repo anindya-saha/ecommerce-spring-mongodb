@@ -8,9 +8,11 @@ import java.io.OutputStream;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,16 +63,52 @@ public class AdminController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView adminDashboard(){
 
-		ModelAndView mav = new ModelAndView();
-		List<Product> product = productService.listProducts();
+		ModelAndView mav = new ModelAndView();	
+		
 		List<Category> category = categoryService.getCategories();
 		List<User> user = userService.listUsers();
 		
 		mav.addObject("categoryList",category);
-		mav.addObject("productList", product);
 		mav.addObject("userList", user);
 		
 		mav.setViewName("admin-dashboard");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	public ModelAndView productManagement(
+			@RequestParam(value = "page", required = false)String page,
+			HttpSession session){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		List<Product> product;
+		PagedListHolder productList = new PagedListHolder();
+		if(session.getAttribute("productPaged") == null){
+			product = productService.listProducts();
+			//PagedListHolder<List<Product>> productList = new PagedListHolder(product);
+			productList.setSource(product);
+			session.setAttribute("productPaged", productList);
+		}
+		
+		productList = (PagedListHolder) session.getAttribute("productPaged");
+		productList.setPageSize(1);
+		productList.getFirstElementOnPage();
+
+		if(page == null){
+			mav.addObject("productList", productList.getPageList());
+		}else if(page.equals("next")){
+			productList.nextPage();
+			mav.addObject("productList", productList.getPageList());
+		}else if(page.equals("prev")){
+			productList.previousPage();
+			mav.addObject("productList", productList.getPageList());
+		}else{
+			productList.setPage(Integer.parseInt(page)-1);
+			mav.addObject("productList", productList.getPageList());
+		}
+		
+		mav.setViewName("admin-products");
 		return mav;
 	}
 	
