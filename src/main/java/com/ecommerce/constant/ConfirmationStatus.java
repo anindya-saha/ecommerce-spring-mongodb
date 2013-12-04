@@ -12,4 +12,4 @@ public enum ConfirmationStatus {
 	  public String getConfirmationStatus() {
 	    return this.status;
 	  }
-	}
+}
