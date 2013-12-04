@@ -98,6 +98,7 @@ public class ProductController {
 	
 	//@SuppressWarnings("unchecked")
 	//@ResponseBody
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/add-to-cart", method = RequestMethod.POST)
 	public ModelAndView addProductToCart(
 			@RequestParam(value = "productId" ,required = true) String productId,
