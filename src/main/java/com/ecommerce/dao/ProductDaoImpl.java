@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.query.Update;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductImage;
 import com.ecommerce.model.ProductSpecification;
 
 @Repository
@@ -26,16 +27,19 @@ public class ProductDaoImpl implements ProductDao {
 	
 	public static final String PRODUCT_COLLECTION = "product";
 
+	@Override
 	public List<Product> getAllProducts() {
 		return mongoTemplate.findAll(Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public List<Product> getShipmentTypedProducts(String type){
 		Query query = new Query();
 		query.addCriteria(Criteria.where("shipmentType").is(type));
 		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public List<Product> getRelatedProducts(Product product, int limit){
 		Query query = new Query();
 		query.addCriteria(
@@ -47,6 +51,7 @@ public class ProductDaoImpl implements ProductDao {
 		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public List<Product> getSameBrandProducts(Product product, int limit){
 		Query query = new Query();
 		query.addCriteria(
@@ -56,6 +61,7 @@ public class ProductDaoImpl implements ProductDao {
 		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public List<Product> getOrderedProducts(String orderBy,String orderType,int limit){
 		Query query = new Query();
 		if(orderType.equals("DESC")){
@@ -77,14 +83,17 @@ public class ProductDaoImpl implements ProductDao {
 		return mongoTemplate.find(query, Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public Product getSingleProduct(String id) {
 		return mongoTemplate.findById(id, Product.class, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public ProductComment getSingleComment(String id){
 		return mongoTemplate.findById(id, ProductComment.class, PRODUCT_COLLECTION);
 	}
 
+	@Override
 	public void saveNewProduct(Product product){
 		if (!mongoTemplate.collectionExists(PRODUCT_COLLECTION)) {
 			mongoTemplate.createCollection(PRODUCT_COLLECTION);
@@ -95,16 +104,19 @@ public class ProductDaoImpl implements ProductDao {
 		mongoTemplate.insert(product, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public void updateExistingProduct(Product product){
 		if(product != null){
 			mongoTemplate.save(product);
 		}
 	}
 	
+	@Override
 	public void deleteExistingProduct(Product product){
 		mongoTemplate.remove(product, PRODUCT_COLLECTION);
 	}
 	
+	@Override
 	public void saveProductComment(Product product,ProductComment comment){
 
         Product existingProduct = getSingleProduct(product.getId());
@@ -139,8 +151,9 @@ public class ProductDaoImpl implements ProductDao {
         
         //mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
         
-}
+	}
 	
+	@Override
 	public void saveProductSpecification(Product product, ProductSpecification productSpecification){
 		
 		Update update = new Update();
@@ -150,6 +163,19 @@ public class ProductDaoImpl implements ProductDao {
 		query.addCriteria(Criteria.where("_id").is(product.getId()));
 		
 		mongoTemplate.updateFirst(query,update,PRODUCT_COLLECTION);
+		
+	}
+	
+	@Override
+	public void saveProductImage(String id, Object productImage){
+		
+		Update update = new Update();
+		update.push("image",productImage);
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(id));
+		
+		mongoTemplate.updateFirst(query, update, PRODUCT_COLLECTION);
 		
 	}
 	

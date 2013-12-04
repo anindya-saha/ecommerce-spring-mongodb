@@ -12,6 +12,7 @@ import com.ecommerce.dao.ProductDao;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductImage;
 import com.ecommerce.model.ProductSpecification;
 
 @Service
@@ -20,8 +21,9 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 
-	protected static Logger logger = Logger.getLogger("service");
+	protected static Logger logger = Logger.getLogger(ProductService.class);
 
+	@Override
 	public List<Product> listProducts() {
 		logger.debug("Getting all products");
 		try {
@@ -32,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	@Override
 	public List<Product> shipmentTypedProduct(String type){
 		logger.debug("Getting free shipping products");
 		try {
@@ -42,6 +45,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	@Override
 	public List<Product> listRelatedProducts(Product product, int limit) {
 		logger.debug("Getting related products");
 		try {
@@ -52,6 +56,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	@Override
 	public List<Product> listSameBrandProducts(Product product, int limit) {
 		logger.debug("Getting same brand products");
 		try {
@@ -62,6 +67,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	@Override
 	public List<Product> listOrderedProducts(String orderBy,String orderType,int limit){
 		logger.debug("Getting ordered product with limit");
 		try {
@@ -72,6 +78,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	@Override
 	public List<Product> listCategorizedProducts(String categoryName){
 		logger.debug("Getting categorized products");
 		
@@ -90,6 +97,7 @@ public class ProductServiceImpl implements ProductService {
 		return categorizedProducts;
 	}
 
+	@Override
 	public Product singleProduct(String id) {
 
 		logger.debug("Getting single product");
@@ -102,6 +110,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
+	@Override
 	public void addProduct(Product product) {
 
 		logger.debug("Adding new Product");
@@ -112,6 +121,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
+	@Override
 	public void removeProduct(Product product) {
 		logger.debug("Deleting an existing product");
 		try {
@@ -121,10 +131,12 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
+	@Override
 	public void updateProduct(Product product) {
 		productDao.updateExistingProduct(product);
 	}
 
+	@Override
 	public void addProductComment(Product product,ProductComment comment) {
 		logger.debug("Adding comment to existing product");
 		//try {
@@ -135,13 +147,23 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
 	public void addProductSpecification(Product product,ProductSpecification productSpecification) {
 		logger.debug("Adding new specification to existing product");
 		try {
 			productDao.saveProductSpecification(product,productSpecification);
 		} catch (Exception e) {
-			logger.error("An error has occured while trying to adding new specification on an existing product");
+			logger.error(e.getMessage());
 		}
-		
+	}
+	
+	@Override
+	public void addProductImage(String productId,ProductImage image){
+		logger.debug("Addiing new image to existing product");
+		try {
+			productDao.saveProductImage(productId, image);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 	}
 }

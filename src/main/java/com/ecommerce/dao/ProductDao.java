@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.model.ProductComment;
+import com.ecommerce.model.ProductImage;
 import com.ecommerce.model.ProductSpecification;
 
 public abstract interface ProductDao {
@@ -31,5 +32,7 @@ public abstract interface ProductDao {
   public abstract void saveProductComment(Product product,ProductComment comment);
   
   public abstract void saveProductSpecification(Product product, ProductSpecification productSpecification);
+  
+  public abstract void saveProductImage(String id, Object productImage);
   
 }
