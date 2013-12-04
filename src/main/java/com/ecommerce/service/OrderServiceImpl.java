@@ -1,14 +1,21 @@
 package com.ecommerce.service;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ecommerce.constant.OrderStatus;
+import com.ecommerce.dao.OrderDao;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.User;
 
+@Service
 public class OrderServiceImpl implements OrderService{
 
 	protected static Logger logger = Logger.getLogger("service");
+	
+	@Autowired
+	private OrderDao orderDao;
 	
 	public boolean hasRightOrder(User user){
 		int orderCount = 0;
@@ -28,6 +35,16 @@ public class OrderServiceImpl implements OrderService{
 		}
 		else{
 			return false;
+		}
+	}
+
+	@Override
+	public void saveNewOrder(String userId, String productId, String status) {
+		logger.debug("Saving new Order");
+		try {
+			orderDao.createNewOrder(userId, productId, status);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to save new order");
 		}
 	}
 	
