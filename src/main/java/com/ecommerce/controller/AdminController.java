@@ -26,6 +26,7 @@ import com.ecommerce.constant.DirectoryPrefix;
 import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
+import com.ecommerce.model.ProductImage;
 import com.ecommerce.model.ProductSpecification;
 import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
@@ -65,10 +66,9 @@ public class AdminController {
 
 		ModelAndView mav = new ModelAndView();	
 		
-		List<Category> category = categoryService.getCategories();
+		
 		List<User> user = userService.listUsers();
 		
-		mav.addObject("categoryList",category);
 		mav.addObject("userList", user);
 		
 		mav.setViewName("admin-dashboard");
@@ -197,18 +197,14 @@ public class AdminController {
 	//File Upload
 	@RequestMapping(value = "/upload-product-image", method = RequestMethod.POST)
 	public String uploadProductImage(
-			@RequestParam(value = "uploadedFile",required = false)MultipartFile uploadedFile,
+			@RequestParam(value = "file",required = false)MultipartFile uploadedFile,
 			@RequestParam(value = "productId",required=false)String productId){
 		logger.debug("Image upload controller " + productId);
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
 		
 		MultipartFile file = uploadedFile;
-		//fileValidator.validate(uploadedFile, result);
 		String fileName = file.getOriginalFilename();
-		//if(result.hasErrors()){
-		//	return "Upload Failed";
-		//}
 		
 		try {
 			inputStream = file.getInputStream();
@@ -224,6 +220,11 @@ public class AdminController {
 				outputStream.write(bytes, 0, read);
 			}
 			outputStream.close();
+			
+			ProductImage productImage = new ProductImage();
+			productImage.setImagePath(parentFolder.getName()+"/"+newFile.getName());
+			
+			productService.addProductImage(productId, productImage);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -264,6 +265,26 @@ public class AdminController {
 		model.addAttribute("product", singleProduct);
 		
 		mav.setViewName("admin-product-update");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/categories", method = RequestMethod.GET )
+	public ModelAndView allCategories(){
+		ModelAndView mav = new ModelAndView();
+		List<Category> mainCategories = categoryService.getMainCategories();
+		List<Category> childCategories = categoryService.getChildCategories();
+		mav.addObject("mainCategories",mainCategories);
+		mav.addObject("childCategories",childCategories);
+		
+		mav.setViewName("admin-category");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/add-new-category", method = RequestMethod.GET )
+	public ModelAndView newCategory(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("admin-add-category");
 		return mav;
 	}
 	
