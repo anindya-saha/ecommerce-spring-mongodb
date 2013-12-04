@@ -9,7 +9,7 @@ import com.ecommerce.constant.DirectoryPrefix;
 
 public class DirectoryUtil {
 
-	private static final String root = "C:/DEV/Apache/htdocs/";
+	private static final String root = "C:/DEV/nginx-1.5.7/root/";
 	
 	private static final long maxDirectorySize = 1024 * 1024 * 1; // 1MB
 	
@@ -98,13 +98,13 @@ public class DirectoryUtil {
 	}
 	
 	/**
-	 * Check if directorySize greatest than maxDirectorySize
-	 * @param directoryName
+	 * Check if directorySize greater than maxDirectorySize
+	 * @param file
 	 * @return
 	 */
-	public boolean checkDirectorySize(File directoryName) throws IOException{
+	public boolean checkDirectorySize(File file) throws IOException{
 		
-		File directory = directoryName;
+		File directory = file;
 		long size = FileUtils.sizeOfDirectory(directory);
 		
 		if(size >= DirectoryUtil.maxDirectorySize){
