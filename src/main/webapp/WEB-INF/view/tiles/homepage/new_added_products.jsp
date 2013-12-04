@@ -74,7 +74,7 @@
 		            	    <div class="product">
 		            	        <div class="product-img featured">
 		            	            <div class="picture">
-		            	        	    <img src="static/images/dummy/featured-products/featured-1.png" alt="" width="518" height="358" />
+		            	        	    <img src="<c:if test="${not empty product.image}">${staticServer}/${product.image[0].imagePath}</c:if>" alt="" width="518" height="358" />
 		            	        		<div class="img-overlay">
 		            	        		    <a href="${pageContext.request.contextPath}/product?productid=${product.id}" class="btn more btn-primary">More</a>
 		            	        		    <a href="javascript:void(0);" class="btn add-to-cart" data-productid="${product.id}">Add to Cart</a>

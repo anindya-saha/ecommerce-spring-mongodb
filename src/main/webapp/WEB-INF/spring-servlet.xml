@@ -105,11 +105,14 @@
 <!-- 		</property> -->
 <!-- 	</bean> -->
 	 
-<!-- 	<bean id="commonInterceptor" class="com.ecommerce.interceptor.CommonInterceptor" /> -->
+	<bean id="commonInterceptor" class="com.ecommerce.interceptor.CommonInterceptor" />
 	
-<!-- 	<mvc:interceptors> -->
-<!-- 		<ref bean="commonInterceptor"/> -->
-<!-- 	</mvc:interceptors> -->
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <mvc:mapping path="/**" />
+			<ref bean="commonInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<bean id="directoryUtil" class="com.ecommerce.util.DirectoryUtil" />
 	

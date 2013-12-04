@@ -53,6 +53,22 @@
   <definition name="checkout-step-one" extends="checkout">
       <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_one.jsp"/>
   </definition>
+  
+  <definition name="checkout-step-two" extends="checkout">
+      <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_two.jsp"/>
+  </definition>
+  
+  <definition name="checkout-step-three" extends="checkout">
+      <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_three.jsp"/>
+  </definition>
+  
+  <definition name="checkout-step-four" extends="checkout">
+      <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_four.jsp"/>
+  </definition>
+  
+  <definition name="checkout-step-final" extends="checkout">
+      <put-attribute name="content" value="/WEB-INF/view/tiles/checkout/checkout_step_final.jsp"/>
+  </definition>
 
   <definition name="blog-list" extends="commonpage">
   	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>

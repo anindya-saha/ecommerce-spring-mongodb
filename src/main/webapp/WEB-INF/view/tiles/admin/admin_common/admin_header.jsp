@@ -13,11 +13,11 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="${pageContext.request.contextPath}/admin">dashboard</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">forms</a>
+					data-toggle="dropdown">Management</a>
 					<ul class="dropdown-menu">
 						<li><a href="${pageContext.request.contextPath}/admin/products">Product Management</a></li>
 						<li><a href="${pageContext.request.contextPath}/admin/add-blog-post">Blog Management</a></li>
-						<li><a href="form_validation.html">Validation and wizard</a>
+						<li><a href="${pageContext.request.contextPath}/admin/categories">Category Management</a>
 						</li>
 					</ul></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"

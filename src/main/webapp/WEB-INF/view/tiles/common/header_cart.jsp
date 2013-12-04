@@ -61,7 +61,7 @@
 			            </div>
 			        </div>
 			        <div class="proceed">
-			            <a href="checkout-step-1.html" class="btn btn-danger pull-right bold higher">CHECKOUT <i class="icon-shopping-cart"></i></a>
+			            <a href="${pageContext.request.contextPath}/checkout" class="btn btn-danger pull-right bold higher">CHECKOUT <i class="icon-shopping-cart"></i></a>
 			            <small>Shipping costs are calculated based on location. <a href="#">More information</a></small>
 			        </div>
 			    </div>

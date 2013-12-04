@@ -4,14 +4,11 @@
 					<div class="block">
 						<div class="header">
 							<h2>
-								All included
+								All Products
 							</h2>
 							<div class="btn-toolbar">
 			<div class="btn-group">
 				<a href="${pageContext.request.contextPath}/admin/add-new-product" class="btn"><i class="icol-add"></i> Add New Product</a>
-				<a href="${pageContext.request.contextPath}/admin/add-new-category" class="btn"><i class="icol-add"></i> Add New Category</a>
-				<a href="${pageContext.request.contextPath}/admin/add-new-brand" class="btn"><i class="icol-add"></i> Add New Brand</a>
-				<a href="${pageContext.request.contextPath}/admin/add-new-user" class="btn"><i class="icol-add"></i> Add New User</a>
 			</div>
 		</div>
 						</div>

@@ -11,5 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/flot/jquery.flot.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/flot/jquery.flot.resize.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/plupload/jquery.plupload.queue/jquery.plupload.queue.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/plugins/uniform/jquery.uniform.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/js.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin_static/js/settings.js"></script>
