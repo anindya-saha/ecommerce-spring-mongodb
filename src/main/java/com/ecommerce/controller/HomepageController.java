@@ -1,6 +1,5 @@
 package com.ecommerce.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,6 +44,7 @@ public class HomepageController {
 
 		List<Product> products = productService.listOrderedProducts("_id","DESC",9);
 		mav.addObject("products", products);
+		//mav.addObject("staticServer",StaticServer.PROTOCOL.getConfiguration()+StaticServer.DOMAIN.getConfiguration());
 		
 		List<Category> mainCategory = categoryService.getMainCategories();
 		mav.addObject("mainCategory",mainCategory);
