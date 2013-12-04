@@ -19,8 +19,6 @@ public class User {
 	private String ipAddress;
 	
 	private Order[] order;
-	
-	private UserTracker[] userTracker;
 
 	public String getId() {
 		return this.id;
@@ -88,12 +86,4 @@ public class User {
 	public void setOrders(Order[] order){
 		this.order = order;
 	}
-	
-	public UserTracker[] getUserTracker(){
-		return this.userTracker;
-	}
-	public void setUserTracker(UserTracker[] userTracker){
-		this.userTracker = userTracker;
-	}
-	
 }

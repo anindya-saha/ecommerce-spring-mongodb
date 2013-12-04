@@ -32,6 +32,8 @@ public class Product {
 
 	private ProductComment[] comment;
 	
+	private ProductImage[] image;
+	
 	private int orderCount;
 
 	public String getId() {
@@ -147,6 +149,13 @@ public class Product {
 	}
 	public void setOrderCount(int orderCount){
 		this.orderCount = orderCount;
+	}
+
+	public ProductImage[] getImage() {
+		return image;
+	}
+	public void setImage(ProductImage[] image) {
+		this.image = image;
 	}
 
 }

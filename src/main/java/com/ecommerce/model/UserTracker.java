@@ -2,11 +2,20 @@ package com.ecommerce.model;
 
 public class UserTracker {
 	
+	private String userId;
+	
 	private String categoryId;
 	
 	private String productId;
 	
 	private int showCount;
+	
+	public String getUserId(){
+		return this.userId;
+	}
+	public void setUserId(String userId){
+		this.userId = userId;
+	}
 	
 	public String getCategoryId(){
 		return this.categoryId;
