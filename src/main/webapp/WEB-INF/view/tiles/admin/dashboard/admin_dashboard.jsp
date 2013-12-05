@@ -110,7 +110,7 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-5">
+<div class="col-md-10">
 	<div class="block block-drop-shadow">
 		<div class="head bg-default bg-light-ltr">
 			<h2>Total sales</h2>
@@ -132,16 +132,39 @@
 			<div class="head-panel nm">
 				<div class="hp-info pull-left">
 					<div class="hp-icon"></div>
-					<span class="hp-main">155</span> <span class="hp-sm">Sales</span>
+					<span class="hp-main">${pendingOrderCount}</span> <span class="hp-sm">Pending Orders</span>
 				</div>
 				<div class="hp-info pull-left">
 					<div class="hp-icon"></div>
-					<span class="hp-main">23</span> <span class="hp-sm">Cancelled</span>
+					<span class="hp-main">${waitingStockOrderCount}</span> <span class="hp-sm">Waiting Stock</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${preparingOrderCount}</span> <span class="hp-sm">Preparing</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${shippingOrderCount}</span> <span class="hp-sm">Shipping</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${shippedOrderCount}</span> <span class="hp-sm">Shipped</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${completedOrderCount}</span> <span class="hp-sm">Completed</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${cancelledOrderCount}</span> <span class="hp-sm">Cancelled</span>
+				</div>
+				<div class="hp-info pull-left">
+					<div class="hp-icon"></div>
+					<span class="hp-main">${returnedOrderCount}</span> <span class="hp-sm">Returned</span>
 				</div>
 				<div class="hp-info pull-right">
 					<div class="hp-icon"></div>
-					<span class="hp-main">19,215.23</span> <span class="hp-sm">Total
-						Income</span>
+					<span class="hp-main">${totalOrders}</span> <span class="hp-sm">Total Orders</span>
 				</div>
 			</div>
 		</div>
@@ -267,195 +290,6 @@
 					<div class="progress-bar tip" title="Internet Explorer"
 						style="width: 15%"></div>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col-md-5">
-	<div class="block block-drop-shadow">
-		<div class="head bg-default bg-light-rtl">
-			<h2>Support Tickets</h2>
-			<div class="side pull-right">
-				<ul class="buttons">
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-				</ul>
-			</div>
-			<div class="head-panel nm">
-				<a href="#" class="hp-info pull-left"></a>
-				<div class="hp-icon"></div>
-				<span class="hp-main">25</span> <span class="hp-sm">recived</span> <a
-					href="#" class="hp-info pull-left"></a>
-				<div class="hp-icon"></div>
-				<span class="hp-main">10</span> <span class="hp-sm">sent</span> <a
-					href="#" class="hp-info hp-one pull-right tip" title="Refresh"></a>
-				<div class="hp-icon"></div>
-				<span class="hp-main">9:24 am</span>
-			</div>
-		</div>
-		<div class="content list">
-			<div class="list-item">
-				<div class="list-datetime">
-					<div class="time">9:45 am</div>
-				</div>
-				<div class="list-info">
-					<img src="img/example/user/dmitry.jpg"
-						class="img-circle img-thumbnail">
-				</div>
-				<div class="list-text">
-					<a href="#" class="list-text-name">John Doe</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Pellentesque condimentum nisl velit.</p>
-				</div>
-				<div class="list-controls">
-					<a href="#" class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a>
-				</div>
-			</div>
-			<div class="list-item">
-				<div class="list-datetime">
-					<div class="time">8:16 am</div>
-				</div>
-				<div class="list-info">
-					<img src="img/example/user/alexey.jpg"
-						class="img-circle img-thumbnail">
-				</div>
-				<div class="list-text">
-					<a href="#" class="list-text-name">Brad Pitt</a>
-					<p>Duis eu libero pellentesque, dapibus ante eu, vehicula leo.
-						Nulla gravida rutrum neque.</p>
-				</div>
-				<div class="list-controls">
-					<a href="#" class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a>
-				</div>
-			</div>
-			<div class="list-item">
-				<div class="list-datetime">
-					<div class="date">27.08</div>
-					<div class="time">9:59 pm</div>
-				</div>
-				<div class="list-info">
-					<img src="img/example/user/olga.jpg"
-						class="img-circle img-thumbnail">
-				</div>
-				<div class="list-text">
-					<a href="#" class="list-text-name">Angelina Jolie</a>
-					<p>Morbi tincidunt, tellus ut fermentum accumsan, est justo
-						pretium enim, eget.</p>
-				</div>
-				<div class="list-controls">
-					<a href="#" class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a>
-				</div>
-			</div>
-			<div class="list-item">
-				<div class="list-datetime">
-					<div class="date">27.08</div>
-					<div class="time">4:34 pm</div>
-				</div>
-				<div class="list-info">
-					<img src="img/example/user/helen.jpg"
-						class="img-circle img-thumbnail">
-				</div>
-				<div class="list-text">
-					<a href="#" class="list-text-name">Keira Knightley</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Pellentesque condimentum nisl velit.</p>
-				</div>
-				<div class="list-controls">
-					<a href="#" class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a>
-				</div>
-			</div>
-			<div class="list-item">
-				<div class="list-datetime">
-					<div class="date">26.08</div>
-					<div class="time">12:12 am</div>
-				</div>
-				<div class="list-info">
-					<img src="img/example/user/dmitry.jpg"
-						class="img-circle img-thumbnail">
-				</div>
-				<div class="list-text">
-					<a href="#" class="list-text-name">John Doe</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Pellentesque condimentum nisl velit.</p>
-				</div>
-				<div class="list-controls">
-					<a href="#" class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a> <a href="#"
-						class="widget-icon widget-icon-circle"></a>
-				</div>
-			</div>
-		</div>
-		<div class="footer tac">
-			<a href="#">Load more messages...</a>
-		</div>
-	</div>
-	<div class="block block-drop-shadow">
-		<div class="header">
-			<h2>Messaging</h2>
-			<div class="side pull-right">
-				<ul class="buttons">
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="content messages npr npb npt">
-			<div class="scroll" style="height: 250px">
-				<div class="messages-item">
-					<img src="img/example/user/dmitry_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Duis eu libero pellentesque,
-						dapibus ante eu, vehicula leo. Nulla gravida rutrum neque</div>
-					<div class="messages-item-date">14:33 30.08.2013</div>
-				</div>
-				<div class="messages-item inbox">
-					<img src="img/example/user/olga_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Pellentesque condimentum nisl velit</div>
-					<div class="messages-item-date">14:32 30.08.2013</div>
-				</div>
-				<div class="messages-item">
-					<img src="img/example/user/dmitry_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Duis eu libero pellentesque,
-						dapibus ante eu, vehicula leo. Nulla gravida rutrum neque</div>
-					<div class="messages-item-date">14:20 30.08.2013</div>
-				</div>
-				<div class="messages-item inbox">
-					<img src="img/example/user/olga_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Pellentesque condimentum nisl velit</div>
-					<div class="messages-item-date">14:19 30.08.2013</div>
-				</div>
-				<div class="messages-item">
-					<img src="img/example/user/dmitry_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Duis eu libero pellentesque,
-						dapibus ante eu, vehicula leo. Nulla gravida rutrum neque</div>
-					<div class="messages-item-date">14:15 30.08.2013</div>
-				</div>
-				<div class="messages-item inbox">
-					<img src="img/example/user/olga_s.jpg"
-						class="img-circle img-thumbnail">
-					<div class="messages-item-text">Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Pellentesque condimentum nisl velit</div>
-					<div class="messages-item-date">14:10 30.08.2013</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="message..">
 			</div>
 		</div>
 	</div>
