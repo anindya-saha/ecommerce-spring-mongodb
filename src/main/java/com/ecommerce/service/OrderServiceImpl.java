@@ -39,6 +39,17 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
+	public int orderCountByType(String status){
+		logger.debug("Getting order counts by "+status+" type");
+		try {
+			return 	orderDao.getOrderCountByStatus(status);
+		} catch (Exception e) {
+			logger.error("An error has occured while trying to getting order counts");
+			return -1;
+		}
+	}
+	
+	@Override
 	public void saveNewOrder(String userId, String productId, String status) {
 		logger.debug("Saving new Order");
 		try {
