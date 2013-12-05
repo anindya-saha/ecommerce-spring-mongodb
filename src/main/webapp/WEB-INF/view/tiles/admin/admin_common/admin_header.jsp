@@ -16,45 +16,11 @@
 					data-toggle="dropdown">Management</a>
 					<ul class="dropdown-menu">
 						<li><a href="${pageContext.request.contextPath}/admin/products">Product Management</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/add-blog-post">Blog Management</a></li>
 						<li><a href="${pageContext.request.contextPath}/admin/categories">Category Management</a>
+						<li><a href="${pageContext.request.contextPath}/admin/add-blog-post">Blog Management</a></li>
 						</li>
 					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">components</a>
-					<ul class="dropdown-menu">
-						<li><a href="component_blocks.html">Blocks and panels</a></li>
-						<li><a href="component_buttons.html">Buttons</a></li>
-						<li><a href="component_modals.html">Modals and popups</a></li>
-						<li><a href="component_tabs.html">Tabs, accordion</a></li>
-						<li><a href="component_progress.html">Progressbars</a></li>
-						<li><a href="component_lists.html">List groups</a></li>
-						<li><a href="component_messages.html">Messages</a></li>
-						<li><a href="#">Tables</a>
-							<ul class="dropdown-submenu">
-								<li><a href="component_table_default.html">Default
-										tables</a></li>
-								<li><a href="component_table_sortable.html">Sortable
-										tables</a></li>
-							</ul></li>
-						<li><a href="#">Layouts</a>
-							<ul class="dropdown-submenu">
-								<li><a href="component_layout_blank.html">Default
-										layout(blank)</a></li>
-								<li><a href="component_layout_custom.html">Custom
-										navigation</a></li>
-								<li><a href="component_layout_scroll.html">Content
-										scroll</a></li>
-								<li><a href="component_layout_fixed.html">Fixed content</a>
-								</li>
-							</ul></li>
-						<li><a href="component_charts.html">Charts</a></li>
-						<li><a href="component_maps.html">Maps</a></li>
-						<li><a href="component_typography.html">Typography</a></li>
-						<li><a href="component_gallery.html">Gallery</a></li>
-						<li><a href="component_calendar.html">Calendar</a></li>
-						<li><a href="component_icons.html">Icons</a></li>
-					</ul></li>
+				<li class="active"><a href="${pageContext.request.contextPath}/admin/orders">Orders</a></li>
 				<li><a href="widgets.html">widgets</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">pages</a>
