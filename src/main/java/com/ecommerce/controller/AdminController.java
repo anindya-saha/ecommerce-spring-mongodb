@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.constant.DirectoryPrefix;
+import com.ecommerce.constant.OrderStatus;
 import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
@@ -31,6 +32,7 @@ import com.ecommerce.model.ProductSpecification;
 import com.ecommerce.model.User;
 import com.ecommerce.service.BrandService;
 import com.ecommerce.service.CategoryService;
+import com.ecommerce.service.OrderService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.UserService;
 import com.ecommerce.util.DirectoryUtil;
@@ -57,19 +59,35 @@ public class AdminController {
 	@Inject
 	private UserService userService;
 	
+	@Inject
+	private OrderService orderService;
+	
 	@Autowired
 	private DirectoryUtil directoryUtil;
 	
 	//List all items
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView adminDashboard(){
-
 		ModelAndView mav = new ModelAndView();	
-		
-		
-		List<User> user = userService.listUsers();
-		
-		mav.addObject("userList", user);
+		int pending = orderService.orderCountByType(OrderStatus.PENDING.getOrderStatus()),
+			waitingStock = orderService.orderCountByType(OrderStatus.WAITING_STOCK.getOrderStatus()),
+			preparing = orderService.orderCountByType(OrderStatus.PREPARING.getOrderStatus()),
+			shipping = orderService.orderCountByType(OrderStatus.SHIPPING.getOrderStatus()),
+			shipped = orderService.orderCountByType(OrderStatus.SHIPPED.getOrderStatus()),
+			completed = orderService.orderCountByType(OrderStatus.COMPLETED.getOrderStatus()),
+			cancelled = orderService.orderCountByType(OrderStatus.CANCELLED.getOrderStatus()),
+			returned = orderService.orderCountByType(OrderStatus.RETURNED.getOrderStatus()),
+			total = pending + waitingStock + preparing + shipping + shipped + completed + cancelled + returned;
+				
+		mav.addObject("pendingOrderCount", pending);
+		mav.addObject("waitingStockOrderCount", waitingStock);
+		mav.addObject("preparingOrderCount", preparing);
+		mav.addObject("shippingOrderCount", shipping);
+		mav.addObject("shippedOrderCount", shipped);
+		mav.addObject("completedOrderCount", completed);
+		mav.addObject("cancelledOrderCount", cancelled);
+		mav.addObject("returnedOrderCount", returned);
+		mav.addObject("totalOrders",total);
 		
 		mav.setViewName("admin-dashboard");
 		return mav;
