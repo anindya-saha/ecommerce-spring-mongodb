@@ -36,8 +36,7 @@
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/product/free_shipping_products.jsp"/>
   </definition>
   
-  <definition name="header-cart" template="/WEB-INF/view/tiles/common/header_cart.jsp">
-  </definition>
+  <definition name="header-cart" template="/WEB-INF/view/tiles/common/header_cart.jsp"></definition>
   
   <definition name="category-grid" extends="commonpage">
     <put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
@@ -74,6 +73,10 @@
   	<put-attribute name="container-row1" value="/WEB-INF/view/tiles/common/breadcrumb.jsp"/>
   	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/blog/blog_list.jsp"/>
   	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/blog/blog_sidebar.jsp"/>
+  </definition>
+  
+  <definition name="user-settings" extends="commonpage">
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/user/user_settings.jsp"/>
   </definition>
   
 </tiles-definitions>
