@@ -38,7 +38,7 @@
                     <div class="register">
                     	<c:choose>
 	                        <c:when test="${not empty user}">
-                                Welcome ${user.name} - ${user.email} - <a href="${pageContext.request.contextPath}/user/logout">Logout</a>
+                                Welcome ${user.name} - ${user.email} - <a href="${pageContext.request.contextPath}/user/settings">Settings</a> - <a href="${pageContext.request.contextPath}/user/logout">Logout</a>
 	                        </c:when>
 	                        <c:otherwise>
                                 <a href="#loginModal" role="button" data-toggle="modal">Login</a> or 
