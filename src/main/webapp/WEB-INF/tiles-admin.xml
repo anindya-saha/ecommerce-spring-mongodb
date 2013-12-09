@@ -41,4 +41,8 @@
   <definition name="admin-add-blog-post" extends="admin-common">
   	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/blog/admin_add_blog_post.jsp"/>
   </definition>
+  
+  <definition name="admin-orders" extends="admin-common">
+  	<put-attribute name="container" value="/WEB-INF/view/tiles/admin/order/admin_orders.jsp"/>
+  </definition>
 </tiles-definitions>
