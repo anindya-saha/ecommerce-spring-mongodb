@@ -16,6 +16,8 @@ public class Order {
 	
 	private Date updateDate;
 	
+	private String orderAddress;
+	
 	public String getId(){
 		return this.id;
 	}
@@ -56,6 +58,13 @@ public class Order {
 	}
 	public void setUpdateDate(Date updateDate){
 		this.updateDate = updateDate;
+	}
+	
+	public String getOrderAddress(){
+		return this.orderAddress;
+	}
+	public void setOrderAddress(String orderAddress){
+		this.orderAddress = orderAddress;
 	}
 	
 }
