@@ -49,29 +49,33 @@
         <h3 id="registerModalLabel"><span class="light">Register</span> To Webmarket</h3>
     </div>
     <div class="modal-body">
-        <form method="post" action="#" />
-            <div class="control-group">
-                <label class="control-label hidden shown-ie8" for="inputUsernameRegister">Username</label>
-                <div class="controls">
-                    <input type="text" class="input-block-level" id="inputUsernameRegister" placeholder="Username" />
-                </div>
+        <div class="control-group">
+            <label class="control-label hidden shown-ie8" for="userName">Name</label>
+            <div class="controls">
+                <input type="text" class="input-block-level" id="userName" placeholder="Name" />
             </div>
-            <div class="control-group">
-                <label class="control-label hidden shown-ie8" for="inputEmailRegister">Email</label>
-                <div class="controls">
-                    <input type="email" class="input-block-level" id="inputEmailRegister" placeholder="Email" />
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label hidden shown-ie8" for="userSurname">Surname</label>
+            <div class="controls">
+                <input type="text" class="input-block-level" id="userSurname" placeholder="Surname" />
             </div>
-            <div class="control-group">
-                <label class="control-label hidden shown-ie8" for="inputPasswordRegister">Password</label>
-                <div class="controls">
-                    <input type="password" class="input-block-level" id="inputPasswordRegister" placeholder="Password" />
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label hidden shown-ie8" for="userEmail">Email</label>
+            <div class="controls">
+                <input type="email" class="input-block-level" id="userEmail" placeholder="Email" />
             </div>
-            <button type="submit" class="btn btn-danger input-block-level bold higher">
-                REGISTER
-            </button>
-        </form>
+        </div>
+        <div class="control-group">
+            <label class="control-label hidden shown-ie8" for="userPassword">Password</label>
+            <div class="controls">
+                <input type="password" class="input-block-level" id="userPassword" placeholder="Password" />
+            </div>
+        </div>
+        <button class="btn btn-danger input-block-level bold higher" id="registerUser">
+            REGISTER
+        </button>
         <p class="center-align push-down-0">
             <a data-toggle="modal" role="button" href="#loginModal" data-dismiss="modal">Already Registered?</a>
         </p>
