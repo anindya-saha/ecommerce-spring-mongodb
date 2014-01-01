@@ -75,8 +75,8 @@
   	<put-attribute name="container-row3" value="/WEB-INF/view/tiles/blog/blog_sidebar.jsp"/>
   </definition>
   
-  <definition name="user-settings" extends="commonpage">
-  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/user/user_settings.jsp"/>
+  <definition name="user-account" extends="commonpage">
+  	<put-attribute name="container-row2" value="/WEB-INF/view/tiles/user/user_account.jsp"/>
   </definition>
   
 </tiles-definitions>
