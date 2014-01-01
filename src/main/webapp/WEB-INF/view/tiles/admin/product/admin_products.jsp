@@ -7,7 +7,7 @@
 			<h2>All Products</h2>
 			<div class="btn-toolbar">
 				<div class="btn-group">
-					<a href="${pageContext.request.contextPath}/admin/add-new-product"
+					<a href="/admin/add-new-product"
 						class="btn"><i class="icol-add"></i> Add New Product</a>
 				</div>
 			</div>
@@ -30,6 +30,7 @@
 						<th></th>
 						<th></th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,10 +50,12 @@
 						${comment.comment}
 					</c:forEach></td>
 							<td><a type="button" class="btn"
-								href="${pageContext.request.contextPath}/admin/product-add-image?productId=${product.id}">Add
+								href="/admin/product-add-image?productId=${product.id}">Add
 									Image(s)</a></td>
 							<td><a type="button" class="btn"
-								href="${pageContext.request.contextPath}/admin/product-update?productId=${product.id}">Update</a></td>
+								href="/admin/product-image-update?productId=${product.id}">Image Update</a></td>
+							<td><a type="button" class="btn"
+								href="/admin/product-update?productId=${product.id}">Update</a></td>
 							<td><a type="button" class="btn"
 								onclick="window.location='admin/productupdate?productId=${product.id}'">Delete</a></td>
 						</tr>

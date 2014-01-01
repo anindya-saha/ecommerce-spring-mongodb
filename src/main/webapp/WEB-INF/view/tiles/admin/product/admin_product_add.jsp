@@ -43,19 +43,29 @@
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="col-md-3">Category:</div>
+					<div class="col-md-3">Main Category:</div>
 					<div class="col-md-9">
-						<c:forEach var="category" items="${categoryList}"
+						<c:forEach var="mainCategory" items="${mainCategoryList}"
 							varStatus="count">
 							<div class="checkbox-inline">
-								<label><input type="checkbox" name="productCategory"
-									${product.category.id eq category.id ? 'checked="true"':''}
-									value="${category.id}" />${category.name}<c:if
-										test="${not empty category.ancestors}">
-										<c:forEach var="ancestors" items="${category.ancestors}"> 
-									-->${ancestors}
-								</c:forEach>
-									</c:if></label>
+								<label>
+									<input type="checkbox" name="productCategory" value="${mainCategory.id}"/>
+									${mainCategory.name}
+								</label>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-3">Child Category:</div>
+					<div class="col-md-9">
+						<c:forEach var="childCategory" items="${childCategoryList}"
+							varStatus="count">
+							<div class="checkbox-inline">
+								<label>
+									<input type="checkbox" name="productCategory" value="${childCategory.id}"/>
+									${childCategory.name}
+								</label>
 							</div>
 						</c:forEach>
 					</div>
