@@ -2,13 +2,17 @@ package com.ecommerce.dao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import com.ecommerce.model.User;
+import com.ecommerce.model.UserAddress;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -16,16 +20,18 @@ public class UserDaoImpl implements UserDao{
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
-	public static final String COLLECTION_NAME = "user";
+	protected static Logger logger = Logger.getLogger("dao");
+	
+	public static final String USER_COLLECTION = "user";
 
 	@Override
 	public List<User> getAllUser() {
-		return mongoTemplate.findAll(User.class, COLLECTION_NAME);
+		return mongoTemplate.findAll(User.class, USER_COLLECTION);
 	}
 
 	@Override
 	public User getUserById(String id) {
-		return mongoTemplate.findById(id, User.class, COLLECTION_NAME);
+		return mongoTemplate.findById(id, User.class, USER_COLLECTION);
 	}
 	
 	@Override
@@ -37,11 +43,27 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public void saveUser(User user) {
-		if (!mongoTemplate.collectionExists(COLLECTION_NAME)) {
-			mongoTemplate.createCollection(COLLECTION_NAME);
+		if (!mongoTemplate.collectionExists(USER_COLLECTION)) {
+			mongoTemplate.createCollection(USER_COLLECTION);
 		}
 		
-		mongoTemplate.insert(user, COLLECTION_NAME);
+		mongoTemplate.insert(user, USER_COLLECTION);
+	}
+
+	@Override
+	public void addNewAddress(String userId, UserAddress address) {
+		address.setId(new ObjectId().toString());
+		Update update = new Update();
+		update.push("address", address);
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(userId));
+		try {
+			mongoTemplate.updateFirst(query, update, USER_COLLECTION);
+			logger.debug("user address add success - DAO");
+		} catch (Exception e) {
+			logger.error("user address add error - DAO");
+		}
 	}
 	
 }
