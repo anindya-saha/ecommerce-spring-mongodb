@@ -52,6 +52,7 @@ public class CategoryServiceImpl implements CategoryService{
 		return map;
 	}
 
+	@Override
 	public List<Category> getMainCategories(){
 		logger.debug("Getting main categories");
 		try {
@@ -62,6 +63,7 @@ public class CategoryServiceImpl implements CategoryService{
 		}
 	}
 	
+	@Override
 	public List<Category> getChildCategories(){
 		logger.debug("Getting child categories");
 		try {
@@ -72,6 +74,7 @@ public class CategoryServiceImpl implements CategoryService{
 		}
 	}
 	
+	@Override
 	public List<Category> getSameChildCategories(String parent){
 		logger.debug("Getting child categories");
 		try {
