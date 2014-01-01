@@ -11,10 +11,8 @@ public class User {
 	private String password;
 
 	private String email;
-
-	private String role;
 	
-	private UserAddress address;
+	private UserAddress[] address;
 	
 	private String ipAddress;
 	
@@ -58,18 +56,10 @@ public class User {
 		this.email = email;
 	}
 
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
-	public UserAddress address(){
+	public UserAddress[] getAddress(){
 		return this.address;
 	}
-	public void setAddress(UserAddress address){
+	public void setAddress(UserAddress[] address){
 		this.address = address;
 	}
 	

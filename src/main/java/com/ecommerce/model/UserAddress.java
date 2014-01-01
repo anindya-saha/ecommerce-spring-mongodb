@@ -4,7 +4,7 @@ public class UserAddress {
 
 	private String id;
 	
-	private String addressTitle;
+	private String title;
 	
 	private String country;
 	
@@ -29,11 +29,11 @@ public class UserAddress {
 		this.id = id;
 	}
 	
-	public String getAddressTitle() {
-		return addressTitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setAddressTitle(String addressTitle) {
-		this.addressTitle = addressTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	public String getCountry() {
