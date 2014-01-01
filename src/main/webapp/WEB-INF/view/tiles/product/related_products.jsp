@@ -32,9 +32,9 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-1.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-1.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
-                                <a href="${pageContext.request.contextPath}/product?productid=${relProd.id}" class="btn more btn-primary">More</a>
+                                <a href="/product?productid=${relProd.id}" class="btn more btn-primary">More</a>
                                 <a href="javascript:void(0);" class="btn add-to-cart" data-productid="${relProd.id}">Add to Cart</a>
 		            	        <a href="#" class="btn buy btn-danger">Buy</a>
                             </div>

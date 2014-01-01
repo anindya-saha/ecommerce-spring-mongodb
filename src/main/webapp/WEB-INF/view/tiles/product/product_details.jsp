@@ -21,18 +21,19 @@
             <div class="span5">
                 <div class="product-preview">
                     <div class="picture">
-                        <img src="static/images/dummy/products/shirt-1.jpg" alt="" width="940" height="940" id="mainPreviewImg" />
+                        <img src="${staticServer}/${product.image[0].imagePath}" alt="" width="940" height="940" id="mainPreviewImg" />
                     </div>
                     <div class="thumbs clearfix">
                         <div class="thumb active">
-                            <a href="#mainPreviewImg"><img src="static/images/dummy/products/shirt-1.jpg" alt="" width="940" height="940" /></a>
+                            <a href="#mainPreviewImg"><img src="${staticServer}/${product.image[0].imagePath}" alt="" width="940" height="940" /></a>
                         </div>
-                        <div class="thumb">
-                            <a href="#mainPreviewImg"><img src="static/images/dummy/products/shirt-2.jpg" alt="" width="940" height="940" /></a>
-                        </div>
-                        <div class="thumb">
-                            <a href="#mainPreviewImg"><img src="static/images/dummy/products/shirt-3.jpg" alt="" width="940" height="940" /></a>
-                        </div>
+                        <c:forEach var="productImage" items="${product.image}" varStatus="loop">
+                        	<c:if test="${loop.index ne 0}">
+		                        <div class="thumb">
+		                            <a href="#mainPreviewImg"><img src="${staticServer}/${productImage.imagePath}" alt="" width="940" height="940" /></a>
+		                        </div>
+	                        </c:if>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -179,35 +180,50 @@
 					          </div>
 					          <!-- end review-body -->
 					        </div>
+					        <c:choose>
+						        <c:when test="${comment.userName eq user.name}">
+						        	<c:set var="userSame" value="true"/>
+						        </c:when>
+						        <c:otherwise>
+						        	<c:set var="userSame" value="false"/>
+						        </c:otherwise>
+					        </c:choose>
 					      </c:forEach>
 					      <c:if test="${empty user}">
 							You have to login to add product comment.
 						</c:if>
 						<c:if test="${not empty user}">
-						<div class="accordion" id="accordion2">
-                            <div class="accordion-group accordion-style-2">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> 
-                                        <span class="bg-for-icon"><i class="icon-minus"></i><i class="icon-plus"></i></span>
-                                       Write a Comment
-                                    </a>
-                                </div>
-                                <div id="collapseTwo" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <form method="POST" action="product/add-comment" class="form-horizontal">
-                                        	<input type="hidden" name="productid" value="${product.id}"/>
-                                        	<textarea id="inputReview" name="productComment" placeholder="Put your review here..."></textarea>
-                                        	<input type="radio" name="productCommentRating" value="1"/>1
-	                                        <input type="radio" name="productCommentRating" value="2"/>2
-	                                        <input type="radio" name="productCommentRating" value="3"/>3
-	                                        <input type="radio" name="productCommentRating" value="4"/>4
-	                                        <input type="radio" name="productCommentRating" value="5"/>5
-                                        	<button class="btn btn-warning btn-large bold">Send Comment</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+							<c:choose>
+								<c:when test="${userSame}">
+									You have already sent comment.
+		                        </c:when>
+		                        <c:otherwise>
+		                        	<div class="accordion" id="accordion2">
+			                            <div class="accordion-group accordion-style-2">
+			                                <div class="accordion-heading">
+			                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> 
+			                                        <span class="bg-for-icon"><i class="icon-minus"></i><i class="icon-plus"></i></span>
+			                                       Write a Comment
+			                                    </a>
+			                                </div>
+			                                <div id="collapseTwo" class="accordion-body collapse">
+			                                    <div class="accordion-inner">
+			                                        <form method="POST" action="product/add-comment" class="form-horizontal">
+			                                        	<input type="hidden" name="productid" value="${product.id}"/>
+			                                        	<textarea id="inputReview" name="productComment" placeholder="Put your review here..."></textarea>
+			                                        	<input type="radio" name="productCommentRating" value="1"/>1
+				                                        <input type="radio" name="productCommentRating" value="2"/>2
+				                                        <input type="radio" name="productCommentRating" value="3"/>3
+				                                        <input type="radio" name="productCommentRating" value="4"/>4
+				                                        <input type="radio" name="productCommentRating" value="5"/>5
+			                                        	<button class="btn btn-warning btn-large bold">Send Comment</button>
+			                                        </form>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+		                        </c:otherwise>
+	                        </c:choose>
                         </c:if>
                     </div>
                     <div class="fade tab-pane" id="tab-4">
