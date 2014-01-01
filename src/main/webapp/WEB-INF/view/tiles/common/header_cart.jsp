@@ -27,10 +27,10 @@
 			        <c:forEach var="cartItem" items="${cart}">
 			        <div class="item-in-cart clearfix">
 			            <div class="image">
-			                <img src="static/images/dummy/cart-items/cart-item-1.jpg" width="124" height="124" alt="cart item" />
+			                <img src="${staticServer}/static/images/dummy/cart-items/cart-item-1.jpg" width="124" height="124" alt="cart item" />
 			            </div>
 			            <div class="desc">
-			                <strong><a href="${pageContext.request.contextPath}/product?productid=${cartItem.product.id}">${cartItem.product.name}</a></strong>
+			                <strong><a href="/product?productid=${cartItem.product.id}">${cartItem.product.name}</a></strong>
 			                <c:if test="${not empty cartProduct.product.brand.name}">
 			                	Brand: ${cartItem.product.brand.name}
 			                </c:if>
@@ -61,7 +61,7 @@
 			            </div>
 			        </div>
 			        <div class="proceed">
-			            <a href="${pageContext.request.contextPath}/checkout" class="btn btn-danger pull-right bold higher">CHECKOUT <i class="icon-shopping-cart"></i></a>
+			            <a href="/checkout" class="btn btn-danger pull-right bold higher">CHECKOUT <i class="icon-shopping-cart"></i></a>
 			            <small>Shipping costs are calculated based on location. <a href="#">More information</a></small>
 			        </div>
 			    </div>

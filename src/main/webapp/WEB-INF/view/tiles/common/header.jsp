@@ -12,8 +12,8 @@
             <!--  = Logo =  -->
             <!--  ==========  -->
             <div class="span7">
-                <a class="brand" href="${pageContext.request.contextPath}">
-                    <img src="${pageContext.request.contextPath}/static/images/logo.png" alt="Webmarket Logo" width="48" height="48" /> 
+                <a class="brand" href="/">
+                    <img src="${staticServer}/static/images/logo.png" alt="Webmarket Logo" width="48" height="48" /> 
                     <span class="pacifico">Webmarket</span> 
                     <span class="tagline">Ecommerce</span> 
                 </a>
@@ -38,7 +38,7 @@
                     <div class="register">
                     	<c:choose>
 	                        <c:when test="${not empty user}">
-                                Welcome ${user.name} - ${user.email} - <a href="${pageContext.request.contextPath}/user/settings">Settings</a> - <a href="${pageContext.request.contextPath}/user/logout">Logout</a>
+                                Welcome ${user.name} - ${user.email} - <a href="/user/account">My Account</a> - <a href="/user/logout">Logout</a>
 	                        </c:when>
 	                        <c:otherwise>
                                 <a href="#loginModal" role="button" data-toggle="modal">Login</a> or 

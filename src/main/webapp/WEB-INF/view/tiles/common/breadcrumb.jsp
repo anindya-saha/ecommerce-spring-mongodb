@@ -10,12 +10,12 @@
     		<div class="span12">
     		    <ul class="breadcrumb">
                  <li>
-                     <a href="${pageContext.request.contextPath}">Homepage</a>
+                     <a href="/">Homepage</a>
                  </li>
                  <li><span class="icon-chevron-right"></span></li>
                  <c:forEach var="category" items="${categoryList}" varStatus="count">
 	                 <li>
-	                     <a href="category/${category.key}">${category.value}</a>
+	                     <a href="/category/${category.key}">${category.value}</a>
 	                 </li>
 	                 <c:if test="${fn:length(categoryList) ne count.count }">
 	                 	<li><span class="icon-chevron-right"></span></li>

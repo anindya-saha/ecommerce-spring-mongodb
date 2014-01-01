@@ -15,7 +15,7 @@
 <div class="nav-collapse collapse">
   <ul class="nav" id="mainNavigation">
     <li class="dropdown active">
-        <a href="${pageContext.request.contextPath}">Home</a>
+        <a href="/">Home</a>
     </li>
     
     <li class="dropdown">
@@ -28,7 +28,7 @@
         </ul>
     </li>
     <li class="dropdown">
-        <a href="${pageContext.request.contextPath}/blog" class="dropdown-toggle">Blog <b class="caret"></b> </a>
+        <a href="/blog" class="dropdown-toggle">Blog <b class="caret"></b> </a>
         <ul class="dropdown-menu">
             <li><a href="blog.html">Default Layout</a></li>
             <li><a href="blog-single.html">Single Post</a></li>
@@ -80,7 +80,7 @@
     	<ul class="dropdown-menu">
 			<c:forEach var="mainCategory" items="${mainCategory}">
 				<li class="dropdown">
-				     <a href="${pageContext.request.contextPath}/category/${mainCategory.id}" class="dropdown-toggle"><i class="icon-caret-right pull-right visible-desktop"></i>${mainCategory.name}</a>
+				     <a href="/category/${mainCategory.id}" class="dropdown-toggle"><i class="icon-caret-right pull-right visible-desktop"></i>${mainCategory.name}</a>
 					<%@include file="/WEB-INF/view/tiles/common/child_category.jsp" %>
 <%-- 						<c:forEach var="childCat" items="${childCategories}"> --%>
 <%-- 							<categoryTag:category childList="${childCategories}" parentName="${mainCategory.name}"/> --%>

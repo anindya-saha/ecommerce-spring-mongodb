@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span4">
-                        <h2 class="pacifico">Webmarket &nbsp; <img src="static/images/webmarket.png" alt="Webmarket Cart" class="align-baseline" /></h2>
+                        <h2 class="pacifico">Webmarket &nbsp; <img src="${staticServer}/static/images/webmarket.png" alt="Webmarket Cart" class="align-baseline" /></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt vestibulum risus et gravida. Etiam vel augue ligula, blandit malesuada nisi. Quisque a augue nisi. Nullam interdum convallis </p>
                     </div>
                     <div class="span4">

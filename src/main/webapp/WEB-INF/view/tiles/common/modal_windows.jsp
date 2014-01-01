@@ -11,7 +11,7 @@
         <h3 id="loginModalLabel"><span class="light">Login</span> To Webmarket</h3>
     </div>
     <div class="modal-body">
-        <form method="post" action="user/login-process" />
+        <form method="post" action="/user/login-process" />
             <div class="control-group">
                 <label class="control-label hidden shown-ie8" for="inputEmail">E-mail</label>
                 <div class="controls">
