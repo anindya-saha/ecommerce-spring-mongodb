@@ -33,6 +33,6 @@ public abstract interface ProductDao {
   
   public abstract void saveProductSpecification(Product product, ProductSpecification productSpecification);
   
-  public abstract void saveProductImage(String id, Object productImage);
+  public abstract void saveProductImage(String id, ProductImage productImage);
   
 }

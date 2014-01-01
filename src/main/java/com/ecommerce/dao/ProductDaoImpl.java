@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Sort;
@@ -124,29 +125,30 @@ public class ProductDaoImpl implements ProductDao {
         
         boolean checkUserId = true;
         if(exProdComment != null){
-                for(ProductComment pCom : exProdComment){
-                        if(pCom.getUserId().equals(comment.getUserId())){
-                                checkUserId = false;
-                                throw new IllegalStateException("Comment have been storing with same user id");
-                        }
+            for(ProductComment pCom : exProdComment){
+                if(pCom.getUserId().equals(comment.getUserId())){
+                        checkUserId = false;
+                        throw new IllegalStateException("Comment have been storing with same user id");
                 }
+            }
         }
         
         if(checkUserId){
-                Update update = new Update();
-                update.push("comment",comment);
-                
-                Query query = new Query();
-                query.addCriteria(Criteria.where("_id").is(product.getId()));
-                
-                
-                try {
-                        mongoTemplate.updateFirst(query,update,PRODUCT_COLLECTION);
-                        logger.debug("PRODUCT DAO OK");
-                } catch (Exception e) {
-                        logger.error("PRODUCT DAO ERROR");
-                }
-                
+        	
+        	comment.setId(new ObjectId().toString());
+        	
+            Update update = new Update();
+            update.push("comment",comment);
+            
+            Query query = new Query();
+            query.addCriteria(Criteria.where("_id").is(product.getId()));
+            
+            try {
+                    mongoTemplate.updateFirst(query,update,PRODUCT_COLLECTION);
+                    logger.debug("PRODUCT DAO OK");
+            } catch (Exception e) {
+                    logger.error("PRODUCT DAO ERROR");
+            }
         }
         
         //mongoTemplate.findAndModify(query, update, Product.class, COLLECTION_NAME);  Alternative findAndModify Method
@@ -167,7 +169,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	@Override
-	public void saveProductImage(String id, Object productImage){
+	public void saveProductImage(String id, ProductImage productImage){
 		
 		Update update = new Update();
 		update.push("image",productImage);
