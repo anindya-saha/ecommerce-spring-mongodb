@@ -126,6 +126,6 @@
 </table>
 
 <p class="right-align">
-	<a href="${pageContext.request.contextPath}/checkout/step-final" class="btn btn-primary higher bold">CONFIRM
+	<a href="/checkout/step-final" class="btn btn-primary higher bold">CONFIRM
 		&amp; PAY</a>
 </p>

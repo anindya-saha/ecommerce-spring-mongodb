@@ -15,7 +15,7 @@
     	</div>
     	<div class="span2">
     	    <div class="right-align">
-    	    	<img src="${pageContext.request.contextPath}/static/images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />
+    	    	<img src="${staticServer}/static/images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />
     	    </div>
     	</div>
     </div>
@@ -48,7 +48,7 @@
 <!--  ==========  -->
 <!--  = Selected Items =  -->
 <!--  ==========  -->
-<form action="${pageContext.request.contextPath}/checkout/step-two" method="POST">
+<form action="/checkout/step-two" method="POST">
 <table class="table table-items">
     <thead>
     	<tr>
@@ -60,8 +60,8 @@
     <tbody>
         <c:forEach var="cartItem" items="${cart}">
 	        <tr>
-	        	<td class="image"><a href="${pageContext.request.contextPath}/product?productid=${cartItem.product.id}"><img src="<c:if test="${not empty cartItem.product.image}">${staticServer}/${cartItem.product.image[3].imagePath}</c:if>" alt="" width="124" height="124" /></a></td>
-	        	<td class="desc"><a href="${pageContext.request.contextPath}/product?productid=${cartItem.product.id}">${cartItem.product.name}</a><a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+	        	<td class="image"><a href="/product?productid=${cartItem.product.id}"><img src="<c:if test="${not empty cartItem.product.image}">${staticServer}/${cartItem.product.image[3].imagePath}</c:if>" alt="" width="124" height="124" /></a></td>
+	        	<td class="desc"><a href="/product?productid=${cartItem.product.id}">${cartItem.product.name}</a><a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 	        	<td class="qty">
 	        		<input type="hidden" name="productId[]" value="${cartItem.product.id}"/>
 	        	    <input type="text" class="tiny-size" value="${cartItem.count}" />

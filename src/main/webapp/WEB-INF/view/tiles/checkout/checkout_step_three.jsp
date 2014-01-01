@@ -152,7 +152,7 @@
 
 <p class="right-align">
 	In the next step you will be able to review and confirm the order
-	&nbsp; &nbsp; <a href="${pageContext.request.contextPath}/checkout/step-four"
+	&nbsp; &nbsp; <a href="/checkout/step-four"
 		class="btn btn-primary higher bold">CONTINUE</a>
 </p>
 

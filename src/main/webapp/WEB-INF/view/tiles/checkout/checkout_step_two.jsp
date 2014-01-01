@@ -402,5 +402,5 @@
 
 <p class="right-align">
 	In the next step you will choose a payment method &nbsp; &nbsp; <a
-		href="${pageContext.request.contextPath}/checkout/step-three " class="btn btn-primary higher bold">CONTINUE</a>
+		href="/checkout/step-three " class="btn btn-primary higher bold">CONTINUE</a>
 </p>
