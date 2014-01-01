@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="span4">
-                        <a href="${pageContext.request.contextPath}/product/free-shipping" class="btn btn-block colored banner">
+                        <a href="/product/free-shipping" class="btn btn-block colored banner">
                             <span class="title"><span class="light">FREE</span> SHIPPING</span>
                             <em>Show all free shipping products</em>
                         </a>
@@ -76,7 +76,7 @@
 		            	            <div class="picture">
 		            	        	    <img src="<c:if test="${not empty product.image}">${staticServer}/${product.image[0].imagePath}</c:if>" alt="" width="518" height="358" />
 		            	        		<div class="img-overlay">
-		            	        		    <a href="${pageContext.request.contextPath}/product?productid=${product.id}" class="btn more btn-primary">More</a>
+		            	        		    <a href="/product?productid=${product.id}" class="btn more btn-primary">More</a>
 		            	        		    <a href="javascript:void(0);" class="btn add-to-cart" data-productid="${product.id}">Add to Cart</a>
 		            	        		    <a href="#" class="btn buy btn-danger">Buy</a>
 		            	        		</div>

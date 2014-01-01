@@ -27,7 +27,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-6.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-6.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -60,7 +60,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-7.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-7.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -93,7 +93,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-8.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-8.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -126,7 +126,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-9.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-9.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -159,7 +159,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-10.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-10.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -192,7 +192,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-11.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-11.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -225,7 +225,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-12.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-12.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>
@@ -258,7 +258,7 @@
         	    <div class="product">
         	        <div class="product-img">
                         <div class="picture">
-                            <img src="static/images/dummy/products/product-13.jpg" alt="" width="540" height="374" />
+                            <img src="${staticServer}/static/images/dummy/products/product-13.jpg" alt="" width="540" height="374" />
                             <div class="img-overlay">
                                 <a href="#" class="btn more btn-primary">More</a>
                                 <a href="#" class="btn buy btn-danger">Add to Cart</a>

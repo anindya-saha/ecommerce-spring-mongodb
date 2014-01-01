@@ -33,7 +33,7 @@
 			<div class="brands carouFredSel" data-nav="brands"
 				data-autoplay="true">
 				<c:forEach var="brand" items="${brands}">
-					<img src="static/images/dummy/brands/brands_01.jpg" alt="${brand.name}" title="${brand.name}" width="203" height="104" />
+					<img src="${staticServer}/static/images/dummy/brands/brands_01.jpg" alt="${brand.name}" title="${brand.name}" width="203" height="104" />
 				</c:forEach>
 			</div>
 		</div>

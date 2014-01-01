@@ -7,19 +7,19 @@
     <div class="fullwidthbanner">
         <ul>
             <li data-transition="premium-random" data-slotamount="3">
-                <img src="static/images/dummy/slides/1/slide.jpg" alt="slider img" width="1400" height="377" />
+                <img src="${staticServer}/static/images/dummy/slides/1/slide.jpg" alt="slider img" width="1400" height="377" />
                 
                 <!-- baloons -->
                 <div class="caption lft ltt" data-x="570" data-y="50" data-speed="4000" data-start="1000" data-easing="easeOutElastic">
-                    <img src="static/images/dummy/slides/1/baloon1.png" alt="baloon" width="135" height="186" />
+                    <img src="${staticServer}/static/images/dummy/slides/1/baloon1.png" alt="baloon" width="135" height="186" />
                 </div>
                 
                 <div class="caption lft ltt" data-x="770" data-y="60" data-speed="4000" data-start="1200" data-easing="easeOutElastic">
-                    <img src="static/images/dummy/slides/1/baloon3.png" alt="baloon" width="40" height="55" />
+                    <img src="${staticServer}/static/images/dummy/slides/1/baloon3.png" alt="baloon" width="40" height="55" />
                 </div>
                 
                 <div class="caption lft ltt" data-x="870" data-y="80" data-speed="4000" data-start="1500" data-easing="easeOutElastic">
-                    <img src="static/images/dummy/slides/1/baloon2.png" alt="baloon" width="60" height="83" />
+                    <img src="${staticServer}/static/images/dummy/slides/1/baloon2.png" alt="baloon" width="60" height="83" />
                 </div>
                 
                 <!-- texts -->
@@ -37,16 +37,16 @@
             </li><!-- /slide -->
             
             <li data-transition="premium-random" data-slotamount="3">
-                <img src="static/images/dummy/slides/2/slide.jpg" alt="slider img" width="1400" height="377" />
+                <img src="${staticServer}/static/images/dummy/slides/2/slide.jpg" alt="slider img" width="1400" height="377" />
                 
                 <!-- woman -->
                 <div class="caption lfb ltb" data-x="800" data-y="50" data-speed="1000" data-start="1000" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/2/woman.png" alt="woman" width="361" height="374" />
+                    <img src="${staticServer}/static/images/dummy/slides/2/woman.png" alt="woman" width="361" height="374" />
                 </div>
                 
                 <!-- plane -->
                 <div class="caption lfl str" data-x="400" data-y="20" data-speed="10000" data-start="1000" data-easing="linear">
-                    <img src="static/images/dummy/slides/2/plane.png" alt="aircraft" width="117" height="28" />
+                    <img src="${staticServer}/static/images/dummy/slides/2/plane.png" alt="aircraft" width="117" height="28" />
                 </div>
                 
                 <!-- texts -->
@@ -64,11 +64,11 @@
             </li><!-- /slide -->
             
             <li data-transition="premium-random" data-slotamount="3">
-                <img src="static/images/dummy/slides/3/slide.jpg" alt="slider img" width="1400" height="377" />
+                <img src="${staticServer}/static/images/dummy/slides/3/slide.jpg" alt="slider img" width="1400" height="377" />
                 
                 <!-- phone -->
                 <div class="caption sfr fadeout" data-x="950" data-y="77" data-speed="1000" data-start="2500" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/3/phone.png" alt="phone in a hand" width="495" height="377" />
+                    <img src="${staticServer}/static/images/dummy/slides/3/phone.png" alt="phone in a hand" width="495" height="377" />
                 </div>
                 
                 <!-- texts -->
@@ -86,29 +86,29 @@
             </li><!-- /slide -->
             
             <li data-transition="premium-random" data-slotamount="3">
-                <img src="static/images/dummy/slides/4/slide.jpg" alt="slider img" width="1400" height="377" />
+                <img src="${staticServer}/static/images/dummy/slides/4/slide.jpg" alt="slider img" width="1400" height="377" />
                 
                 <!-- faces -->
                 <div class="caption lft ltt" data-x="-150" data-y="0" data-speed="300" data-start="2000" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person1.png" alt="satisfied customer" width="108" height="204" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person1.png" alt="satisfied customer" width="108" height="204" />
                 </div>
                 <div class="caption lft ltt" data-x="0" data-y="0" data-speed="300" data-start="2200" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person2.png" alt="satisfied customer" width="108" height="321" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person2.png" alt="satisfied customer" width="108" height="321" />
                 </div>
                 <div class="caption lft ltt" data-x="500" data-y="0" data-speed="300" data-start="2400" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person3.png" alt="satisfied customer" width="108" height="139" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person3.png" alt="satisfied customer" width="108" height="139" />
                 </div>
                 <div class="caption lft ltt" data-x="720" data-y="0" data-speed="300" data-start="2600" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person4.png" alt="satisfied customer" width="108" height="191" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person4.png" alt="satisfied customer" width="108" height="191" />
                 </div>
                 <div class="caption lft ltt" data-x="940" data-y="0" data-speed="300" data-start="2800" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person5.png" alt="satisfied customer" width="108" height="139" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person5.png" alt="satisfied customer" width="108" height="139" />
                 </div>
                 <div class="caption lft ltt" data-x="1200" data-y="0" data-speed="300" data-start="3000" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person6.png" alt="satisfied customer" width="108" height="179" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person6.png" alt="satisfied customer" width="108" height="179" />
                 </div>
                 <div class="caption lft ltt" data-x="1350" data-y="0" data-speed="300" data-start="3200" data-easing="easeInOutCubic">
-                    <img src="static/images/dummy/slides/4/person7.png" alt="satisfied customer" width="108" height="133" />
+                    <img src="${staticServer}/static/images/dummy/slides/4/person7.png" alt="satisfied customer" width="108" height="133" />
                 </div>
                 
                 <!-- texts -->
