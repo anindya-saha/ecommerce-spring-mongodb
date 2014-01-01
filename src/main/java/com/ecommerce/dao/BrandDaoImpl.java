@@ -28,6 +28,7 @@ public class BrandDaoImpl implements BrandDao{
 		return mongoTemplate.findById(id, Brand.class, COLLECTION_NAME);
 	}
 	
+	@Override
 	public void saveBrand(Brand name){
 		if (!mongoTemplate.collectionExists(COLLECTION_NAME)) {
 			mongoTemplate.createCollection(COLLECTION_NAME);
