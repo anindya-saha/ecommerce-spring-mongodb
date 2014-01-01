@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ecommerce.dao.UserDao;
 import com.ecommerce.model.User;
+import com.ecommerce.model.UserAddress;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -66,6 +67,12 @@ public class UserServiceImpl implements UserService{
 		} catch (Exception e) {
 			logger.error("An error has occured while trying to add new product");
 		}
+	}
+
+	@Override
+	public void saveNewAddress(String userId, UserAddress userAddress) {
+		logger.debug("adding new address");
+		userDao.addNewAddress(userId, userAddress);
 	}
 
 }
