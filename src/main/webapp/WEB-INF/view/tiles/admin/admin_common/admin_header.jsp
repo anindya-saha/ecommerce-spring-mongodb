@@ -7,20 +7,20 @@
 				data-target=".navbar-ex1-collapse">
 				<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/admin"><img src="${pageContext.request.contextPath}/admin_static/img/logo.png"></a>
+			<a class="navbar-brand" href="/admin"><img src="${staticServer}/admin_static/img/logo.png"></a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="${pageContext.request.contextPath}/admin">dashboard</a></li>
+				<li class="active"><a href="/admin">dashboard</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Management</a>
 					<ul class="dropdown-menu">
-						<li><a href="${pageContext.request.contextPath}/admin/products">Product Management</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/categories">Category Management</a>
-						<li><a href="${pageContext.request.contextPath}/admin/add-blog-post">Blog Management</a></li>
+						<li><a href="/admin/products">Product Management</a></li>
+						<li><a href="/admin/categories">Category Management</a>
+						<li><a href="/admin/add-blog-post">Blog Management</a></li>
 						</li>
 					</ul></li>
-				<li class="active"><a href="${pageContext.request.contextPath}/admin/orders">Orders</a></li>
+				<li class="active"><a href="/admin/orders">Orders</a></li>
 				<li><a href="widgets.html">widgets</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">pages</a>

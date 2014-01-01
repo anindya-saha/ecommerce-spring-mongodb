@@ -32,7 +32,7 @@
 				<div class="btn-toolbar">
 					<div class="btn-group">
 						<a
-							href="${pageContext.request.contextPath}/admin/add-new-category"
+							href="/admin/add-new-category"
 							class="btn"> <i class="icol-add"></i> Add New Category
 						</a>
 					</div>
