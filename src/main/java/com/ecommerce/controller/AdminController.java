@@ -110,7 +110,7 @@ public class AdminController {
 		}
 		
 		productList = (PagedListHolder) session.getAttribute("productPaged");
-		productList.setPageSize(1);
+		productList.setPageSize(50);
 		productList.getFirstElementOnPage();
 
 		if(page == null){
@@ -134,8 +134,11 @@ public class AdminController {
 	public ModelAndView addProduct(){
 
 		ModelAndView mav = new ModelAndView();
-		List<Category> category = categoryService.getCategories();
-		mav.addObject("categoryList",category);
+		List<Category> mainCategory = categoryService.getMainCategories();
+		mav.addObject("mainCategoryList",mainCategory);
+		
+		List<Category> childCategory = categoryService.getChildCategories();
+		mav.addObject("childCategoryList",childCategory);
 		
 		List<Brand> brands = brandService.getBrands();
 		mav.addObject("brandList",brands);
@@ -197,7 +200,7 @@ public class AdminController {
 				productService.updateProduct(existingProduct);
 			}
 		}
-		return "redirect:/admin";
+		return "redirect:/admin/products";
 	}
 	
 	@RequestMapping(value = "/product-add-image", method = RequestMethod.GET)
@@ -274,8 +277,11 @@ public class AdminController {
 		logger.debug("Product Controller logger");
 		Product singleProduct = productService.singleProduct(productId);
 		
-		List<Category> category = categoryService.getCategories();
-		mav.addObject("categoryList",category);
+		List<Category> mainCategory = categoryService.getMainCategories();
+		mav.addObject("mainCategoryList",mainCategory);
+		
+		List<Category> childCategory = categoryService.getChildCategories();
+		mav.addObject("childCategoryList",childCategory);
 		
 		List<Brand> brands = brandService.getBrands();
 		mav.addObject("brandList",brands);

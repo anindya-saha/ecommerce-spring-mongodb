@@ -61,10 +61,4 @@ public class HomepageController {
 		return mav;
 	}
 
-	@RequestMapping(value = { "/register" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
-	public ModelAndView register(HttpServletRequest request,
-			HttpServletResponse response) {
-		ModelAndView modelAndView = new ModelAndView("register");
-		return modelAndView;
-	}
 }
