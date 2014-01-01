@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -58,6 +59,17 @@ public class ProductController {
 
 		mav.setViewName("product-details");
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/allproducts.json", method = RequestMethod.GET, produces = "application/json")
+	public Map<String,Object> allProductJson(){
+		List<Product> products = productService.listOrderedProducts("_id","DESC",9);
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("products", products);
+		
+		return map;
 	}
 	
 	@RequestMapping(value = "/free-shipping", method = RequestMethod.GET)
