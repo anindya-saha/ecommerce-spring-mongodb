@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ecommerce.controller.ProductController;
+import com.ecommerce.product.ProductController;
 
 
 public class ProductTest {
