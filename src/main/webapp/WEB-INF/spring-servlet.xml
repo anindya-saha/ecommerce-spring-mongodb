@@ -114,7 +114,7 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-	<bean id="directoryUtil" class="com.ecommerce.config.DirectoryConfig" />
+	<bean id="directoryConfig" class="com.ecommerce.config.DirectoryConfig" />
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	
